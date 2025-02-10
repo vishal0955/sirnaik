@@ -10,7 +10,7 @@
 }
 
 .sidebar-container.collapsed {
-  width: 80px;
+  width: 0px;
 }
 
 .sidebar-container.collapsed .submenu .submenu-item {

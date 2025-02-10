@@ -50,7 +50,7 @@ const Navbar = ({ toggleSidebar, onBack }) => {
                   </div>
                 </div>
 
-                <ul className="dropdown-menu dropdown-menu-end">
+                <ul className="dropdown-menu dropdown-menu-end z-3">
                   <div className="d-flex align-items-center mb-3">
                     <img
                       src="https://smarthr.dreamstechnologies.com/html/template/assets/img/profiles/avatar-12.jpg"

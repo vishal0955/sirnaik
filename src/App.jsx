@@ -21,6 +21,7 @@ import Designer from "./Designer/Dashboard";
 import ProjectManagementDashboard from "./components/ProjectMDashboard";
 import Jobs from "./Pages/Productionteam/Jobs";
 import TaskDetails from "./Designer/TaskDetails";
+import ProjectOverview from "./components/Project/Projectoverview";
 
 function App() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -96,7 +97,7 @@ function App() {
             {/* Production Team  */}
 
             <Route path="/jobs" element={<Jobs /> } />
-
+     <Route path="/ProjectOverview" element={<ProjectOverview  />} />
 
           </Routes>
         </div>
