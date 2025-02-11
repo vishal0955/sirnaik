@@ -129,6 +129,7 @@ const initialProjects = [
                     <FaEllipsisV />
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
+                  <Dropdown.Item href="#">Post To Production</Dropdown.Item>
                     <Dropdown.Item href="#">Edit</Dropdown.Item>
                     <Dropdown.Item href="#">Delete</Dropdown.Item>
                   </Dropdown.Menu>

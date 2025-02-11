@@ -280,14 +280,14 @@ export const TaskTable = () => {
         {jobs.map((job, index) => (
           <tr key={index}>
             <td 
-              style={{ cursor: 'pointer', color: 'blue' }} // Add styles for clickable cell
+              style={{ cursor: 'pointer'}} // Add styles for clickable cell
               onClick={() => handleJobClick()} // On click navigate to details
             >
               {job.jobId}
              
             </td>
             <td 
-              style={{ cursor: 'pointer', color: 'blue' }} // Add styles for clickable cell
+              style={{ cursor: 'pointer'}} // Add styles for clickable cell
               onClick={() => handleJobClick()} // On click navigate to details
             >
               {job.jobName}
@@ -335,6 +335,7 @@ export const TaskTable = () => {
                   <FaEllipsisV />
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
+                          <Dropdown.Item href="#">Post To Production</Dropdown.Item>
                   <Dropdown.Item href="#">Edit</Dropdown.Item>
                   <Dropdown.Item href="#">Delete</Dropdown.Item>
                 </Dropdown.Menu>

@@ -31,7 +31,7 @@ const ProjectOverview = () => {
     return (
         <Container fluid className="p-4">
             <Row>
-                <Col md={3}>
+                <Col md={6}>
                     <Card className="p-3">
                         <h5>Project Progress</h5>
                         <ProgressBar now={42} label={`42%`} />
@@ -39,7 +39,7 @@ const ProjectOverview = () => {
                         <p>Deadline: 29-04-2025</p>
                     </Card>
                 </Col>
-                <Col md={3}>
+                <Col md={6}>
                     <Card className="p-3">
                         <h5>Client</h5>
                         <p>Laila Gerlach</p>
@@ -47,10 +47,17 @@ const ProjectOverview = () => {
                     </Card>
                 </Col>
                 <Col md={6}>
-                    <Card className="p-3">
+                    <Card className="p-3" >
                         <h5>Tasks</h5>
-                        <Pie data={pieData} />
+                        <Pie data={pieData}/>
                     </Card>
+                </Col>
+                <Col>
+                  <Row>
+                    <Col md={3}>
+                    
+                    </Col>
+                  </Row>
                 </Col>
             </Row>
             <Row className="mt-4">

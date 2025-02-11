@@ -22,6 +22,10 @@ import ProjectManagementDashboard from "./components/ProjectMDashboard";
 import Jobs from "./Pages/Productionteam/Jobs";
 import TaskDetails from "./Designer/TaskDetails";
 import ProjectOverview from "./components/Project/Projectoverview";
+import Traffic from "./Pages/Productionteam/Traffic";
+import AdminDashboard from "./components/Admin/AdminDashboard";
+import TaskDetailsForm from "./Pages/Productionteam/EditTaskDetails";
+import EmployeePage from "./components/Admin/EmployeeList";
 
 function App() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -80,6 +84,12 @@ function App() {
             {/* login signup */}
             <Route path="/" element={<Login />} />
             {/* <Route path="/dashboard" element={<DashBoard />} /> */}
+            <Route path="/dashboard" element={<AdminDashboard />} />
+            <Route path="/admindashboard" element={<AdminDashboard />} />
+
+            <Route path="/employeelist" element={<EmployeePage />} />
+
+
             <Route path="/projectmanagementdashboard" element={<ProjectManagementDashboard />} />
             <Route path="/project" element={<ProjectOwner />} />
             <Route path="/tasklist" element={<TaskPage />} />
@@ -97,7 +107,9 @@ function App() {
             {/* Production Team  */}
 
             <Route path="/jobs" element={<Jobs /> } />
-     <Route path="/ProjectOverview" element={<ProjectOverview  />} />
+            <Route path="/traffic" element={<Traffic /> } />
+           <Route path="/ProjectOverview" element={<ProjectOverview  />} />
+            <Route path="/edittaskdetails" element={<TaskDetailsForm  />} />
 
           </Routes>
         </div>

@@ -25,6 +25,53 @@ const Sidebar = ({ collapsed , menuItemClick, onEMRClick }) => {
     <div className={`sidebar-container ${collapsed ? "collapsed" : ""}`}>
       <div className="sidebar">
         <ul className="menu">
+
+
+          {/* Admin  */}
+        <li className={`menu-item ${isSubmenuActive(["/admindashboard", "/project","/tasklist","/timesheet","/billingpayments"]) ? "active" : ""}`}>
+            <div className="menu-link menu-i" onClick={() => toggleSubmenu("admindashboard")}>
+              <i className="fa-solid fa-list-check"></i>
+              <span className="menu-text">Admin</span>
+              <i className={`fa-solid fa-chevron-down submenu-arrow ${openSubmenu === "admindashboard" ? "rotated" : ""}`}></i>
+            </div>
+          </li>
+          <ul className={`submenu ${openSubmenu === "admindashboard" ? "expanded" : "collapsed"}`}>
+            <li className={`submenu-item ${isActive("/projectmanagementdashboard") ? "active" : ""}`}
+              onClick={() => {navigate("/projectmanagementdashboard");setOpenSubmenu(null);}}>
+              <i className="fa-solid fa-arrow-trend-up"></i> Dashboard
+            </li>
+            <li className={`submenu-item ${isActive("/employeelist") ? "active" : ""}`}
+              onClick={() => {
+                navigate("/employeelist");
+                setOpenSubmenu(null);menuItemClick();
+              }}>
+              <i className="fa-solid fa-arrow-trend-up"></i> User Manangement
+            </li>
+            <li className={`submenu-item ${isActive("/project") ? "active" : ""}`}
+              onClick={() => {
+                navigate("/project");
+                setOpenSubmenu(null);menuItemClick();
+              }}>
+              <i className="fa-solid fa-arrow-trend-up"></i> Project
+            </li>
+
+          
+            <li className={`submenu-item ${isActive("/tasklist") ? "active" : ""}`}
+              onClick={() => {
+                navigate("/tasklist");
+                setOpenSubmenu(null);menuItemClick();
+              }}>
+              <i className="fa-solid fa-arrow-trend-up"></i> Task
+            </li>
+            <li className={`submenu-item ${isActive("/timesheet") ? "active" : ""}`}
+              onClick={() => {
+                navigate("/timesheet");
+                setOpenSubmenu(null);menuItemClick();
+              }}>
+              <i className="fa-solid fa-arrow-trend-up"></i>  TimeSheet
+            </li>
+            </ul>
+
           {/* Dashboard Section */}
        
 
@@ -105,7 +152,7 @@ const Sidebar = ({ collapsed , menuItemClick, onEMRClick }) => {
  
 
           {/* Patient Management Section */}
-          <li className={`menu-item ${isSubmenuActive(["/production", "/jobs","/appointmentscheduling","/patienthistory","/billingpayments"]) ? "active" : ""}`}>
+          <li className={`menu-item ${isSubmenuActive(["/production", "/jobs","/traffic","/patienthistory","/billingpayments"]) ? "active" : ""}`}>
             <div className="menu-link menu-i" onClick={() => toggleSubmenu("production")}>
               <i className="fa-solid fa-list-check"></i>
               <span className="menu-text">Production Team</span>
@@ -124,27 +171,14 @@ const Sidebar = ({ collapsed , menuItemClick, onEMRClick }) => {
               }}>
               <i className="fa-solid fa-arrow-trend-up"></i> Tasks
             </li>
-            <li className={`submenu-item ${isActive("/appointmentscheduling") ? "active" : ""}`}
+            <li className={`submenu-item ${isActive("/traffic") ? "active" : ""}`}
               onClick={() => {
-                navigate("/appointmentscheduling");
+                navigate("/traffic");
                 setOpenSubmenu(null);menuItemClick();
               }}>
-              <i className="fa-solid fa-arrow-trend-up"></i> Appointment Scheduling
+              <i className="fa-solid fa-arrow-trend-up"></i> Traffic
             </li>
-            <li className={`submenu-item ${isActive("/Patient History") ? "active" : ""}`}
-              onClick={() => {
-                navigate("/patienthistory");
-                setOpenSubmenu(null);menuItemClick();
-              }}>
-              <i className="fa-solid fa-arrow-trend-up"></i> Patient History
-            </li>
-            <li className={`submenu-item ${isActive("/billingpayments") ? "active" : ""}`}
-              onClick={() => {
-                navigate("/billingpayments");
-                setOpenSubmenu(null);menuItemClick();
-              }}>
-              <i className="fa-solid fa-arrow-trend-up"></i> Billing & Payments
-            </li>
+          
           </ul>
         
          

@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Table, Dropdown } from "react-bootstrap";
 import { FaEllipsisV } from "react-icons/fa";
 import TableHeader from "../../components/Tables/TableHeader";
+import { Modal } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import TaskDetailsForm from "./EditTaskDetails";
 
 const priorityColors = {
   High: "danger",
@@ -62,8 +65,16 @@ const initialJobs = [
   },
 ];
 
-export const TaskTable = () => {
+export const TaskTable = ({ filterStatus }) => {
+  const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
   const [jobs, setJobs] = useState(initialJobs);
+  const handleJobClick = () => {
+    setShowModal(true);
+    navigate("/edittaskdetails")
+  };
+
+  const filteredJobs = jobs.filter((job) => job.status === filterStatus);
 
   const handlePriorityChange = (index, priority) => {
     const updatedJobs = [...jobs];
@@ -78,6 +89,7 @@ export const TaskTable = () => {
   };
 
   return (
+    <div>
     <Table responsive bordered hover className="tabledown">
       <thead>
         <tr className="table-secondary">
@@ -101,8 +113,18 @@ export const TaskTable = () => {
       <tbody>
         {jobs.map((job, index) => (
           <tr key={index}>
-            <td>{job.jobId}</td>
-            <td>{job.jobName}</td>
+            <td 
+              style={{ cursor: 'pointer'}} // Add styles for clickable cell
+              onClick={() => handleJobClick()} // On click navigate to details
+            >
+              {job.jobId}
+             
+            </td>
+            <td 
+              style={{ cursor: 'pointer'}} // Add styles for clickable cell
+              onClick={() => handleJobClick()} // On click navigate to details
+            >{job.jobName}</td>
+          
             <td>{job.projectName} ({job.projectId})</td>
             <td>{job.client}</td>
             <td>{job.promotion}</td>
@@ -149,6 +171,8 @@ export const TaskTable = () => {
                 <Dropdown.Menu>
                   <Dropdown.Item href="#">Edit</Dropdown.Item>
                   <Dropdown.Item href="#">Delete</Dropdown.Item>
+                  <Dropdown.Item href="#">View</Dropdown.Item>
+                  <Dropdown.Item href="#">Change Designer</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </td>
@@ -156,14 +180,24 @@ export const TaskTable = () => {
         ))}
       </tbody>
     </Table>
+
+    <Modal show={showModal} onHide={() => setShowModal(false)} size="lg">
+    <Modal.Header closeButton>
+  
+    </Modal.Header>
+    <Modal.Body>
+    <TaskDetailsForm />
+    </Modal.Body>
+  </Modal>
+  </div>
   );
 };
 
-const Jobs = () => {
+const Jobs = ({filterStatus }) => {
   return (
     <div>
       <TableHeader title="All Tasks" buttonText="Add Task" />  
-      <TaskTable />
+      <TaskTable filterStatus={filterStatus} />
     </div>
   );
 };
