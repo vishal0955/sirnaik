@@ -94,16 +94,21 @@ function App() {
             <Route path="/" element={<Login />} />
             {/* <Route path="/dashboard" element={<DashBoard />} /> */}
             <Route path="/dashboard" element={<AdminDashboard />} />
-            <Route path="/admindashboard" element={<AdminDashboard />} />
+           
 
             <Route path="/employeelist" element={<EmployeePage />} />
             <Route path="/employeeprofile" element={<EmployeeProfile />} />
             <Route path="/client" element={<ClientPage />} />
             <Route path="/clientprofile" element={<ClientProfile />} />
-
+            <Route path="/designation" element={<DesignationTable />} />
+            <Route path="/department" element={<Department/>}/>
+            <Route path="/adddesigna" element={<AddDesignation/>}/>
+          
+            <Route path="/addDepart" element={<AddDepartment/>}/>
 
             <Route path="/projectmanagementdashboard" element={<ProjectManagementDashboard />} />
             <Route path="/project" element={<ProjectOwner />} />
+            
             <Route path="/tasklist" element={<TaskPage />} />
             <Route path="/addproject" element={<AddProject />} />
             <Route path="/addtask" element={<TaskForm />} />
@@ -111,10 +116,8 @@ function App() {
             <Route path="/timesheet" element={<Timesheet />} />
             <Route path="/clientTable" element={<ClientTable/>}/>
             <Route path="/clientForm" element={<ClientForm/>}/>
-            <Route path="/desigTable" element={<DesignationTable/>}/>
-            <Route path="/adddesigna" element={<AddDesignation/>}/>
-            <Route path="/depaForm" element={<Department/>}/>
-            <Route path="/addDepart" element={<AddDepartment/>}/>
+            {/* <Route path="/desigTable" element={<DesignationTable/>}/> */}
+            
             
 
             {/* Designer Routes */}

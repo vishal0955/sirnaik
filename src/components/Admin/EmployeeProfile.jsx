@@ -6,10 +6,13 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { FaLocationDot } from "react-icons/fa6";
 import { BsBoxArrowRight } from "react-icons/bs";
 import { BsDribbble } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const EmployeeProfile = () => {
+  const navigate = useNavigate();
+
   const chartData = {
     labels: ["Completed Tasks", "Pending Tasks"],
     datasets: [
@@ -46,7 +49,7 @@ const EmployeeProfile = () => {
               <table className="table table-borderless">
                 <thead>
                   <tr>
-                    <th scope="col">Open Tasks</th>
+                    <th scope="col" onClick={() => navigate("/tasklist")}>Open Tasks</th>
                     <th scope="col">Projects</th>
                     <th scope="col">Hours Logged</th>
                     <th scope="col">Tickets</th>

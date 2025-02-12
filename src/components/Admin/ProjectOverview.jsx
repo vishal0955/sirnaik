@@ -32,7 +32,7 @@ const taskProgressData = [
   { name: "Overdue", value: 30, color: "#dc3545" },
 ];
 
-const ProjectOverview = () => {
+export const ProjectOverview = () => {
   return (
     <div className="container mt-4">
       <Row className="g-4">
@@ -207,4 +207,42 @@ const ProjectOverview = () => {
   );
 };
 
-export default ProjectOverview;
+
+const components = [
+  <div className="p-3">
+    <ProjectOverview />
+  </div>,
+  <div className="p-3">
+      <p>In Progress </p>
+      <Jobs /></div>,
+<div className="p-3"><p>Completed </p><Jobs /></div>
+];
+
+const tabLabels = ["New", "In Progress", "Completed"];
+const statusFilters = ["Pending", "InProgress", "Completed"];
+
+const ProjectDetail = () => {
+const [activeIndex, setActiveIndex] = useState(0);
+
+return (
+  <div className="container mt-3">
+    <ul className="nav nav-tabs">
+      {tabLabels.map((label, index) => (
+        <li className="nav-item" key={index}>
+          <button
+            className={`nav-link ${activeIndex === index ? "active" : ""}`}
+            onClick={() => setActiveIndex(index)}
+          >
+            {label}
+          </button>
+        </li>
+      ))}
+    </ul>
+    <div className="border p-3 mt-2"> 
+        {components[activeIndex]}
+    </div>
+  </div>
+);
+};
+
+export default ProjectDetail;

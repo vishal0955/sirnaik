@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { Table, Button, Dropdown, Form } from "react-bootstrap";
+import { Table, Button, Dropdown, Form, Modal } from "react-bootstrap";
 import { FaEllipsisV } from "react-icons/fa";
 import { BsPlus, BsFileEarmarkArrowDown } from "react-icons/bs";
+import AddDepartment from "./AddDepartment";
 
 const Department = () => {
+  const [showModal, setShowModal] = useState(false);
   const [designations] = useState([
     { id: 1, name: "Sales", parent: "-" },
     { id: 2, name: "Research", parent: "-" },
@@ -12,13 +14,15 @@ const Department = () => {
     { id: 5, name: "Human Resources", parent: "-" },
     { id: 6, name: "Finance", parent: "-" },
   ]);
-
+ const handleClick=()=>{
+  setShowModal(true);
+ }
   return (
     <div className="container mt-4">
       {/* Header Buttons */}
       <div className="d-flex justify-content-between mb-3">
-        <Button variant="primary">
-          <BsPlus className="me-1" /> Add Department
+        <Button variant="primary"onClick={handleClick}>
+          <BsPlus className="me-1"  /> Add Department
         </Button>
         <Button variant="light">
           <BsFileEarmarkArrowDown className="me-1" /> Export
@@ -73,6 +77,14 @@ const Department = () => {
           </tbody>
         </Table>
       </div>
+
+      <Modal show={showModal} onHide={() => setShowModal(false)} size="lg">
+          <Modal.Header closeButton>
+          </Modal.Header>
+          <Modal.Body>
+    <AddDepartment />
+          </Modal.Body>
+        </Modal>
 
       {/* Pagination */}
       <div className="d-flex justify-content-between align-items-center mt-3">

@@ -1,8 +1,14 @@
 import React, { useState } from "react";
-import { Table, Button, Dropdown, Form } from "react-bootstrap";
+import { Table, Button, Dropdown, Form, Modal } from "react-bootstrap";
 import { FaEllipsisV } from "react-icons/fa";
+import AddClient from "./AddClient";
+import AddDesignation from "./AddDesignation";
 
 const DesignationTable = () => {
+  const [showModal, setShowModal] = useState(false);
+  const handleClick=()=>{
+    setShowModal(true);
+   }
   const [designations] = useState([
     { id: 1, name: "Trainee", parent: "-" },
     { id: 2, name: "Senior", parent: "-" },
@@ -14,7 +20,7 @@ const DesignationTable = () => {
   return (
     <div className="container mt-4">
       <div className="d-flex justify-content-between mb-3">
-        <Button variant="primary">
+        <Button variant="primary" onClick={handleClick}>
           <i className="bi bi-plus"></i> Add Designation
         </Button>
         <Button variant="light">
@@ -43,9 +49,9 @@ const DesignationTable = () => {
               <td>{designation.parent}</td>
               <td>
                 <div className="d-flex align-items-center gap-2">
-                  <Button variant="light" size="sm">
+                  {/* <Button  size="sm">
                     View
-                  </Button>
+                  </Button> */}
 
                   <Dropdown>
                     <Dropdown.Toggle
@@ -87,6 +93,15 @@ const DesignationTable = () => {
           </Button>
         </div>
       </div>
+
+      <Modal show={showModal} onHide={() => setShowModal(false)} size="lg">
+          <Modal.Header closeButton>
+          </Modal.Header>
+          <Modal.Body>
+              <AddDesignation />
+          </Modal.Body>
+        </Modal>
+
     </div>
   );
 };

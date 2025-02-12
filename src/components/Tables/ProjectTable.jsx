@@ -54,6 +54,7 @@ const initialProjects = [
 ];
 
  const ProjectTable = () => {
+  const navigate= useNavigate();
   const [projects, setProjects] = useState(initialProjects);
 
   const handlePriorityChange = (index, priority) => {
@@ -68,6 +69,10 @@ const initialProjects = [
     setProjects(updatedProjects);
   };
 
+  const handleClick = () => {
+    // Handle click event here
+    navigate("/projectdetails");
+  };
   return (
 
 
@@ -89,8 +94,8 @@ const initialProjects = [
         <tbody>
           {projects.map((project, index) => (
             <tr key={index}>
-              <td>{project.id}</td>
-              <td>{project.name}</td>
+              <td onClick={handleClick}>{project.id}</td>
+              <td onClick={handleClick}>{project.name}</td>
               <td>{project.members}+</td>
               <td>{project.startDate}</td>
               <td>{project.deadline}</td>

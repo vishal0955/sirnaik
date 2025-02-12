@@ -5,8 +5,8 @@ function AddDepartment() {
     <div>
       <div className="container">
         <div className="add-designa-main">
-          <h5><b>Department</b></h5>
-          <div className='bg-white mt-5 p-5 rounded-5'>
+
+          <div className='bg-white rounded-5'>
             <div className="row">
               <h5>Add Department</h5>
               <hr />
