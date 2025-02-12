@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Card, Image } from "react-bootstrap";
 import { Pie } from "react-chartjs-2";
-import "bootstrap/dist/css/bootstrap.min.css";
+
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { FaLocationDot } from "react-icons/fa6";
 import { BsBoxArrowRight } from "react-icons/bs";
@@ -21,54 +21,8 @@ const EmployeeProfile = () => {
   };
 
   return (
-    // <Container className="mt-4">
-    //   <Row>
-    //     <Col md={6}>
-    //       <Card>
-    //         <Card.Body>
-    //           <Image src="https://i.pravatar.cc/300?u=xkihn@example.com4" style={{width:'70px',height:'70px'}} />
-    //           <Card.Title className="mt-2">Prof. Jared Eichmann</Card.Title>
-    //           <p><strong>Designation:</strong> Trainee</p>
-    //           <p><strong>Department:</strong> Research</p>
-    //           <p><strong>Hourly Rate:</strong> $81</p>
-    //         </Card.Body>
-    //         <hr/>
-    //         <Card.Body style={{display:'flex',jusfyContent:'space-evenly',gap:'20px'}}>
-
-    //               <p>Open Tasks: <strong>3</strong></p>
-    //               <p>Projects: <strong>2</strong></p>
-    //               <p>Hours Logged: <strong>5</strong></p>
-    //               <p>Leaves Taken: <strong>0</strong></p>
-    //             </Card.Body>
-    //       </Card>
-    //     </Col>
-    //     <Col md={9}>
-    //       <Row>
-    //         <Col md={6}>
-    //           <Card>
-    //             <Card.Body>
-    //               <Card.Title>Tasks Overview</Card.Title>
-    //               <Pie data={chartData} />
-    //             </Card.Body>
-    //           </Card>
-    //         </Col>
-    //         <Col md={6}>
-    //           <Card>
-    //             <Card.Body>
-    //               <Card.Title>Performance</Card.Title>
-    //               <p>Open Tasks: <strong>3</strong></p>
-    //               <p>Projects: <strong>2</strong></p>
-    //               <p>Hours Logged: <strong>5</strong></p>
-    //               <p>Leaves Taken: <strong>0</strong></p>
-    //             </Card.Body>
-    //           </Card>
-    //         </Col>
-    //       </Row>
-    //     </Col>
-    //   </Row>
-    // </Container>
-
-    <div className="container " style={{marginLeft:'25px'}}>
+  
+    <div className="container-fluid" >
       <div className="row ">
         <div className="col-md-6 border shadow-smp-3 me-3  ">
           <div className="d-flex align-items-start">

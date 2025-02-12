@@ -26,12 +26,16 @@ import Traffic from "./Pages/Productionteam/Traffic";
 import AdminDashboard from "./components/Admin/AdminDashboard";
 import TaskDetailsForm from "./Pages/Productionteam/EditTaskDetails";
 import EmployeePage from "./components/Admin/EmployeeList";
-import ClientTable from "./components/Admin/ClientTable";
+import EmployeeProfile from "./components/Admin/EmployeeProfile";
+import ClientProfile from "./components/Admin/ClientProfile";
+import ClientPage from "./components/Admin/ClientTable";
+import  ClientTable  from "./components/Admin/ClientTable";
 import ClientForm from "./components/Admin/ClientForm";
 import DesignationTable from "./components/Admin/DesignationTable";
 import AddDesignation from "./components/Admin/AddDesignation";
 import Department from "./components/Admin/Department";
 import AddDepartment from "./components/Admin/AddDepartment";
+
 function App() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const [isClinicSidebarOpen, setIsClinicSidebarOpen] = useState(false);
@@ -93,6 +97,9 @@ function App() {
             <Route path="/admindashboard" element={<AdminDashboard />} />
 
             <Route path="/employeelist" element={<EmployeePage />} />
+            <Route path="/employeeprofile" element={<EmployeeProfile />} />
+            <Route path="/client" element={<ClientPage />} />
+            <Route path="/clientprofile" element={<ClientProfile />} />
 
 
             <Route path="/projectmanagementdashboard" element={<ProjectManagementDashboard />} />

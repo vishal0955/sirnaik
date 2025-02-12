@@ -1,6 +1,6 @@
 .sidebar-container {
   width: 250px;
-  background-color: #F6F8FA;
+  background-color: #f7f9fce0;
   height: 100vh;
   overflow-y: auto;
   transition: width 0.3s ease;
@@ -105,9 +105,9 @@
 }
 
 .submenu-item.active {
-  background-color: #F6F8FA;
+  background-color: #e0e0d6d3;
   color: black;
-  border-radius: 12px;
-  padding-left: 20px;
+
+  padding-left: 2px;
 }
 

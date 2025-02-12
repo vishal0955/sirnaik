@@ -4,7 +4,7 @@ import TableHeader from './TableHeader';
 
 const Tasks = () => {
   return (
-    <div>
+    <div className='container-fluid h-100'>
         <TableHeader />
         <TaskTable />
     </div>
