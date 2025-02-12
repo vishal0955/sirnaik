@@ -257,7 +257,8 @@ export const TaskTable = () => {
   };
 
   return (
-    <Table responsive bordered hover className="tabledown">
+    <div  style={{height: "100vh"}}>
+    <Table responsive bordered hover className="tabledown" >
       <thead>
         <tr className="table-secondary">
           <th>Job ID</th>
@@ -280,15 +281,15 @@ export const TaskTable = () => {
         {jobs.map((job, index) => (
           <tr key={index}>
             <td 
-              style={{ cursor: 'pointer'}} // Add styles for clickable cell
-              onClick={() => handleJobClick()} // On click navigate to details
+              style={{ cursor: 'pointer'}}
+              onClick={() => handleJobClick()} 
             >
               {job.jobId}
              
             </td>
             <td 
-              style={{ cursor: 'pointer'}} // Add styles for clickable cell
-              onClick={() => handleJobClick()} // On click navigate to details
+              style={{ cursor: 'pointer'}} 
+              onClick={() => handleJobClick()}
             >
               {job.jobName}
             </td>
@@ -345,12 +346,13 @@ export const TaskTable = () => {
         ))}
       </tbody>
     </Table>
+    </div>
   );
 };
 
 const TaskPage = () => {
   return (
-    <div>
+    <div style={{height: "100vh"}}>
       <TableHeader title="All Tasks" buttonText="Add Task" />  
       <TaskTable />
     </div>

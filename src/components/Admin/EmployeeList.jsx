@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { Table, Dropdown } from "react-bootstrap";
 import { FaEllipsisV } from "react-icons/fa";
-import { Button, Form, InputGroup } from "react-bootstrap";
+import { Button, Form, InputGroup, Modal } from "react-bootstrap";
 import { FaSearch, FaFileImport, FaFileExport, FaFilter } from "react-icons/fa";
+import AddEmployee from "./AddEmployee";
+import EmployeeTableHeader from "./EmployeeTableHeader";
+import { useNavigate } from "react-router-dom";
 
 
 const userRoles = ["Project Manager", "Production Team", "Junior", "Designer"];
@@ -27,7 +30,15 @@ const initialEmployees = [
   },
 ];
 
+
 export const EmployeeToolbar = () => {
+   const [showModal, setShowModal] = useState(false);
+  const handleButtonClick = () => {
+   
+      setShowModal(true);
+
+  };
+
   return (
     <div>
     <div className="d-flex align-items-center p-3">
@@ -74,7 +85,7 @@ export const EmployeeToolbar = () => {
       </Button>
     </div>
     <div className="me-2">
-    <Button  className="me-2 btn btn-primary">+ Add Employee</Button>
+    <Button  className="me-2 btn btn-primary" onClick={handleButtonClick}>+ Add Employee</Button>
       <Button  className="me-2 btn btn-primary">Invite Employee</Button>
       <Button  className="me-2 btn btn-primary">
         <FaFileImport /> Import
@@ -83,10 +94,21 @@ export const EmployeeToolbar = () => {
         <FaFileExport /> Export
       </Button>
     </div>
+
+    <Modal show={showModal} onHide={() => setShowModal(false)} size="lg">
+        <Modal.Header closeButton>
+       
+        </Modal.Header>
+        <Modal.Body>
+         <AddEmployee />
+        </Modal.Body>
+      </Modal>
     </div>
   );
 };
 export const EmployeeTable = () => {
+  const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
   const [employees, setEmployees] = useState(initialEmployees);
 
   const handleRoleChange = (index, role) => {
@@ -94,6 +116,11 @@ export const EmployeeTable = () => {
     updatedEmployees[index].role = role;
     setEmployees(updatedEmployees);
   };
+  const handleJobClick = () => {
+    setShowModal(true);
+    navigate("/employeeprofile")
+  };
+
 
   const handleStatusChange = (index, status) => {
     const updatedEmployees = [...employees];
@@ -117,8 +144,12 @@ export const EmployeeTable = () => {
       <tbody>
         {employees.map((employee, index) => (
           <tr key={index}>
-            <td>{employee.employeeId}</td>
-            <td>{employee.name}</td>
+            <td  style={{ cursor: 'pointer'}} 
+              onClick={handleJobClick}>{employee.employeeId}</td>
+            <td
+            style={{ cursor: 'pointer'}} 
+            onClick={handleJobClick} 
+            >{employee.name}</td>
             <td>{employee.email}</td>
             <td>
               <Dropdown onSelect={(eventKey) => handleRoleChange(index, eventKey)}>
@@ -170,8 +201,9 @@ export const EmployeeTable = () => {
 const EmployeePage = () => {
   return (
     <div>
-     <EmployeeToolbar />
-      <EmployeeTable />
+       <EmployeeTableHeader />
+       <EmployeeTableHeader title="All Employee" buttonText="Add Employee" />  
+      <EmployeeTable  />
     </div>
   );
 };

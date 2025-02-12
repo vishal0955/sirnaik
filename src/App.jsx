@@ -26,6 +26,9 @@ import Traffic from "./Pages/Productionteam/Traffic";
 import AdminDashboard from "./components/Admin/AdminDashboard";
 import TaskDetailsForm from "./Pages/Productionteam/EditTaskDetails";
 import EmployeePage from "./components/Admin/EmployeeList";
+import EmployeeProfile from "./components/Admin/EmployeeProfile";
+import ClientProfile from "./components/Admin/ClientProfile";
+import ClientPage from "./components/Admin/ClientTable";
 
 function App() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -88,6 +91,9 @@ function App() {
             <Route path="/admindashboard" element={<AdminDashboard />} />
 
             <Route path="/employeelist" element={<EmployeePage />} />
+            <Route path="/employeeprofile" element={<EmployeeProfile />} />
+            <Route path="/client" element={<ClientPage />} />
+            <Route path="/clientprofile" element={<ClientProfile />} />
 
 
             <Route path="/projectmanagementdashboard" element={<ProjectManagementDashboard />} />

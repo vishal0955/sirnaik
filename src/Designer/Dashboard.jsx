@@ -64,15 +64,16 @@ function Designer() {
 
   return (
     <div className="task-over-pro">
-      <div className="container">
+      <div className="container-fluid">
         {/* Cards Row */}
+        
         <div className="row mb-4">
           <div className="col-12 col-sm-6 col-md-3">
             <Card className="text-center p-3 bg-light shadow-sm">
               <div className="d-flex align-items-center text-center text-md-start">
                 <img src="https://i.ibb.co/5JkFzc4/300.jpg" alt="300" border="0" width={70} height={70} />
                 <div>
-                  <p className="mb-1">Project Manager</p>
+                  <p className="mb-1">John Doe</p>
                   <p className="mb-0">Employee Id: EMP 1</p>
                 </div>
               </div>
