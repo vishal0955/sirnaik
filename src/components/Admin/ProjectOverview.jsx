@@ -3,6 +3,11 @@ import { Card, Row, Col, Image } from "react-bootstrap";
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer, BarChart, Bar, XAxis, YAxis } from "recharts";
 import { FaDollarSign, FaClock } from "react-icons/fa";
 import ProjectMembers from "../Project/ProjectMember (1)";
+import FileUpload from "./FileUpload";
+import TableTask from "./TableTask";
+import InvoiceTable from "./invoices";
+import Timesheet from "../Tables/TimesheetTable";
+import TimeLogTable from "./TimeLogTable";
 
 // Colors for the Pie Chart
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF4444"];
@@ -210,12 +215,14 @@ export const ProjectOverview = () => {
 
 
 const components = [
-  <div className="p-3">
-    <ProjectOverview />
-  </div>,
-  <div className="p-3">
-      <ProjectMembers />
-      </div>,
+
+    <ProjectOverview />,
+      <ProjectMembers />,
+      <FileUpload />,
+      <TableTask />,
+      <InvoiceTable />,
+      // <Timesheet />,
+     <TimeLogTable />,
 <div className="p-3"><p>Completed </p>
 </div>
 ];
@@ -243,6 +250,7 @@ return (
     <div className="border p-3 mt-2"> 
         {components[activeIndex]}
     </div>
+    
   </div>
 );
 };

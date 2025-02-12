@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import { Table, Form, Button, Image, Card, Container } from "react-bootstrap";
+import { Table, Form, Button, Image, Card, Container,Modal } from "react-bootstrap";
 import { FaTrash } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import AddMembers from "../Admin/AddMembers";
 
 const ProjectMembers = () => {
+  const [showModal, setShowModal] = useState(false);
   // State for members list
   const [members, setMembers] = useState([
     { id: 1, name: "Prof. Jared Eichmann", role: "Trainee", rate: 81, img: "https://i.pravatar.cc/50?img=1" },
@@ -21,6 +24,10 @@ const ProjectMembers = () => {
       )
     );
   };
+  
+ const handleClick=()=>{
+  setShowModal(true);
+ }
 
   // Function to delete a member
   const handleDelete = (id) => {
@@ -28,8 +35,11 @@ const ProjectMembers = () => {
   };
 
   return (
+    <div>
     <Container className="mt-4">
-       <Button variant="light" className="mb-3">+ Add Project Members</Button>
+ 
+       <Button  className="btn btn-primary mb-3" onClick={handleClick}>+ Add Project Members</Button>
+    
       <Card className="p-3 shadow-sm  text-white">
         <h5>Members</h5>
         <Table striped bordered hover variant="">
@@ -76,6 +86,16 @@ const ProjectMembers = () => {
         </Table>
       </Card>
     </Container>
+    <Modal show={showModal} onHide={() => setShowModal(false)} size="lg">
+        <Modal.Header closeButton>
+          <Modal.Title></Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+        <AddMembers />
+        </Modal.Body>
+      </Modal>
+    
+    </div>
   );
 };
 

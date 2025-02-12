@@ -1,7 +1,9 @@
-import React from "react";
-import { Table, Dropdown, Button, Form, InputGroup } from "react-bootstrap";
+import React,{ useState } from "react";
+import { Table, Dropdown, Button, Form, InputGroup,Modal } from "react-bootstrap";
+import InvoiceForm from "./InvoiceForm";
 
 const InvoiceTable = () => {
+  const [showModal, setShowModal] = useState(false);
   const invoices = [
     {
       code: "BOT",
@@ -31,13 +33,19 @@ const InvoiceTable = () => {
     },
   ];
 
+  
+ const handleClick=()=>{
+
+
+  setShowModal(true);
+ }
   return (
     <div className="container-fluid p-3">
       {/* Top Controls */}
       <div className="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
         <div className="d-flex flex-wrap gap-2">
-          <Button variant="primary">+ Create Invoice</Button>
-          <Button variant="light">+ Create TimeLog Invoice</Button>
+          <Button variant="primary" onClick={handleClick} >+ Create Invoice</Button>
+          <Button variant="primary">+ Create TimeLog Invoice</Button>
           <Button variant="outline-secondary">📁 Export</Button>
         </div>
         <div className="d-flex flex-wrap gap-2">
@@ -135,6 +143,14 @@ const InvoiceTable = () => {
           </Button>
         </div>
       </div>
+      <Modal show={showModal} onHide={() => setShowModal(false)} size="lg">
+        <Modal.Header closeButton>
+          <Modal.Title></Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <InvoiceForm />   
+        </Modal.Body>
+      </Modal>
     </div>
   );
 };

@@ -21,7 +21,7 @@ import Designer from "./Designer/Dashboard";
 import ProjectManagementDashboard from "./components/ProjectMDashboard";
 import Jobs from "./Pages/Productionteam/Jobs";
 import TaskDetails from "./Designer/TaskDetails";
-import ProjectOverview from "./components/Project/Projectoverview";
+
 import Traffic from "./Pages/Productionteam/Traffic";
 import AdminDashboard from "./components/Admin/AdminDashboard";
 import TaskDetailsForm from "./Pages/Productionteam/EditTaskDetails";
@@ -37,6 +37,10 @@ import Department from "./components/Admin/Department";
 import AddDepartment from "./components/Admin/AddDepartment";
 import InvoiceTable from "./components/Admin/invoices";
 import ProjectDetail from "./components/Admin/ProjectOverview";
+import AddMembers from "./components/Admin/AddMembers";
+import FileUpload from "./components/Admin/FileUpload";
+import TableTask from "./components/Admin/TableTask";
+
 
 
 function App() {
@@ -127,6 +131,9 @@ function App() {
             <Route path="/depaForm" element={<Department/>}/>
             <Route path="/addDepart" element={<AddDepartment/>}/>
             <Route path="/invoices" element={<InvoiceTable/>}/>
+            <Route path="/addMember" element={<AddMembers/>}/>
+            <Route path="/fileUpload" element={<FileUpload/>}/>
+            <Route path="tableTask" element={<TableTask/>}/>
             
 
             {/* Designer Routes */}
@@ -139,7 +146,7 @@ function App() {
 
             <Route path="/jobs" element={<Jobs /> } />
             <Route path="/traffic" element={<Traffic /> } />
-           <Route path="/ProjectOverview" element={<ProjectOverview  />} />
+           {/* <Route path="/ProjectOverview" element={<ProjectOverview  />} /> */}
             <Route path="/edittaskdetails" element={<TaskDetailsForm  />} />
 
           </Routes>
