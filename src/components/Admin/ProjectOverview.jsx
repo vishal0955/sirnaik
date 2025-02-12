@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState} from "react";
 import { Card, Row, Col, Image } from "react-bootstrap";
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer, BarChart, Bar, XAxis, YAxis } from "recharts";
 import { FaDollarSign, FaClock } from "react-icons/fa";
+import ProjectMembers from "../Project/ProjectMember (1)";
 
 // Colors for the Pie Chart
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF4444"];
@@ -213,12 +214,13 @@ const components = [
     <ProjectOverview />
   </div>,
   <div className="p-3">
-      <p>In Progress </p>
-      <Jobs /></div>,
-<div className="p-3"><p>Completed </p><Jobs /></div>
+      <ProjectMembers />
+      </div>,
+<div className="p-3"><p>Completed </p>
+</div>
 ];
 
-const tabLabels = ["New", "In Progress", "Completed"];
+const tabLabels = ["Overview", "Members", "Files","Tasks","Invoices","Timesheet"];
 const statusFilters = ["Pending", "InProgress", "Completed"];
 
 const ProjectDetail = () => {

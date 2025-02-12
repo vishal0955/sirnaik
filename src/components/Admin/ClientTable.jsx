@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { Table, Dropdown, Button } from "react-bootstrap";
 import { FaEllipsisV } from "react-icons/fa";
 import EmployeeTableHeader from "./EmployeeTableHeader";
+import { useNavigate } from "react-router-dom";
  export const ClientTable = () => {
+    const navigate = useNavigate();
   const [clients, setClients] = useState([
     {
       clientId: "C001",
@@ -29,7 +31,9 @@ import EmployeeTableHeader from "./EmployeeTableHeader";
         created: "2023-12-05",
       },
   ]);
-
+ const handleClick=() =>{
+     navigate("/clientprofile")
+ }
   const handleStatusChange = (index, status) => {
     const updatedClients = [...clients];
     updatedClients[index].status = status;
@@ -52,8 +56,8 @@ import EmployeeTableHeader from "./EmployeeTableHeader";
       <tbody>
         {clients.map((client, index) => (
           <tr key={index}>
-            <td style={{ cursor: "pointer" }}>{client.clientId}</td>
-            <td>{client.name}</td>
+            <td style={{ cursor: "pointer" }} onClick={handleClick}>{client.clientId}</td>
+            <td style={{ cursor: "pointer" }} onClick={handleClick}>{client.name}</td>
             <td>{client.email}</td>
             <td>{client.mobile}</td>
             <td>

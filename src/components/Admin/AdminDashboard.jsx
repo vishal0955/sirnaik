@@ -45,7 +45,7 @@ const doughnutData = {
 
 function AdminDashboard() {
   return (
-    <Container className="mt-4">
+    <div className="container-fluid mt-4">
       <div className="mb-4">
        
         <h5>Admin Dashboard</h5>
@@ -168,7 +168,7 @@ function AdminDashboard() {
           </Card>
         </Col>
       </Row>
-    </Container>
+    </div>
   );
 }
 

@@ -35,6 +35,9 @@ import DesignationTable from "./components/Admin/DesignationTable";
 import AddDesignation from "./components/Admin/AddDesignation";
 import Department from "./components/Admin/Department";
 import AddDepartment from "./components/Admin/AddDepartment";
+import InvoiceTable from "./components/Admin/invoices";
+import ProjectDetail from "./components/Admin/ProjectOverview";
+
 
 function App() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -108,6 +111,7 @@ function App() {
 
             <Route path="/projectmanagementdashboard" element={<ProjectManagementDashboard />} />
             <Route path="/project" element={<ProjectOwner />} />
+            <Route path="/projectdetails" element={<ProjectDetail />} />
             
             <Route path="/tasklist" element={<TaskPage />} />
             <Route path="/addproject" element={<AddProject />} />
@@ -118,6 +122,11 @@ function App() {
             <Route path="/clientForm" element={<ClientForm/>}/>
             {/* <Route path="/desigTable" element={<DesignationTable/>}/> */}
             
+            <Route path="/desigTable" element={<DesignationTable/>}/>
+            <Route path="/adddesigna" element={<AddDesignation/>}/>
+            <Route path="/depaForm" element={<Department/>}/>
+            <Route path="/addDepart" element={<AddDepartment/>}/>
+            <Route path="/invoices" element={<InvoiceTable/>}/>
             
 
             {/* Designer Routes */}
