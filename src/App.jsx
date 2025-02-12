@@ -35,6 +35,8 @@ import DesignationTable from "./components/Admin/DesignationTable";
 import AddDesignation from "./components/Admin/AddDesignation";
 import Department from "./components/Admin/Department";
 import AddDepartment from "./components/Admin/AddDepartment";
+import InvoiceTable from "./components/Admin/invoices";
+
 
 function App() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -115,6 +117,7 @@ function App() {
             <Route path="/adddesigna" element={<AddDesignation/>}/>
             <Route path="/depaForm" element={<Department/>}/>
             <Route path="/addDepart" element={<AddDepartment/>}/>
+            <Route path="/invoices" element={<InvoiceTable/>}/>
             
 
             {/* Designer Routes */}

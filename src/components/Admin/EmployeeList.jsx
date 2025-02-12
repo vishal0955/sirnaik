@@ -201,7 +201,7 @@ export const EmployeeTable = () => {
 const EmployeePage = () => {
   return (
     <div>
-       <EmployeeTableHeader />
+      
        <EmployeeTableHeader title="All Employee" buttonText="Add Employee" />  
       <EmployeeTable  />
     </div>

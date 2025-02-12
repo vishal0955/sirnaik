@@ -31,7 +31,7 @@ const Sidebar = ({ collapsed , menuItemClick, onEMRClick }) => {
         <li className={`menu-item ${isSubmenuActive(["/admindashboard", "/project","/tasklist","/timesheet","/billingpayments"]) ? "active" : ""}`}>
             <div className="menu-link menu-i" onClick={() => toggleSubmenu("admindashboard")}>
               <i className="fa-solid fa-list-check"></i>
-              <span className="menu-text">Admin</span>
+              <span className="menu-text">Dashboard</span>
               <i className={`fa-solid fa-chevron-down submenu-arrow ${openSubmenu === "admindashboard" ? "rotated" : ""}`}></i>
             </div>
           </li>
