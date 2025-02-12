@@ -26,7 +26,12 @@ import Traffic from "./Pages/Productionteam/Traffic";
 import AdminDashboard from "./components/Admin/AdminDashboard";
 import TaskDetailsForm from "./Pages/Productionteam/EditTaskDetails";
 import EmployeePage from "./components/Admin/EmployeeList";
-
+import ClientTable from "./components/Admin/ClientTable";
+import ClientForm from "./components/Admin/ClientForm";
+import DesignationTable from "./components/Admin/DesignationTable";
+import AddDesignation from "./components/Admin/AddDesignation";
+import Department from "./components/Admin/Department";
+import AddDepartment from "./components/Admin/AddDepartment";
 function App() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const [isClinicSidebarOpen, setIsClinicSidebarOpen] = useState(false);
@@ -97,6 +102,13 @@ function App() {
             <Route path="/addtask" element={<TaskForm />} />
             <Route path="/addlog" element={<TimeLogForm />} />
             <Route path="/timesheet" element={<Timesheet />} />
+            <Route path="/clientTable" element={<ClientTable/>}/>
+            <Route path="/clientForm" element={<ClientForm/>}/>
+            <Route path="/desigTable" element={<DesignationTable/>}/>
+            <Route path="/adddesigna" element={<AddDesignation/>}/>
+            <Route path="/depaForm" element={<Department/>}/>
+            <Route path="/addDepart" element={<AddDepartment/>}/>
+            
 
             {/* Designer Routes */}
 

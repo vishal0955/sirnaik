@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Table, Dropdown } from "react-bootstrap";
 import { FaEllipsisV } from "react-icons/fa";
 import TableHeader from "./TableHeader";
+import { FaEye } from "react-icons/fa";
 
 const initialTasks = [
   {
@@ -33,6 +34,20 @@ const initialTasks = [
   },
 ];
 
+
+const CustomToggle = React.forwardRef(({ onClick }, ref) => (
+  <button
+    ref={ref}
+    onClick={(e) => {
+      e.preventDefault();
+      onClick(e);
+    }}
+    className="p-0 border-0 bg-transparent"
+    style={{ background: "none", border: "none" }}
+  >
+    <FaEllipsisV />
+  </button>
+));
 const TimesheetTable = () => {
   const [tasks, setTasks] = useState(initialTasks);
 
@@ -62,14 +77,13 @@ const TimesheetTable = () => {
             <td>{task.totalHours}</td>
             <td>
               <Dropdown>
-                <Dropdown.Toggle variant="light" id="dropdown-basic">
-                  <FaEllipsisV />
-                </Dropdown.Toggle>
+                <Dropdown.Toggle as={CustomToggle} />
                 <Dropdown.Menu>
-                  <Dropdown.Item href="#">Edit</Dropdown.Item>
-                  <Dropdown.Item href="#">Delete</Dropdown.Item>
+                  <Dropdown.Item href="#"><FaEye />View</Dropdown.Item>
+                  <Dropdown.Item href="#"><i class="fa-solid fa-circle-stop"></i>Stop</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
+              
             </td>
           </tr>
         ))}

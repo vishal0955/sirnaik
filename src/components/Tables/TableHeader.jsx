@@ -96,18 +96,18 @@
 // const TableHeader = ({ title, buttonText }) => {
 //     // const [ButtonRoute, setButtonRoute] = useState("");
 //     const [showModal, setShowModal] = useState(false);
-    
+
 //   const handleButtonClick = () => {
 //     setShowModal(true);
 //   };
 
 // const navigate = useNavigate();
 //     const formbutton = (buttonText) => buttonText.toLowerCase().replace(/\s+/g, '');
-      
+
 //        console.log(formbutton);
-   
+
 //   return (
-    
+
 //     <div className="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-3">
 //       <div className="container-fluid d-flex justify-content-between align-items-center">
 //         {/* Left Section: Dynamic Title and Button */}
@@ -241,7 +241,6 @@
 //           </button>
 //         </div>
 
-
 //         {/* Right Section */}
 
 //         </div>
@@ -342,10 +341,15 @@ const TableHeader = ({ title, buttonText }) => {
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
 
-  const formButton = (buttonText) => buttonText.toLowerCase().replace(/\s+/g, '');
+  const formButton = (buttonText) =>
+    buttonText.toLowerCase().replace(/\s+/g, "");
 
   const handleButtonClick = () => {
-    if (buttonText === "Add Project" || buttonText === "Add Task" || buttonText === "Add Log") {
+    if (
+      buttonText === "Add Project" ||
+      buttonText === "Add Task" ||
+      buttonText === "Add Log"
+    ) {
       setShowModal(true);
     } else {
       navigate(`/${formButton(buttonText)}`);
@@ -357,73 +361,177 @@ const TableHeader = ({ title, buttonText }) => {
       <div className="container-fluid d-flex justify-content-between align-items-center">
         {/* Left Section */}
         <div className="d-flex align-items-center justify-content-between">
-        <div className="d-flex align-items-center">
-          <a className="navbar-brand fw-bold text-primary me-3" href="#">
-            {title}
-          </a>
-          <button className="btn btn-primary" onClick={handleButtonClick}>
-            {buttonText}
-          </button>
+          <div className="d-flex align-items-center">
+            <a className="navbar-brand fw-bold text-primary me-3" href="#">
+              {title}
+            </a>
+            <button className="btn btn-primary" onClick={handleButtonClick}>
+              {buttonText}
+            </button>
+          </div>
         </div>
-        </div>
-        <div className="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+        <div
+          className="collapse navbar-collapse justify-content-center"
+          id="navbarNavDropdown"
+        >
           <ul className="navbar-nav align-items-center gap-3">
+            {/* Search Bar */}
+            <li className="nav-item d-flex align-items-center">
+              <div className="input-group">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Search..."
+                />
+                <span className="input-group-text">
+                  <i className="fa-solid fa-magnifying-glass"></i>
+                </span>
+              </div>
+            </li>
+
             {/* Filter Dropdown */}
             <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" href="#" id="filterDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a
+                className="nav-link dropdown-toggle"
+                href="#"
+                id="filterDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
                 Filter
               </a>
               <ul className="dropdown-menu" aria-labelledby="filterDropdown">
                 {/* Status Submenu */}
                 <li className="dropdown-submenu position-relative">
-                  <a className="dropdown-item dropdown-toggle" href="#">By Status</a>
+                  <a className="dropdown-item dropdown-toggle" href="#">
+                    By Status
+                  </a>
                   <ul className="dropdown-menu submenu">
-                    <li><a className="dropdown-item" href="#">In Progress</a></li>
-                    <li><a className="dropdown-item" href="#">On Hold</a></li>
-                    <li><a className="dropdown-item" href="#">Cancelled</a></li>
-                    <li><a className="dropdown-item" href="#">Not Started</a></li>
-                    <li><a className="dropdown-item" href="#">Completed</a></li>
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        In Progress
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        On Hold
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        Cancelled
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        Not Started
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        Completed
+                      </a>
+                    </li>
                   </ul>
                 </li>
                 {/* Priority Submenu */}
                 <li className="dropdown-submenu position-relative">
-                  <a className="dropdown-item dropdown-toggle" href="#">By Priority</a>
+                  <a className="dropdown-item dropdown-toggle" href="#">
+                    By Priority
+                  </a>
                   <ul className="dropdown-menu submenu">
-                    <li><a className="dropdown-item" href="#">High</a></li>
-                    <li><a className="dropdown-item" href="#">Medium</a></li>
-                    <li><a className="dropdown-item" href="#">Low</a></li>
-                    <li><a className="dropdown-item" href="#">No Priority</a></li>
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        High
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        Medium
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        Low
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        No Priority
+                      </a>
+                    </li>
                   </ul>
                 </li>
-                <li><a className="dropdown-item" href="#">By Due Date</a></li>
-                <li><a className="dropdown-item" href="#">By Assignee</a></li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    By Due Date
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    By Assignee
+                  </a>
+                </li>
               </ul>
             </li>
 
             {/* Sort Dropdown */}
             <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" href="#" id="sortDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a
+                className="nav-link dropdown-toggle"
+                href="#"
+                id="sortDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
                 Sort
               </a>
               <ul className="dropdown-menu" aria-labelledby="sortDropdown">
-                <li><a className="dropdown-item" href="#">By Name (A-Z)</a></li>
-                <li><a className="dropdown-item" href="#">By Name (Z-A)</a></li>
-                <li><a className="dropdown-item" href="#">By Due Date (Earliest First)</a></li>
-                <li><a className="dropdown-item" href="#">By Due Date (Latest First)</a></li>
-                <li><a className="dropdown-item" href="#">By Priority (High to Low)</a></li>
-                <li><a className="dropdown-item" href="#">By Priority (Low to High)</a></li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    By Name (A-Z)
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    By Name (Z-A)
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    By Due Date (Earliest First)
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    By Due Date (Latest First)
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    By Priority (High to Low)
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    By Priority (Low to High)
+                  </a>
+                </li>
               </ul>
-            </li>
-
-            {/* Search Bar */}
-            <li className="nav-item d-flex align-items-center">
-              <input type="text" className="form-control me-2" placeholder="Search..." />
-              <button className="btn btn-outline-primary">🔍</button>
             </li>
 
             {/* Export Dropdown */}
             <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" href="#" id="exportDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a
+                className="nav-link dropdown-toggle"
+                href="#"
+                id="exportDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
                 Import
               </a>
             </li>
@@ -437,7 +545,13 @@ const TableHeader = ({ title, buttonText }) => {
           <Modal.Title>{buttonText}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {buttonText === "Add Project" ? <AddProject /> : buttonText === "Add Task" ? <AddTask /> : <AddLog />}
+          {buttonText === "Add Project" ? (
+            <AddProject />
+          ) : buttonText === "Add Task" ? (
+            <AddTask />
+          ) : (
+            <AddLog />
+          )}
         </Modal.Body>
       </Modal>
     </div>

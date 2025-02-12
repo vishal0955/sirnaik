@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col, Card, Table, ProgressBar } from "react-bootstrap";
-import { Line, Doughnut  } from "react-chartjs-2";
+import { Line, Doughnut } from "react-chartjs-2";
 import { Chart, registerables } from "chart.js";
 
 Chart.register(...registerables);
@@ -37,41 +37,42 @@ const ProjectManagementDashboard = () => {
   return (
     <Container fluid>
       <Row className="mt-4 justify-content-center">
-        <Col xs={12} sm={6} md={3} className="bg-dark rounded text-white p-3">
-          <div className="d-flex align-items-center text-center text-md-start">
-            <img
-              src="https://i.ibb.co/5JkFzc4/300.jpg"
-              alt="300"
-              border="0"
-              width={70}
-              height={70}
-              
-            />
-            <div>
-              <p className="mb-1">Project Manager</p>
-              <p className="mb-0">Employee Id: EMP 1</p>
-            </div>
-          </div>
-        </Col>
+        <div className="col-12 col-sm-6 col-md-3">
+        <Card className="p-3 bg-light shadow-sm">
+      <div className="d-flex flex-column flex-md-row align-items-center text-center text-md-start gap-2 p-1">
+        <img
+          src="https://i.ibb.co/5JkFzc4/300.jpg"
+          alt="Employee"
+          className="rounded-circle me-md-3 mb-2 mb-md-0"
+          width={70}
+          height={70}
+        />
+        <div>
+          <p className="mb-1 fw-bold">Project Manager</p>
+          <p className="mb-0 text-muted">Employee Id: EMP 1</p>
+        </div>
+      </div>
+    </Card>
+        </div>
 
         <Col xs={12} sm={6} md={3}>
           <Card className="text-center p-3 bg-light shadow-sm">
             <h5>Total Projects</h5>
-            <h2>12</h2>
+            <h2 style={{color:'blue'}}>12</h2>
           </Card>
         </Col>
 
         <Col xs={12} sm={6} md={3}>
           <Card className="text-center p-3 bg-light shadow-sm">
             <h5>Total Tasks</h5>
-            <h2>36</h2>
+            <h2 style={{color:'blue'}}>36</h2>
           </Card>
         </Col>
 
         <Col xs={12} sm={6} md={3}>
           <Card className="text-center p-3 bg-light shadow-sm">
             <h5>Total Users</h5>
-            <h2>18</h2>
+            <h2 style={{color:'blue'}}>18</h2>
           </Card>
         </Col>
       </Row>

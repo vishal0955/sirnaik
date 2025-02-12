@@ -21,6 +21,21 @@ const TableHeader = ({ title, buttonText }) => {
         </div>
         <div className="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
           <ul className="navbar-nav align-items-center gap-3">
+
+          <li className="nav-item d-flex align-items-center">
+              <div className="input-group">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Search..."
+                />
+                <span className="input-group-text">
+                  <i className="fa-solid fa-magnifying-glass"></i>
+                </span>
+              </div>
+            </li>
+
+
             {/* Filter Dropdown */}
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle" href="#" id="filterDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -69,10 +84,7 @@ const TableHeader = ({ title, buttonText }) => {
             </li>
 
             {/* Search Bar */}
-            <li className="nav-item d-flex align-items-center">
-              <input type="text" className="form-control me-2" placeholder="Search..." />
-              <button className="btn btn-outline-primary">🔍</button>
-            </li>
+           
 
             {/* Export Dropdown */}
             <li className="nav-item dropdown">

@@ -12,8 +12,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-
-import { Card, Table } from "react-bootstrap"; 
+import { Card, Table, Container, Row, Col } from "react-bootstrap";
 
 ChartJS.register(
   CategoryScale,
@@ -29,7 +28,15 @@ ChartJS.register(
 
 function Designer() {
   const lineData = {
-    labels: ["08-May", "09-May", "10-May", "11-May", "12-May", "13-May", "14-May"],
+    labels: [
+      "08-May",
+      "09-May",
+      "10-May",
+      "11-May",
+      "12-May",
+      "13-May",
+      "14-May",
+    ],
     datasets: [
       {
         label: "Total Completed Task",
@@ -64,72 +71,82 @@ function Designer() {
 
   return (
     <div className="task-over-pro">
-      <div className="container">
+      <Container>
         {/* Cards Row */}
-        <div className="row mb-4">
-          <div className="col-12 col-sm-6 col-md-3">
-            <Card className="text-center p-3 bg-light shadow-sm">
-              <div className="d-flex align-items-center text-center text-md-start">
-                <img src="https://i.ibb.co/5JkFzc4/300.jpg" alt="300" border="0" width={70} height={70} />
+        <Row className="mb-4">
+          <Col xs={12} sm={6} md={3}>
+            <Card className="p-3 bg-light shadow-sm">
+              <div className="d-flex flex-column flex-md-row align-items-center text-center text-md-start gap-2 p-1">
+                <img
+                  src="https://i.ibb.co/5JkFzc4/300.jpg"
+                  alt="Employee"
+                  className="rounded-circle me-md-3 mb-2 mb-md-0"
+                  width={70}
+                  height={70}
+                />
                 <div>
-                  <p className="mb-1">Project Manager</p>
-                  <p className="mb-0">Employee Id: EMP 1</p>
+                  <p className="mb-1 fw-bold">John Doe</p>
+                  <p className="mb-0 text-muted">Employee Id: EMP 1</p>
                 </div>
               </div>
             </Card>
-          </div>
+          </Col>
 
-          <div className="col-12 col-sm-6 col-md-3">
-            <Card className="text-center p-3 bg-light shadow-sm">
-              <h5>Total Task</h5>
-              <h2>12</h2>
-            </Card>
-          </div>
-
-          <div className="col-12 col-sm-6 col-md-3">
-            <Card className="text-center p-3 bg-light shadow-sm">
-              <h5>Pending</h5>
-              <h2>36</h2>
-            </Card>
-          </div>
-
-          <div className="col-12 col-sm-6 col-md-3">
-            <Card className="text-center p-3 bg-light shadow-sm">
-              <h5>Completed</h5>
-              <h2>18</h2>
-            </Card>
-          </div>
-        </div>
+          {["Total Task", "Pending", "Completed"].map((title, index) => (
+            <Col key={index} xs={12} sm={6} md={3}>
+              <Card className="text-center p-3 bg-light shadow-sm">
+                <h5>{title}</h5>
+                <h2>{index === 0 ? "12" : index === 1 ? "36" : "18"}</h2>
+              </Card>
+            </Col>
+          ))}
+        </Row>
 
         {/* Charts Row */}
-        <div className="row">
-          <div className="col-md-6 mb-4">
-            <div className="card-pro shadow p-3">
-              <h5 className="card-title-pro text-center">Tasks Overview</h5>
+        <Row>
+          <Col md={6} className="mb-4">
+            <Card className="p-3 shadow-sm">
+              <h5 className="text-center">Tasks Overview</h5>
               <Line data={lineData} />
-            </div>
-          </div>
+            </Card>
+          </Col>
 
-          <div className="col-md-6 mb-4">
-            <div className="card-pro shadow p-3">
-              <h5 className="card-title-pro text-center">Timesheet Logged Hours</h5>
+          <Col md={6} className="mb-4">
+            <Card className="p-3 shadow-sm">
+              <h5 className="text-center">Timesheet Logged Hours</h5>
               <Bar data={barData} />
-            </div>
-          </div>
-        </div>
+            </Card>
+          </Col>
+        </Row>
 
         {/* Doughnut Chart & Table */}
-        <div className="row">
-          <div className="col-md-6">
+        <Row>
+          <Col md={6}>
             <Card className="p-3 shadow-sm">
-              <h5>Task Status</h5>
-              <div style={{ height: "300px", width: "200px", margin: "auto" }}>
-                <Doughnut data={doughnutData} />
+              <h5 className="text-center">Task Status</h5>
+              <div
+                className="d-flex justify-content-center"
+                style={{ width: "100%", maxWidth: "500px", margin: "auto" }}
+              >
+                <Doughnut
+                  data={doughnutData}
+                  options={{
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                      legend: {
+                        position: "bottom",
+                        labels: { font: { size: 14 } },
+                      },
+                    },
+                  }}
+                  style={{ width: "100%", height: "350px" }}
+                />
               </div>
             </Card>
-          </div>
+          </Col>
 
-          <div className="col-md-6">
+          <Col md={6}>
             <Card className="p-3 shadow-sm">
               <h5>Tasks List</h5>
               <div className="table-responsive">
@@ -143,31 +160,47 @@ function Designer() {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>Dashboard Cards</td>
-                      <td>2025-09-01</td>
-                      <td><span className="badge bg-success">Done</span></td>
-                      <td>Newsletter Templates</td>
-                    </tr>
-                    <tr>
-                      <td>The Marketplace Strategy</td>
-                      <td>2024-09-15</td>
-                      <td><span className="badge bg-warning">In Progress</span></td>
-                      <td>Newsletter Templates</td>
-                    </tr>
-                    <tr>
-                      <td>Design Test</td>
-                      <td>2024-08-10</td>
-                      <td><span className="badge bg-primary">To Do</span></td>
-                      <td>Payment Integration</td>
-                    </tr>
+                    {[
+                      {
+                        task: "Dashboard Cards",
+                        date: "2025-09-01",
+                        status: "Done",
+                        project: "Newsletter Templates",
+                        badge: "success",
+                      },
+                      {
+                        task: "The Marketplace Strategy",
+                        date: "2024-09-15",
+                        status: "In Progress",
+                        project: "Newsletter Templates",
+                        badge: "warning",
+                      },
+                      {
+                        task: "Design Test",
+                        date: "2024-08-10",
+                        status: "To Do",
+                        project: "Payment Integration",
+                        badge: "primary",
+                      },
+                    ].map((item, index) => (
+                      <tr key={index}>
+                        <td>{item.task}</td>
+                        <td>{item.date}</td>
+                        <td>
+                          <span className={`badge bg-${item.badge}`}>
+                            {item.status}
+                          </span>
+                        </td>
+                        <td>{item.project}</td>
+                      </tr>
+                    ))}
                   </tbody>
                 </Table>
               </div>
             </Card>
-          </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }
