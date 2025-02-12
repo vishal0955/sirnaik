@@ -36,6 +36,10 @@ import AddDesignation from "./components/Admin/AddDesignation";
 import Department from "./components/Admin/Department";
 import AddDepartment from "./components/Admin/AddDepartment";
 import InvoiceTable from "./components/Admin/invoices";
+import AddMembers from "./components/Admin/AddMembers";
+import FileUpload from "./components/Admin/FileUpload";
+import TableTask from "./components/Admin/TableTask";
+
 
 
 function App() {
@@ -118,6 +122,9 @@ function App() {
             <Route path="/depaForm" element={<Department/>}/>
             <Route path="/addDepart" element={<AddDepartment/>}/>
             <Route path="/invoices" element={<InvoiceTable/>}/>
+            <Route path="/modelMembar" element={<AddMembers/>}/>
+            <Route path="/fileUpload" element={<FileUpload/>}/>
+            <Route path="tableTask" element={<TableTask/>}/>
             
 
             {/* Designer Routes */}
