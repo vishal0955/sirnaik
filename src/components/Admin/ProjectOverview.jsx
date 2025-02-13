@@ -1,6 +1,17 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { Card, Row, Col, Image } from "react-bootstrap";
-import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer, BarChart, Bar, XAxis, YAxis } from "recharts";
+import {
+  PieChart,
+  Pie,
+  Cell,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+} from "recharts";
 import { FaDollarSign, FaClock } from "react-icons/fa";
 import ProjectMembers from "../Project/ProjectMember (1)";
 import FileUpload from "./FileUpload";
@@ -45,9 +56,12 @@ export const ProjectOverview = () => {
         {/* Project Progress */}
         <Col md={6}>
           <Card className="p-3 shadow-sm">
-            <h5>Project Progress</h5>
-            <div className="d-flex align-items-center justify-content-evenly">
-              <div style={{ width: "40%" }}>
+            <h5 className="text-center">Project Progress</h5>
+            <div className="d-flex flex-wrap align-items-center justify-content-between">
+              {/* Pie Chart Section */}
+              <div
+                style={{ width: "40%", minWidth: "100px", textAlign: "center" }}
+              >
                 <PieChart width={100} height={80}>
                   <Pie
                     data={[
@@ -67,13 +81,15 @@ export const ProjectOverview = () => {
                   </Pie>
                 </PieChart>
               </div>
-              <div className="d-flex justify-content-evenly gap-5">
-                <div>
-                  <span>Start Date</span>
+
+              {/* Start Date & Deadline Section */}
+              <div className="d-flex flex-wrap justify-content-between w-50">
+                <div style={{ minWidth: "120px", textAlign: "center" }}>
+                  <span className="d-block text-muted">Start Date</span>
                   <p className="mb-0 fw-bold">29-12-2024</p>
                 </div>
-                <div>
-                  <span>Deadline</span>
+                <div style={{ minWidth: "120px", textAlign: "center" }}>
+                  <span className="d-block text-muted">Deadline</span>
                   <p className="mb-0 fw-bold">29-04-2025</p>
                 </div>
               </div>
@@ -107,7 +123,13 @@ export const ProjectOverview = () => {
             <h5>Tasks</h5>
             <ResponsiveContainer width="100%" height={200}>
               <PieChart>
-                <Pie data={pieData} cx="50%" cy="50%" outerRadius={60} dataKey="value">
+                <Pie
+                  data={pieData}
+                  cx="50%"
+                  cy="50%"
+                  outerRadius={60}
+                  dataKey="value"
+                >
                   {pieData.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index]} />
                   ))}
@@ -204,8 +226,13 @@ export const ProjectOverview = () => {
         {/* Pie Chart for Task Progress */}
         <Col md={12}>
           <Card className="p-3 shadow-sm">
-           <h5>Project Details</h5>
-           <p>Voluptas assumenda minus tempora quis et quia. Deleniti eum totam necessitatibus dolor eum quo. Blanditiis deleniti quo necessitatibus dolor adipisci minus voluptatem iure. Non sit reprehenderit ducimus.</p>
+            <h5>Project Details</h5>
+            <p>
+              Voluptas assumenda minus tempora quis et quia. Deleniti eum totam
+              necessitatibus dolor eum quo. Blanditiis deleniti quo
+              necessitatibus dolor adipisci minus voluptatem iure. Non sit
+              reprehenderit ducimus.
+            </p>
           </Card>
         </Col>
       </Row>
@@ -213,46 +240,49 @@ export const ProjectOverview = () => {
   );
 };
 
-
 const components = [
-
-    <ProjectOverview />,
-      <ProjectMembers />,
-      <FileUpload />,
-      <TableTask />,
-      <InvoiceTable />,
-      // <Timesheet />,
-     <TimeLogTable />,
-<div className="p-3"><p>Completed </p>
-</div>
+  <ProjectOverview />,
+  <ProjectMembers />,
+  <FileUpload />,
+  <TableTask />,
+  <InvoiceTable />,
+  // <Timesheet />,
+  <TimeLogTable />,
+  <div className="p-3">
+    <p>Completed </p>
+  </div>,
 ];
 
-const tabLabels = ["Overview", "Members", "Files","Tasks","Invoices","Timesheet"];
+const tabLabels = [
+  "Overview",
+  "Members",
+  "Files",
+  "Tasks",
+  "Invoices",
+  "Timesheet",
+];
 const statusFilters = ["Pending", "InProgress", "Completed"];
 
 const ProjectDetail = () => {
-const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-return (
-  <div className="container mt-3">
-    <ul className="nav nav-tabs">
-      {tabLabels.map((label, index) => (
-        <li className="nav-item" key={index}>
-          <button
-            className={`nav-link ${activeIndex === index ? "active" : ""}`}
-            onClick={() => setActiveIndex(index)}
-          >
-            {label}
-          </button>
-        </li>
-      ))}
-    </ul>
-    <div className="border p-3 mt-2"> 
-        {components[activeIndex]}
+  return (
+    <div className="container mt-3">
+      <ul className="nav nav-tabs">
+        {tabLabels.map((label, index) => (
+          <li className="nav-item" key={index}>
+            <button
+              className={`nav-link ${activeIndex === index ? "active" : ""}`}
+              onClick={() => setActiveIndex(index)}
+            >
+              {label}
+            </button>
+          </li>
+        ))}
+      </ul>
+      <div className="border p-3 mt-2">{components[activeIndex]}</div>
     </div>
-    
-  </div>
-);
+  );
 };
 
 export default ProjectDetail;

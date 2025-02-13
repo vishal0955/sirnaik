@@ -36,8 +36,8 @@ const AddClient = () => {
 
   return (
     <div className="container mt-4">
-      <h4 className="mb-3">Client Information</h4>
-      <Form>
+     
+      <Form className="p-3 p-md-4 bg-light shadow-sm rounded">
         <Row className="mb-3">
           <Col md={6}>
             <Form.Group>
@@ -90,7 +90,7 @@ const AddClient = () => {
           </Col>
         </Row>
 
-        <h5 className="mt-4">Company Details</h5>
+        <h5 className="mt-4 text-center text-md-start">Company Details</h5>
         <Row className="mb-3">
           <Col md={6}>
             <Form.Group>
@@ -124,21 +124,6 @@ const AddClient = () => {
         <Row className="mb-3">
           <Col md={6}>
             <Form.Group>
-              <Form.Label>City</Form.Label>
-              <Form.Control type="text" placeholder="e.g. New York, Jaipur" name="city" value={formData.city} onChange={handleChange} />
-            </Form.Group>
-          </Col>
-          <Col md={6}>
-            <Form.Group>
-              <Form.Label>State</Form.Label>
-              <Form.Control type="text" placeholder="e.g. California, Rajasthan" name="state" value={formData.state} onChange={handleChange} />
-            </Form.Group>
-          </Col>
-        </Row>
-
-        <Row className="mb-3">
-          <Col md={6}>
-            <Form.Group>
               <Form.Label>Company Address</Form.Label>
               <Form.Control as="textarea" rows={2} placeholder="e.g. 132, My Street, New York" name="companyAddress" value={formData.companyAddress} onChange={handleChange} />
             </Form.Group>
@@ -151,7 +136,7 @@ const AddClient = () => {
           </Col>
         </Row>
 
-        <h5 className="mt-4">Uploads</h5>
+        <h5 className="mt-4 text-center text-md-start">Uploads</h5>
         <Row className="mb-3">
           <Col md={6}>
             <Form.Group>
@@ -167,10 +152,14 @@ const AddClient = () => {
           </Col>
         </Row>
 
-       
-
-        <Button variant="primary" type="submit">Save</Button>
-        <Button variant="light" className="ms-2">Cancel</Button>
+        <div className="text-center mt-4">
+          <Button variant="primary" type="submit" className="w-100 w-md-auto">
+            Save
+          </Button>
+          <Button variant="light" className="ms-2 w-100 w-md-auto">
+            Cancel
+          </Button>
+        </div>
       </Form>
     </div>
   );

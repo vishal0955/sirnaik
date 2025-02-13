@@ -118,7 +118,7 @@ const CreateTimeInvoice = () => {
         </Row>
 
         {/* Invoice Items */}
-        <Table striped bordered hover variant="" className="mt-3">
+        <Table  responsive striped bordered hover variant="" className="mt-3">
           <thead>
             <tr>
               <th>Description</th>

@@ -1,9 +1,12 @@
-import React,{ useState } from "react";
-import { Table, Dropdown, Button, Form, InputGroup,Modal } from "react-bootstrap";
+import React, { useState } from "react";
+import { Table, Dropdown, Button, Form, InputGroup, Modal } from "react-bootstrap";
 import InvoiceForm from "./InvoiceForm";
+import CreateTimeInvoice from "./CreateTimeInvoice (1)";
 
 const InvoiceTable = () => {
   const [showModal, setShowModal] = useState(false);
+  const [dataModal, setDataModal] = useState(false);
+
   const invoices = [
     {
       code: "BOT",
@@ -33,19 +36,26 @@ const InvoiceTable = () => {
     },
   ];
 
-  
- const handleClick=()=>{
+  // ✅ Corrected function for handling modal states
+  const handleShowModal = (type) => {
+    if (type === "createInvoice") {
+      setShowModal(true);
+    } else if (type === "createTime") {
+      setDataModal(true);
+    }
+  };
 
-
-  setShowModal(true);
- }
   return (
     <div className="container-fluid p-3">
       {/* Top Controls */}
       <div className="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
         <div className="d-flex flex-wrap gap-2">
-          <Button variant="primary" onClick={handleClick} >+ Create Invoice</Button>
-          <Button variant="primary">+ Create TimeLog Invoice</Button>
+          <Button variant="primary" onClick={() => handleShowModal("createInvoice")}>
+            + Create Invoice
+          </Button>
+          <Button variant="primary" onClick={() => handleShowModal("createTime")}>
+            + Create TimeLog Invoice
+          </Button>
           <Button variant="outline-secondary">📁 Export</Button>
         </div>
         <div className="d-flex flex-wrap gap-2">
@@ -87,7 +97,7 @@ const InvoiceTable = () => {
                       src="https://i.pravatar.cc/300?u=myrl.yundt@example.net9"
                       alt="client"
                       className="rounded-circle me-2"
-                      style={{width:'50px',height:'50px'}}
+                      style={{ width: "50px", height: "50px" }}
                     />
                     <div>
                       <strong>{item.client}</strong>
@@ -143,12 +153,24 @@ const InvoiceTable = () => {
           </Button>
         </div>
       </div>
+
+      {/* Create Invoice Modal */}
       <Modal show={showModal} onHide={() => setShowModal(false)} size="lg">
         <Modal.Header closeButton>
-          <Modal.Title></Modal.Title>
+          <Modal.Title>Create Invoice</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <InvoiceForm />   
+          <InvoiceForm />
+        </Modal.Body>
+      </Modal>
+
+      {/* Create TimeLog Invoice Modal */}
+      <Modal show={dataModal} onHide={() => setDataModal(false)} size="lg">
+        <Modal.Header closeButton>
+          <Modal.Title>Create TimeLog Invoice</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <CreateTimeInvoice />
         </Modal.Body>
       </Modal>
     </div>

@@ -1,7 +1,6 @@
 import React from "react";
 import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 
-
 function AddEmployee() {
   return (
     <Container className="mt-4">
@@ -27,7 +26,10 @@ function AddEmployee() {
             <Col md={6}>
               <Form.Group className="mb-3">
                 <Form.Label>Email</Form.Label>
-                <Form.Control type="email" placeholder="e.g. john@example.com" />
+                <Form.Control
+                  type="email"
+                  placeholder="e.g. john@example.com"
+                />
               </Form.Group>
             </Col>
             <Col md={6}>
@@ -55,8 +57,8 @@ function AddEmployee() {
                 <Form.Label>Department</Form.Label>
                 <Form.Control as="select">
                   <option>--Select--</option>
-                <option>--Select--</option>
-                <option>Admin</option>
+                  <option>--Select--</option>
+                  <option>Admin</option>
                   <option>Management</option>
                   <option>Production</option>
                   <option>Designer</option>
@@ -179,7 +181,10 @@ function AddEmployee() {
           {/* Buttons */}
           <div className="d-flex justify-content-start gap-2">
             <Button variant="primary">Save</Button>
-            <Button variant="outline-primary">Save & Add More</Button>
+            <Button variant="outline-primary" className="">
+              Save & Add More
+            </Button>
+
             <Button variant="outline-secondary">Cancel</Button>
           </div>
         </Form>

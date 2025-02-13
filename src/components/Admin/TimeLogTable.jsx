@@ -7,6 +7,7 @@ const TimeLogTable = () => {
 
 
   const handleClick=()=>{
+    console.log(" log time btn clicked");
     setShowModal(true);
    }
   const [showModal, setShowModal] = useState(false);
@@ -42,8 +43,8 @@ const TimeLogTable = () => {
     <Container className="mt-4">
       {/* Header Buttons */}
       <div className="d-flex justify-content-between mb-3">
-        <Button variant="primary">
-          <FaPlus className="me-2" onClick={handleClick} /> Log Time
+        <Button variant="primary" onClick={handleClick}>
+          <FaPlus className="me-2"  /> Log Time
         </Button>
         <Button variant="light">
           <FaFileExport className="me-2" /> Export
@@ -120,6 +121,7 @@ const TimeLogTable = () => {
     </Container>
     <Modal show={showModal} onHide={() => setShowModal(false)} size="lg">
           <Modal.Header closeButton>
+            Log Time 
           </Modal.Header>
           <Modal.Body>
     <LogTimeForm />

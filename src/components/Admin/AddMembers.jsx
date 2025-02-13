@@ -8,49 +8,51 @@ function AddMembers() {
         <div className="add-member-main">
           <h5> Add Project Member</h5>
           <hr />
-          <div className="d-flex gap-3">
-            <div class="form-check">
+          <div className="d-flex flex-wrap gap-3">
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="flexRadioDefault"
                 id="flexRadioDefault1"
-                checked
+                defaultChecked
               />
-              <label class="form-check-label" for="flexRadioDefault1">
+              <label className="form-check-label" htmlFor="flexRadioDefault1">
                 Choose Member
               </label>
             </div>
-            <div class="form-check">
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="flexRadioDefault"
                 id="flexRadioDefault2"
-                
               />
-              <label class="form-check-label" for="flexRadioDefault2">
+              <label className="form-check-label" htmlFor="flexRadioDefault2">
                 Choose Department
               </label>
             </div>
           </div>
 
           <div className="mt-3">
-
             <h6>Add Project Member</h6>
-            <select className="w-100 " style={{height:'40px',color:'grey'}}>
-              <option>
-             Select
-              </option>
+            <select
+              className="form-select w-100 w-md-auto"
+              style={{ height: "40px", color: "grey" }}
+            >
+              <option>Select</option>
             </select>
-            <hr/>
+            <hr />
           </div>
 
-          <div className="d-flex justify-content-end gap-2">
-            <button style={{border:'none'}}> Close</button>
-            <button className="btn btn-primary"><FaCheck />Save</button>
+          <div className="d-flex justify-content-end gap-2 flex-wrap">
+            <button style={{ border: "none" }} className="w-100 w-md-auto">
+              Close
+            </button>
+            <button className="btn btn-primary w-100 w-md-auto">
+              <FaCheck /> Save
+            </button>
           </div>
-
         </div>
       </div>
     </div>

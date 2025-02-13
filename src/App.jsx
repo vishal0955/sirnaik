@@ -42,6 +42,7 @@ import FileUpload from "./components/Admin/FileUpload";
 import TableTask from "./components/Admin/TableTask";
 import TimeLogTable from "./components/Admin/TimeLogTable";
 import LogTimeForm from "./components/Admin/LogTimeForm";
+import ChangeDesginer from "./components/Admin/ChangeDesginer"
 
 
 
@@ -138,6 +139,7 @@ function App() {
             <Route path="/tableTask" element={<TableTask/>}/>
             <Route path="/timeLog" element={<TimeLogTable/>}/>
             <Route path="/logTable" element={<LogTimeForm/>}/>
+            <Route path="/changedes" element={<ChangeDesginer/>}/>
             
 
             {/* Designer Routes */}

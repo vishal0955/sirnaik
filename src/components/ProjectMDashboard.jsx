@@ -35,7 +35,9 @@ const ProjectManagementDashboard = () => {
   };
 
   return (
+    <div className="pro-manage-section mt-4">
     <Container fluid>
+      <h5>Project Manager DashBoard</h5>
       <Row className="mt-4 justify-content-center">
         <div className="col-12 col-sm-6 col-md-3">
         <Card className="p-3 bg-light shadow-sm">
@@ -56,22 +58,31 @@ const ProjectManagementDashboard = () => {
         </div>
 
         <Col xs={12} sm={6} md={3}>
-          <Card className="text-center p-3 bg-light shadow-sm">
+          <Card className="text-start p-3 bg-light shadow-sm">
+          <div className="d-flex justify-content-between">
             <h5>Total Projects</h5>
+            <i className={`fa-solid fa-layer-group text-primary`}></i>
+            </div>
             <h2 style={{color:'blue'}}>12</h2>
           </Card>
         </Col>
 
         <Col xs={12} sm={6} md={3}>
-          <Card className="text-center p-3 bg-light shadow-sm">
+          <Card className="text-start p-3 bg-light shadow-sm">
+           <div className="d-flex justify-content-between">
             <h5>Total Tasks</h5>
+            <i className={`fa-solid fa-address-book fs-4 text-primary`}></i>
+            </div>
             <h2 style={{color:'blue'}}>36</h2>
           </Card>
         </Col>
 
         <Col xs={12} sm={6} md={3}>
-          <Card className="text-center p-3 bg-light shadow-sm">
+          <Card className="text-start p-3 bg-light shadow-sm">
+          <div className="d-flex justify-content-between">
             <h5>Total Users</h5>
+            <i className={`fa-solid fa-user text-primary`}></i>
+            </div>
             <h2 style={{color:'blue'}}>18</h2>
           </Card>
         </Col>
@@ -137,6 +148,7 @@ const ProjectManagementDashboard = () => {
         </Col>
       </Row>
     </Container>
+    </div>
   );
 };
 

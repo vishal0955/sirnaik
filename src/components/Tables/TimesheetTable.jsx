@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Table, Dropdown } from "react-bootstrap";
-import { FaEllipsisV } from "react-icons/fa";
+import { Table, Dropdown, Modal, Button } from "react-bootstrap";
+import { FaEllipsisV, FaEye } from "react-icons/fa";
 import TableHeader from "./TableHeader";
-import { FaEye } from "react-icons/fa";
+import TimeSheetDetail from "../Admin/TimeSheetDetail";
 
 const initialTasks = [
   {
@@ -34,7 +34,7 @@ const initialTasks = [
   },
 ];
 
-
+// Custom Dropdown Toggle Button
 const CustomToggle = React.forwardRef(({ onClick }, ref) => (
   <button
     ref={ref}
@@ -48,47 +48,80 @@ const CustomToggle = React.forwardRef(({ onClick }, ref) => (
     <FaEllipsisV />
   </button>
 ));
+
 const TimesheetTable = () => {
   const [tasks, setTasks] = useState(initialTasks);
+  const [assigneModal, setAssigneModal] = useState(false);
+  const [selectedTask, setSelectedTask] = useState(null); // ✅ Added missing state
+
+  // Function to handle View Click
+  const handleViewClick = (task) => {
+    setSelectedTask(task);
+    setAssigneModal(true);
+  };
 
   return (
-    <Table responsive bordered hover className="tabledown">
-      <thead>
-        <tr className="table-secondary">
-          <th>Id</th>
-          <th>Code</th>
-          <th>Task</th>
-          <th>Employee</th>
-          <th>Start Time</th>
-          <th>End Time</th>
-          <th>Total Hours</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        {tasks.map((task, index) => (
-          <tr key={index}>
-            <td>{task.id}</td>
-            <td>{task.code}</td>
-            <td>{task.task}</td>
-            <td>{task.employee}</td>
-            <td>{task.startTime}</td>
-            <td>{task.endTime}</td>
-            <td>{task.totalHours}</td>
-            <td>
-              <Dropdown>
-                <Dropdown.Toggle as={CustomToggle} />
-                <Dropdown.Menu>
-                  <Dropdown.Item href="#"><FaEye />View</Dropdown.Item>
-                  <Dropdown.Item href="#"><i class="fa-solid fa-circle-stop"></i>Stop</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-              
-            </td>
+    <div>
+      <Table responsive bordered hover className="tabledown">
+        <thead>
+          <tr className="table-secondary">
+            <th>Id</th>
+            <th>Code</th>
+            <th>Task</th>
+            <th>Employee</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Total Hours</th>
+            <th>Action</th>
           </tr>
-        ))}
-      </tbody>
-    </Table>
+        </thead>
+        <tbody>
+          {tasks.map((task, index) => (
+            <tr key={index}>
+              <td>{task.id}</td>
+              <td>{task.code}</td>
+              <td>{task.task}</td>
+              <td>{task.employee}</td>
+              <td>{task.startTime}</td>
+              <td>{task.endTime}</td>
+              <td>{task.totalHours}</td>
+              <td>
+                <Dropdown>
+                  <Dropdown.Toggle as={CustomToggle} />
+                  <Dropdown.Menu>
+                    <Dropdown.Item href="#" onClick={() => handleViewClick(task)}>
+                      <FaEye /> View
+                    </Dropdown.Item>
+                    <Dropdown.Item href="#">
+                      <i className="fa-solid fa-circle-stop"></i> Stop
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+
+      {/* ✅ Fixed Modal */}
+      <Modal show={assigneModal} onHide={() => setAssigneModal(false)} size="xl">
+        <Modal.Header closeButton>
+          <Modal.Title>Time Log Details</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {selectedTask ? (
+            <TimeSheetDetail task={selectedTask} /> 
+          ) : (
+            <p>No task selected.</p>
+          )}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setAssigneModal(false)}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </div>
   );
 };
 
