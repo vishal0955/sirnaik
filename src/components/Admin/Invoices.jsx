@@ -37,7 +37,7 @@ const InvoiceTable = () => {
  const handleClick=({createInvoice})=>{
    setShowModal(true);
     
-  setShowModal(true);
+
  }
   return (
     <div className="container-fluid p-3">

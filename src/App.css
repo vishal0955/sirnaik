@@ -364,7 +364,7 @@ select.form-input {
   border-radius: 30px;
   margin-top: 66px;
   padding-left: 255px;
-  height: 100vh;
+  /* height: 100vh; */
   background-color:#F2F4F7;
   /* height: 668px; */
   /* overflow: scroll; */
