@@ -39,6 +39,8 @@ import InvoiceTable from "./components/Admin/invoices";
 import AddMembers from "./components/Admin/AddMembers";
 import FileUpload from "./components/Admin/FileUpload";
 import TableTask from "./components/Admin/TableTask";
+import TimeLogTable from "./components/Admin/TimeLogTable";
+import LogTimeForm from "./components/Admin/LogTimeForm";
 
 
 
@@ -124,7 +126,9 @@ function App() {
             <Route path="/invoices" element={<InvoiceTable/>}/>
             <Route path="/modelMembar" element={<AddMembers/>}/>
             <Route path="/fileUpload" element={<FileUpload/>}/>
-            <Route path="tableTask" element={<TableTask/>}/>
+            <Route path="/tableTask" element={<TableTask/>}/>
+            <Route path="/timeLog" element={<TimeLogTable/>}/>
+            <Route path="/logTable" element={<LogTimeForm/>}/>
             
 
             {/* Designer Routes */}
