@@ -1,8 +1,16 @@
 import React, { useState } from "react";
-import { Container, Table, Button, Dropdown, Form } from "react-bootstrap";
+import { Container, Table, Button, Dropdown, Form,Modal } from "react-bootstrap";
 import { FaPlus, FaFileExport, FaEllipsisV } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import TaskForm from "../Forms/AddTask";
 
 const TableTask = () => {
+  const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
+   
+ const handleClick=()=>{
+  setShowModal(true);
+ }
   const [tasks, setTasks] = useState([
     { code: "BOT-5", task: "March Hare. Visit.", priority: "High", startDate: "19-01-2025", dueDate: "27-01-2025", hours: "5h", assignedTo: "User1", status: "Doing" },
     { code: "BOT-4", task: "As soon as look at.", priority: "Low", startDate: "06-01-2025", dueDate: "13-01-2025", hours: "0s", assignedTo: "User2", status: "Incomplete" },
@@ -11,10 +19,11 @@ const TableTask = () => {
   ]);
 
   return (
+    <div>
     <Container className="mt-4">
       {/* Header Buttons */}
       <div className="d-flex justify-content-between mb-3">
-        <Button variant="primary">
+        <Button variant="primary" onClick={handleClick} >
           <FaPlus className="me-2" /> Add Task
         </Button>
         <Button variant="light">
@@ -93,6 +102,15 @@ const TableTask = () => {
         </tbody>
       </Table>
     </Container>
+    <Modal show={showModal} onHide={() => setShowModal(false)} size="lg">
+        <Modal.Header closeButton>
+          
+        </Modal.Header>
+        <Modal.Body>
+        <TaskForm />
+        </Modal.Body>
+      </Modal>
+    </div>
   );
 };
 

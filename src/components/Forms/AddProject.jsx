@@ -35,7 +35,7 @@ const AddProject = () => {
   return (
 
     <Container fluid >
-      <h3 className="mb-4">Add Project</h3>
+   
       <Form onSubmit={handleSubmit}>
         <Row className="mb-3">
           <Col md={6}>
@@ -101,7 +101,7 @@ const AddProject = () => {
         </Row>
         
         <Row className="mb-3">
-          <Col md={4}>
+          {/* <Col md={4}>
             <Form.Group>
               <Form.Label>Public Gantt Chart</Form.Label>
               <div>
@@ -118,7 +118,7 @@ const AddProject = () => {
                 <Form.Check inline label="Disable" type="radio" name="taskBoard" checked={!projectData.taskBoard} onChange={() => setProjectData({...projectData, taskBoard: false})} />
               </div>
             </Form.Group>
-          </Col>
+          </Col> */}
           <Col md={4}>
             <Form.Group>
               <Form.Label>Approval Required</Form.Label>

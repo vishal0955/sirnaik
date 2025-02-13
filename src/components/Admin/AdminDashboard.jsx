@@ -45,10 +45,10 @@ const doughnutData = {
 
 function AdminDashboard() {
   return (
-    <Container className="mt-4">
+    <div className="container-fluid mt-4">
       <div className="mb-4">
-        <h4>Dashboard</h4>
-        <p>Admin Dashboard</p>
+       
+        <h5>Admin Dashboard</h5>
       </div>
 
       {/* Cards Section */}
@@ -168,7 +168,7 @@ function AdminDashboard() {
           </Card>
         </Col>
       </Row>
-    </Container>
+    </div>
   );
 }
 

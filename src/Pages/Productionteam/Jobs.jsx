@@ -137,7 +137,7 @@ export const TaskTable = ({ filterStatus }) => {
             <td>{job.barcode}</td>
             <td>
               <Dropdown onSelect={(eventKey) => handlePriorityChange(index, eventKey)}>
-                <Dropdown.Toggle variant={priorityColors[job.priority]} id="dropdown-priority">
+                <Dropdown.Toggle variant={priorityColors[job.priority]} id="dropdown-priority" style={{width:'90px'}}>
                   {job.priority}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
@@ -151,7 +151,7 @@ export const TaskTable = ({ filterStatus }) => {
             </td>
             <td>
               <Dropdown onSelect={(eventKey) => handleStatusChange(index, eventKey)}>
-                <Dropdown.Toggle variant={statusColors[job.status]} id="dropdown-status">
+                <Dropdown.Toggle variant={statusColors[job.status]} id="dropdown-status" style={{width:'110px'}}>
                   {job.status}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>

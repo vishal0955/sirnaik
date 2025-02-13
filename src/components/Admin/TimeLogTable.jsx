@@ -1,8 +1,15 @@
 import React, { useState } from "react";
-import { Container, Table, Button, Dropdown, Form } from "react-bootstrap";
+import { Container, Table, Button, Dropdown, Form,Modal } from "react-bootstrap";
 import { FaPlus, FaFileExport, FaEllipsisV, FaCheckCircle } from "react-icons/fa";
+import LogTimeForm from "./LogTimeForm";
 
 const TimeLogTable = () => {
+
+
+  const handleClick=()=>{
+    setShowModal(true);
+   }
+  const [showModal, setShowModal] = useState(false);
   const [logs, setLogs] = useState([
     {
       id: 2,
@@ -31,11 +38,12 @@ const TimeLogTable = () => {
   ]);
 
   return (
+    <div>
     <Container className="mt-4">
       {/* Header Buttons */}
       <div className="d-flex justify-content-between mb-3">
         <Button variant="primary">
-          <FaPlus className="me-2" /> Log Time
+          <FaPlus className="me-2" onClick={handleClick} /> Log Time
         </Button>
         <Button variant="light">
           <FaFileExport className="me-2" /> Export
@@ -110,6 +118,14 @@ const TimeLogTable = () => {
         </tbody>
       </Table>
     </Container>
+    <Modal show={showModal} onHide={() => setShowModal(false)} size="lg">
+          <Modal.Header closeButton>
+          </Modal.Header>
+          <Modal.Body>
+    <LogTimeForm />
+          </Modal.Body>
+        </Modal>
+    </div>
   );
 };
 

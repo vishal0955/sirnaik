@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState} from "react";
 import { Card, Row, Col, Image } from "react-bootstrap";
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer, BarChart, Bar, XAxis, YAxis } from "recharts";
 import { FaDollarSign, FaClock } from "react-icons/fa";
+import ProjectMembers from "../Project/ProjectMember (1)";
+import FileUpload from "./FileUpload";
+import TableTask from "./TableTask";
+import InvoiceTable from "./invoices";
+import Timesheet from "../Tables/TimesheetTable";
+import TimeLogTable from "./TimeLogTable";
 
 // Colors for the Pie Chart
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF4444"];
@@ -32,7 +38,7 @@ const taskProgressData = [
   { name: "Overdue", value: 30, color: "#dc3545" },
 ];
 
-const ProjectOverview = () => {
+export const ProjectOverview = () => {
   return (
     <div className="container mt-4">
       <Row className="g-4">
@@ -207,4 +213,46 @@ const ProjectOverview = () => {
   );
 };
 
-export default ProjectOverview;
+
+const components = [
+
+    <ProjectOverview />,
+      <ProjectMembers />,
+      <FileUpload />,
+      <TableTask />,
+      <InvoiceTable />,
+      // <Timesheet />,
+     <TimeLogTable />,
+<div className="p-3"><p>Completed </p>
+</div>
+];
+
+const tabLabels = ["Overview", "Members", "Files","Tasks","Invoices","Timesheet"];
+const statusFilters = ["Pending", "InProgress", "Completed"];
+
+const ProjectDetail = () => {
+const [activeIndex, setActiveIndex] = useState(0);
+
+return (
+  <div className="container mt-3">
+    <ul className="nav nav-tabs">
+      {tabLabels.map((label, index) => (
+        <li className="nav-item" key={index}>
+          <button
+            className={`nav-link ${activeIndex === index ? "active" : ""}`}
+            onClick={() => setActiveIndex(index)}
+          >
+            {label}
+          </button>
+        </li>
+      ))}
+    </ul>
+    <div className="border p-3 mt-2"> 
+        {components[activeIndex]}
+    </div>
+    
+  </div>
+);
+};
+
+export default ProjectDetail;

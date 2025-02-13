@@ -5,8 +5,8 @@ function AddDesignation() {
     <div>
       <div className="container">
         <div className="add-designa-main">
-          <h5><b>Designation</b></h5>
-          <div className='bg-white mt-5 p-5 rounded-5'>
+       
+          <div className='bg-white rounded-5'>
             <div className="row">
               <h5>Add Designation</h5>
               <hr />

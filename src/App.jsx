@@ -21,7 +21,7 @@ import Designer from "./Designer/Dashboard";
 import ProjectManagementDashboard from "./components/ProjectMDashboard";
 import Jobs from "./Pages/Productionteam/Jobs";
 import TaskDetails from "./Designer/TaskDetails";
-import ProjectOverview from "./components/Project/Projectoverview";
+
 import Traffic from "./Pages/Productionteam/Traffic";
 import AdminDashboard from "./components/Admin/AdminDashboard";
 import TaskDetailsForm from "./Pages/Productionteam/EditTaskDetails";
@@ -36,6 +36,7 @@ import AddDesignation from "./components/Admin/AddDesignation";
 import Department from "./components/Admin/Department";
 import AddDepartment from "./components/Admin/AddDepartment";
 import InvoiceTable from "./components/Admin/invoices";
+import ProjectDetail from "./components/Admin/ProjectOverview";
 import AddMembers from "./components/Admin/AddMembers";
 import FileUpload from "./components/Admin/FileUpload";
 import TableTask from "./components/Admin/TableTask";
@@ -102,16 +103,22 @@ function App() {
             <Route path="/" element={<Login />} />
             {/* <Route path="/dashboard" element={<DashBoard />} /> */}
             <Route path="/dashboard" element={<AdminDashboard />} />
-            <Route path="/admindashboard" element={<AdminDashboard />} />
+           
 
             <Route path="/employeelist" element={<EmployeePage />} />
             <Route path="/employeeprofile" element={<EmployeeProfile />} />
             <Route path="/client" element={<ClientPage />} />
             <Route path="/clientprofile" element={<ClientProfile />} />
-
+            <Route path="/designation" element={<DesignationTable />} />
+            <Route path="/department" element={<Department/>}/>
+            <Route path="/adddesigna" element={<AddDesignation/>}/>
+          
+            <Route path="/addDepart" element={<AddDepartment/>}/>
 
             <Route path="/projectmanagementdashboard" element={<ProjectManagementDashboard />} />
             <Route path="/project" element={<ProjectOwner />} />
+            <Route path="/projectdetails" element={<ProjectDetail />} />
+            
             <Route path="/tasklist" element={<TaskPage />} />
             <Route path="/addproject" element={<AddProject />} />
             <Route path="/addtask" element={<TaskForm />} />
@@ -119,12 +126,14 @@ function App() {
             <Route path="/timesheet" element={<Timesheet />} />
             <Route path="/clientTable" element={<ClientTable/>}/>
             <Route path="/clientForm" element={<ClientForm/>}/>
+            {/* <Route path="/desigTable" element={<DesignationTable/>}/> */}
+            
             <Route path="/desigTable" element={<DesignationTable/>}/>
             <Route path="/adddesigna" element={<AddDesignation/>}/>
             <Route path="/depaForm" element={<Department/>}/>
             <Route path="/addDepart" element={<AddDepartment/>}/>
             <Route path="/invoices" element={<InvoiceTable/>}/>
-            <Route path="/modelMembar" element={<AddMembers/>}/>
+            <Route path="/addMember" element={<AddMembers/>}/>
             <Route path="/fileUpload" element={<FileUpload/>}/>
             <Route path="/tableTask" element={<TableTask/>}/>
             <Route path="/timeLog" element={<TimeLogTable/>}/>
@@ -141,7 +150,7 @@ function App() {
 
             <Route path="/jobs" element={<Jobs /> } />
             <Route path="/traffic" element={<Traffic /> } />
-           <Route path="/ProjectOverview" element={<ProjectOverview  />} />
+           {/* <Route path="/ProjectOverview" element={<ProjectOverview  />} /> */}
             <Route path="/edittaskdetails" element={<TaskDetailsForm  />} />
 
           </Routes>

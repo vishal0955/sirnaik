@@ -3,12 +3,12 @@ import { useNavigate, useLocation } from "react-router-dom";
 import "./Sidebar.css";
 
 const Sidebar = ({ collapsed , menuItemClick, onEMRClick }) => {
-  const [openSubmenu, setOpenSubmenu] = useState(null); // Tracks the open submenu
+  const [openSubmenu, setOpenSubmenu] = useState("Dashboard"); // Tracks the open submenu
   const navigate = useNavigate();
   const location = useLocation();
 
   const toggleSubmenu = (menuName) => {
-    setOpenSubmenu((prev) => (prev === menuName ? null : menuName));
+    setOpenSubmenu((prev) => (prev === menuName ? "Dashboard" : menuName));
   };
 
    // Function to check if a path is active
@@ -28,16 +28,16 @@ const Sidebar = ({ collapsed , menuItemClick, onEMRClick }) => {
 
 
           {/* Admin  */}
-        <li className={`menu-item ${isSubmenuActive(["/admindashboard", "/project","/tasklist","/timesheet","/billingpayments"]) ? "active" : ""}`}>
-            <div className="menu-link menu-i" onClick={() => toggleSubmenu("admindashboard")}>
+        <li className={`menu-item ${isSubmenuActive(["/admindashboard","/dashboard", "/project","/designation","/department","/tasklist","/timesheet","/billingpayments"]) ? "active" : ""}`}>
+            <div className="menu-link menu-i" onClick={() => toggleSubmenu("dashboard")}>
               <i className="fa-solid fa-list-check"></i>
               <span className="menu-text">Dashboard</span>
-              <i className={`fa-solid fa-chevron-down submenu-arrow ${openSubmenu === "admindashboard" ? "rotated" : ""}`}></i>
+              <i className={`fa-solid fa-chevron-down submenu-arrow ${openSubmenu === "dashboard" ? "rotated" : ""}`}></i>
             </div>
           </li>
-          <ul className={`submenu ${openSubmenu === "admindashboard" ? "expanded" : "collapsed"}`}>
-            <li className={`submenu-item ${isActive("/projectmanagementdashboard") ? "active" : ""}`}
-              onClick={() => {navigate("/projectmanagementdashboard");setOpenSubmenu(null);}}>
+          <ul className={`submenu ${openSubmenu === "dashboard" ? "expanded" : "collapsed"}`}>
+            <li className={`submenu-item ${isActive("/dashboard") ? "active" : ""}`}
+              onClick={() => {navigate("/dashboard");setOpenSubmenu(null);}}>
               <i className="fa-solid fa-arrow-trend-up"></i> Dashboard
             </li>
             <li className={`submenu-item ${isActive("/employeelist") ? "active" : ""}`}
@@ -47,6 +47,21 @@ const Sidebar = ({ collapsed , menuItemClick, onEMRClick }) => {
               }}>
               <i className="fa-solid fa-arrow-trend-up"></i>Employee Manangement
             </li>
+            <li className={`submenu-item ${isActive("/department") ? "active" : ""}`}
+              onClick={() => {
+                navigate("/department");
+                setOpenSubmenu(null);menuItemClick();
+              }}>
+              <i className="fa-solid fa-arrow-trend-up"></i> Department
+            </li>
+            <li className={`submenu-item ${isActive("/designation") ? "active" : ""}`}
+              onClick={() => {
+                navigate("/designation");
+                setOpenSubmenu(null);menuItemClick();
+              }}>
+              <i className="fa-solid fa-arrow-trend-up"></i> Designation
+            </li>
+
             <li className={`submenu-item ${isActive("/project") ? "active" : ""}`}
               onClick={() => {
                 navigate("/project");

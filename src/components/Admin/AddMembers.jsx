@@ -40,7 +40,7 @@ function AddMembers() {
             <h6>Add Project Member</h6>
             <select className="w-100 " style={{height:'40px',color:'grey'}}>
               <option>
-                Nathing Selected
+             Select
               </option>
             </select>
             <hr/>
