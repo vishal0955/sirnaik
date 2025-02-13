@@ -19,7 +19,7 @@ const LogTimeForm = () => {
 
   return (
     <Container className="mt-4">
-      <h3 className="mb-3">Log Time</h3>
+     
       <Form>
         <Row className="mb-3">
           <Col md={4}>

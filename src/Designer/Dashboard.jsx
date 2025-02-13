@@ -12,7 +12,8 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import { Card, Table, Container, Row, Col } from "react-bootstrap";
+import { Card, Table, Container, Row, Col, Modal, Button, Form } from "react-bootstrap";
+import { FaClock } from "react-icons/fa";
 
 ChartJS.register(
   CategoryScale,
@@ -68,11 +69,21 @@ function Designer() {
       },
     ],
   };
+  const [showClockIn, setShowClockIn] = useState(false);
+
+  const handleShowClockIn = () => setShowClockIn(true);
+  const handleCloseClockIn = () => setShowClockIn(false);
 
   return (
     <div className="task-over-pro">
+      <div className="d-flex justify-content-between align-items-center mb-4">
+        <h5>Designer Dashboard</h5>
+        <Button variant="primary" className="mt-2" onClick={handleShowClockIn}>
+                <Clock className="me-1" /> Clock In
+              </Button>
+      </div>
       <Container>
-        {/* Cards Row */}
+
         <Row className="mb-4">
           <Col xs={12} sm={6} md={3}>
             <Card className="p-3 bg-light shadow-sm">
@@ -201,8 +212,66 @@ function Designer() {
           </Col>
         </Row>
       </Container>
+      <ClockInModal show={showClockIn} handleClose={handleCloseClockIn} />
     </div>
   );
 }
 
 export default Designer;
+
+
+
+
+export const ClockInModal = ({ show, handleClose }) => {
+  const [location, setLocation] = useState("Worksuite");
+  const [workingFrom, setWorkingFrom] = useState("Home");
+  const currentTime = new Date().toLocaleString("en-GB", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  });
+
+  return (
+    <Modal show={show} onHide={handleClose} centered>
+      <Modal.Header closeButton>
+        <Modal.Title>Clock In</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <div className="d-flex align-items-center mb-3">
+          <Clock className="me-2" />
+          <span>{currentTime}</span>
+          <Button variant="info" size="sm" className="ms-auto">
+            General Shift
+          </Button>
+        </div>
+        <Form>
+          <Form.Group className="mb-3">
+            <Form.Label>Location</Form.Label>
+            <Form.Select value={location} onChange={(e) => setLocation(e.target.value)}>
+              <option>Worksuite</option>
+              <option>Office</option>
+              <option>Remote</option>
+            </Form.Select>
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Working From <span className="text-danger">*</span></Form.Label>
+            <Form.Select value={workingFrom} onChange={(e) => setWorkingFrom(e.target.value)}>
+              <option>Home</option>
+              <option>Office</option>
+              <option>Client Site</option>
+            </Form.Select>
+          </Form.Group>
+        </Form>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={handleClose}>Cancel</Button>
+        <Button variant="primary">Clock In</Button>
+      </Modal.Footer>
+    </Modal>
+  );
+};
+
+

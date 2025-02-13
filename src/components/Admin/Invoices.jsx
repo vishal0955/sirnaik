@@ -34,9 +34,9 @@ const InvoiceTable = () => {
   ];
 
   
- const handleClick=()=>{
-
-
+ const handleClick=({createInvoice})=>{
+   setShowModal(true);
+    
   setShowModal(true);
  }
   return (
@@ -44,7 +44,7 @@ const InvoiceTable = () => {
       {/* Top Controls */}
       <div className="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
         <div className="d-flex flex-wrap gap-2">
-          <Button variant="primary" onClick={handleClick} >+ Create Invoice</Button>
+          <Button variant="primary" onClick={()=>handleClick("createInvoice")} >+ Create Invoice</Button>
           <Button variant="primary">+ Create TimeLog Invoice</Button>
           <Button variant="outline-secondary">📁 Export</Button>
         </div>
