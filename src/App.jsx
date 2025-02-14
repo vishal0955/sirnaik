@@ -205,6 +205,7 @@ import TableTemplate from "./components/Admin/TablwTemplate";
 import TaskDashboard from "./components/Admin/TaskDashboard";
 import LeaveTable from "./components/Admin/LeaveTable";
 import ProductionDashboard from "./Pages/Productionteam/ProductionDashboard";
+import ContractTab from "./components/Project/ContractTab";
 
 function App() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -269,7 +270,7 @@ function App() {
             <Route path="/addMember" element={<AddMembers />} />
             <Route path="/fileUpload" element={<FileUpload />} />
             {/* <Route path="tableTask" element={<TableTask />} /> */}
-
+             <Route path="/contract" element={<ContractTab />} />
             <Route path="/productiondashboard" element={<ProductionDashboard />} />
             
             <Route path="/desigTable" element={<DesignationTable/>}/>
