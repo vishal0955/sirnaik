@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Form, Button, Dropdown } from "react-bootstrap";
 
-
 const AddProject = () => {
   const [projectData, setProjectData] = useState({
     shortCode: "",
@@ -130,14 +129,30 @@ const AddProject = () => {
           </Col>
         </Row>
         
-        <Row className="mb-3">
+        {/* <Row className="mb-3">
           <Col md={12}>
             <Form.Group>
               <Form.Label>Add Project Members *</Form.Label>
               <Form.Control type="text" name="members" value={projectData.members} onChange={handleChange} placeholder="Enter team members" required />
             </Form.Group>
           </Col>
-        </Row>
+        </Row> */}
+        <Row className="mb-3">
+  <Col md={12}>
+    <Form.Group>
+      <Form.Label>Add Project Members *</Form.Label>
+      <Form.Select name="members" value={projectData.members} onChange={handleChange} required>
+        <option value="">Select team members</option>
+        {membersList.map((member) => (
+          <option key={member.id} value={member.id}>
+            {member.name}
+          </option>
+        ))}
+      </Form.Select>
+    </Form.Group>
+  </Col>
+</Row>
+
         
         <Button type="submit" variant="primary">Save</Button>
         <Button variant="secondary" className="ms-2">Cancel</Button>

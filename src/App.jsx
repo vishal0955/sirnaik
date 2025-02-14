@@ -163,7 +163,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import Navbar from "./layout/Navbar";
 import Sidebar from "./layout/Sidebar";
-import Login from './authtication/Login';
+import Login from "./Auth/Login";
 
 import ProjectOwner from "./components/Tables/ProjectOwner";
 import TaskPage from "./components/Tables/TaskTable";
@@ -261,7 +261,7 @@ function App() {
             <Route path="/invoices" element={<InvoiceTable />} />
             <Route path="/addMember" element={<AddMembers />} />
             <Route path="/fileUpload" element={<FileUpload />} />
-            <Route path="tableTask" element={<TableTask />} />
+            {/* <Route path="tableTask" element={<TableTask />} /> */}
             
             <Route path="/desigTable" element={<DesignationTable/>}/>
             <Route path="/adddesigna" element={<AddDesignation/>}/>
@@ -270,7 +270,7 @@ function App() {
             <Route path="/invoices" element={<InvoiceTable/>}/>
             <Route path="/addMember" element={<AddMembers/>}/>
             <Route path="/fileUpload" element={<FileUpload/>}/>
-            <Route path="/tableTask" element={<TableTask/>}/>
+            {/* <Route path="/tableTask" element={<TableTask/>}/> */}
             <Route path="/timeLog" element={<TimeLogTable/>}/>
             <Route path="/logTable" element={<LogTimeForm/>}/>
             <Route path="/changedes" element={<ChangeDesginer/>}/>

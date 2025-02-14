@@ -4,7 +4,7 @@ import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 function AddEmployee() {
   return (
     <Container className="mt-4">
-      <h4>Add Employee</h4>
+      
       <Card className="p-4 shadow-sm">
         <Form>
           <Row>
@@ -45,7 +45,7 @@ function AddEmployee() {
               <Form.Group className="mb-3">
                 <Form.Label>Designation</Form.Label>
                 <Form.Control as="select">
-                  <option>--Select--</option>
+         
                   <option>Manager</option>
                   <option>Production</option>
                   <option>Designer</option>
@@ -56,9 +56,7 @@ function AddEmployee() {
               <Form.Group className="mb-3">
                 <Form.Label>Department</Form.Label>
                 <Form.Control as="select">
-                  <option>--Select--</option>
-                  <option>--Select--</option>
-                  <option>Admin</option>
+               
                   <option>Management</option>
                   <option>Production</option>
                   <option>Designer</option>

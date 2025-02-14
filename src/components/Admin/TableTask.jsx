@@ -3,6 +3,7 @@ import { Container, Table, Button, Dropdown, Form,Modal } from "react-bootstrap"
 import { FaPlus, FaFileExport, FaEllipsisV } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import TaskForm from "../Forms/AddTask";
+import TableHeader from "../Tables/TableHeader";
 
 const TableTask = () => {
   const [showModal, setShowModal] = useState(false);
@@ -110,6 +111,7 @@ const TableTask = () => {
         <TaskForm />
         </Modal.Body>
       </Modal>
+
     </div>
   );
 };

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./Sidebar.css";
+import { FaHome } from "react-icons/fa";
+
 
 const Sidebar = ({ collapsed , menuItemClick, onEMRClick }) => {
   const [openSubmenu, setOpenSubmenu] = useState("Dashboard"); // Tracks the open submenu
@@ -30,7 +32,7 @@ const Sidebar = ({ collapsed , menuItemClick, onEMRClick }) => {
           {/* Admin  */}
         <li className={`menu-item ${isSubmenuActive(["/admindashboard","/dashboard", "/project","/designation","/department","/tasklist","/timesheet","/billingpayments"]) ? "active" : ""}`}>
             <div className="menu-link menu-i" onClick={() => toggleSubmenu("dashboard")}>
-              <i className="fa-solid fa-list-check"></i>
+            
               <span className="menu-text">Dashboard</span>
               <i className={`fa-solid fa-chevron-down submenu-arrow ${openSubmenu === "dashboard" ? "rotated" : ""}`}></i>
             </div>
@@ -38,7 +40,8 @@ const Sidebar = ({ collapsed , menuItemClick, onEMRClick }) => {
           <ul className={`submenu ${openSubmenu === "dashboard" ? "expanded" : "collapsed"}`}>
             <li className={`submenu-item ${isActive("/dashboard") ? "active" : ""}`}
               onClick={() => {navigate("/dashboard");setOpenSubmenu(null);}}>
-              <i className="fa-solid fa-arrow-trend-up"></i> Dashboard
+                       <i class="fa fa-home" aria-hidden="true"></i>
+                       <span> Dashboard</span>
             </li>
             <li className={`submenu-item ${isActive("/employeelist") ? "active" : ""}`}
               onClick={() => {
@@ -163,7 +166,7 @@ const Sidebar = ({ collapsed , menuItemClick, onEMRClick }) => {
           
           </ul>
 
-            {/* Designer */}
+    
             <li className={`menu-item ${isSubmenuActive(["/designerdashboard", "/dtimesheet","/designertask","/billingpayments"]) ? "active" : ""}`}>
             <div className="menu-link menu-i" onClick={() => toggleSubmenu("designerdashboard")}>
               <i className="fa-solid fa-list-check"></i>
@@ -176,13 +179,7 @@ const Sidebar = ({ collapsed , menuItemClick, onEMRClick }) => {
               onClick={() => {navigate("/designerdashboard");setOpenSubmenu(null);menuItemClick();}}>
               <i className="fa-solid fa-arrow-trend-up"></i> Dashboard
             </li>
-            {/* <li className={`submenu-item ${isActive("/project") ? "active" : ""}`}
-              onClick={() => {
-                navigate("/project");
-                setOpenSubmenu(null);menuItemClick();
-              }}>
-              <i className="fa-solid fa-arrow-trend-up"></i> Project
-            </li> */}
+         
             <li className={`submenu-item ${isActive("/designertask") ? "active" : ""}`}
               onClick={() => {
                 navigate("/designertask");

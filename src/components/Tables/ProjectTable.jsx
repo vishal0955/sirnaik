@@ -20,7 +20,7 @@ const statusColors = {
   Cancelled: "secondary",
 };
 
-const initialProjects = [
+export const initialProjects = [
   { id: "BOT", name: "Chatbots", members: 5, startDate: "2024-12-29", deadline: "2025-04-29", client: "Kailee Kuvalis", priority: "Normal", status: "Pending" },
   { id: "ALT", name: "Android Ticketing", members: 6, startDate: "2024-12-29", deadline: "2025-04-29", client: "Laila Gerlach", priority: "High", status: "On Hold" },
   { id: "OMF", name: "Opinion Mining", members: 7, startDate: "2024-12-29", deadline: "2025-04-29", client: "Halie Wilkinson", priority: "Medium", status: "To Start" },

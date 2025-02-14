@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 const userRoles = ["Project Manager", "Production Team", "Junior", "Designer"];
 const statusOptions = ["Active", "Inactive"];
 
-const initialEmployees = [
+ export const initialEmployees = [
   {
     employeeId: "E001",
     name: "John Doe",
@@ -32,6 +32,7 @@ const initialEmployees = [
 
 
 export const EmployeeToolbar = () => {
+  
    const [showModal, setShowModal] = useState(false);
   const handleButtonClick = () => {
    
