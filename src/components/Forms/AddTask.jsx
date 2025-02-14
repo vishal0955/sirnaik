@@ -293,9 +293,116 @@
 // };
 
 // export default TaskForm;
-import React, { useState, useEffect } from "react";
+// import React, { useState, useEffect } from "react";
 
-import { initialEmployees } from "../Admin/EmployeeList"; 
+// import { initialEmployees } from "../Admin/EmployeeList"; 
+
+// const TaskForm = () => {
+//   const [employees, setEmployees] = useState([]);
+
+//   useEffect(() => {
+//     // Load employees from initialEmployees array
+//     setEmployees(initialEmployees);
+//   }, []);
+
+//   return (
+//     <div className="container mt-4">
+//       <h2>Create Task</h2>
+//       <form>
+//         <div className="mb-3">
+//           <label className="form-label">Title *</label>
+//           <input type="text" className="form-control" placeholder="Enter a task title" />
+//         </div>
+        
+//         <div className="row">
+//           <div className="col-md-6 mb-3">
+//             <label className="form-label">Project</label>
+//             <select className="form-select">
+//               <option>--</option>
+//             </select>
+//           </div>
+//           <div className="col-md-6 mb-3">
+//             <label className="form-label">Task Category</label>
+//             <select className="form-select">
+//               <option>--</option>
+//             </select>
+//           </div>
+//         </div>
+
+//         <div className="row">
+//           <div className="col-md-6 mb-3">
+//             <label className="form-label">Start Date *</label>
+//             <input type="date" className="form-control" />
+//           </div>
+//           <div className="col-md-6 mb-3">
+//             <label className="form-label">Due Date *</label>
+//             <input type="date" className="form-control" />
+//           </div>
+//         </div>
+        
+//         <div className="mb-3">
+//           <label className="form-label">Assigned To</label>
+//           <select className="form-select">
+//             <option>Nothing selected</option>
+//             {employees.map((employee, index) => (
+//               <option key={index} value={employee.employeeId}>{employee.name}</option>
+//             ))}
+//           </select>
+//         </div>
+        
+//         <div className="mb-3">
+//           <label className="form-label">Description</label>
+//           <textarea className="form-control" rows="3"></textarea>
+//         </div>
+        
+//         <div className="mb-3">
+//           <h5>Other Details</h5>
+//           <div className="row">
+//             <div className="col-md-4 mb-3">
+//               <label className="form-label">Label</label>
+//               <select className="form-select">
+//                 <option>Nothing selected</option>
+//               </select>
+//             </div>
+//             <div className="col-md-4 mb-3">
+//               <label className="form-label">Milestones</label>
+//               <select className="form-select">
+//                 <option>--</option>
+//               </select>
+//             </div>
+//             <div className="col-md-4 mb-3">
+//               <label className="form-label">Priority</label>
+//               <select className="form-select">
+//                 <option>Medium</option>
+//               </select>
+//             </div>
+//           </div>
+//         </div>
+
+//         <div className="mb-3">
+//           <input type="checkbox" className="form-check-input" id="private" />
+//           <label className="form-check-label ms-2" htmlFor="private">Make Private</label>
+//         </div>
+//         <div className="mb-3">
+//           <input type="checkbox" className="form-check-input" id="billable" />
+//           <label className="form-check-label ms-2" htmlFor="billable">Billable</label>
+//         </div>
+        
+//         <div className="mb-3">
+//           <label className="form-label">Add File</label>
+//           <input type="file" className="form-control" />
+//         </div>
+        
+//         <button type="submit" className="btn btn-primary">Submit</button>
+//       </form>
+//     </div>
+//   );
+// };
+
+// export default TaskForm;
+
+import React, { useState, useEffect } from "react";
+import { initialEmployees } from "../Admin/EmployeeList";
 
 const TaskForm = () => {
   const [employees, setEmployees] = useState([]);
@@ -305,95 +412,129 @@ const TaskForm = () => {
     setEmployees(initialEmployees);
   }, []);
 
+  
+
   return (
     <div className="container mt-4">
-      <h2>Create Task</h2>
+      <h2 className="mb-3">New Job</h2>
       <form>
-        <div className="mb-3">
-          <label className="form-label">Title *</label>
-          <input type="text" className="form-control" placeholder="Enter a task title" />
-        </div>
-        
         <div className="row">
-          <div className="col-md-6 mb-3">
-            <label className="form-label">Project</label>
-            <select className="form-select">
-              <option>--</option>
-            </select>
+          {/* Left Side Fields */}
+          <div className="col-md-6">
+            <div className="mb-2">
+              <label className="form-label">Job #</label>
+              <input type="text" className="form-control" />
+            </div>
+            <div className="mb-2">
+              <label className="form-label">Project #</label>
+              <input type="text" className="form-control" />
+            </div>
+            <div className="mb-2">
+              <label className="form-label">Project Name</label>
+              <input type="text" className="form-control" />
+            </div>
+            <div className="mb-2">
+              <label className="form-label">Client</label>
+              <input type="text" className="form-control" />
+            </div>
+            <div className="mb-2">
+              <label className="form-label">Promotion</label>
+              <input type="text" className="form-control" />
+            </div>
+            <div className="mb-2">
+              <label className="form-label">Brand</label>
+              <input type="text" className="form-control" />
+            </div>
+            <div className="mb-2">
+              <label className="form-label">Sub-Brand</label>
+              <input type="text" className="form-control" />
+            </div>
+            <div className="mb-2">
+              <label className="form-label">Flavour</label>
+              <input type="text" className="form-control" />
+            </div>
+            <div className="mb-2">
+              <label className="form-label">Pack Type</label>
+              <input type="text" className="form-control" />
+            </div>
+            <div className="mb-2">
+              <label className="form-label">Pack Size</label>
+              <input type="text" className="form-control" />
+            </div>
           </div>
-          <div className="col-md-6 mb-3">
-            <label className="form-label">Task Category</label>
-            <select className="form-select">
-              <option>--</option>
-            </select>
+
+          {/* Right Side Fields */}
+          <div className="col-md-6">
+            <div className="mb-2">
+              <label className="form-label">Date Created</label>
+              <input type="date" className="form-control" />
+            </div>
+            <div className="mb-2">
+              <label className="form-label">Target Date</label>
+              <input type="date" className="form-control" />
+            </div>
+            <div className="mb-2">
+              <label className="form-label">Pack Code</label>
+              <input type="text" className="form-control" />
+            </div>
+            <div className="mb-2">
+              <label className="form-label">FG Code</label>
+              <input type="text" className="form-control" />
+            </div>
+            <div className="mb-2">
+              <label className="form-label">Barcode</label>
+              <input type="text" className="form-control" />
+            </div>
+            <div className="mb-2">
+              <label className="form-label">TD No.</label>
+              <input type="text" className="form-control" />
+            </div>
+            <div className="mb-2">
+              <label className="form-label">Dimensions</label>
+              <input type="text" className="form-control" />
+            </div>
+            <div className="mb-2">
+              <label className="form-label">Trim Size</label>
+              <input type="text" className="form-control" />
+            </div>
+            <div className="mb-2">
+              <label className="form-label">No. of Colours</label>
+              <input type="text" className="form-control" />
+            </div>
+            <div className="mb-2">
+              <label className="form-label">Print Process</label>
+              <input type="text" className="form-control" />
+            </div>
           </div>
         </div>
 
-        <div className="row">
-          <div className="col-md-6 mb-3">
-            <label className="form-label">Start Date *</label>
-            <input type="date" className="form-control" />
-          </div>
-          <div className="col-md-6 mb-3">
-            <label className="form-label">Due Date *</label>
-            <input type="date" className="form-control" />
-          </div>
-        </div>
-        
+        {/* Assigned Members Dropdown */}
         <div className="mb-3">
-          <label className="form-label">Assigned To</label>
+          <label className="form-label">Assign Members</label>
           <select className="form-select">
             <option>Nothing selected</option>
             {employees.map((employee, index) => (
-              <option key={index} value={employee.employeeId}>{employee.name}</option>
+              <option key={index} value={employee.employeeId}>
+                {employee.name}
+              </option>
             ))}
           </select>
         </div>
-        
+
+        {/* Instructions & Attachments */}
         <div className="mb-3">
-          <label className="form-label">Description</label>
-          <textarea className="form-control" rows="3"></textarea>
-        </div>
-        
-        <div className="mb-3">
-          <h5>Other Details</h5>
-          <div className="row">
-            <div className="col-md-4 mb-3">
-              <label className="form-label">Label</label>
-              <select className="form-select">
-                <option>Nothing selected</option>
-              </select>
-            </div>
-            <div className="col-md-4 mb-3">
-              <label className="form-label">Milestones</label>
-              <select className="form-select">
-                <option>--</option>
-              </select>
-            </div>
-            <div className="col-md-4 mb-3">
-              <label className="form-label">Priority</label>
-              <select className="form-select">
-                <option>Medium</option>
-              </select>
-            </div>
+          <label className="form-label">Instructions:</label>
+          <div className="d-flex">
+            <input type="file" className="form-control me-2" />
           </div>
         </div>
-
-        <div className="mb-3">
-          <input type="checkbox" className="form-check-input" id="private" />
-          <label className="form-check-label ms-2" htmlFor="private">Make Private</label>
-        </div>
-        <div className="mb-3">
-          <input type="checkbox" className="form-check-input" id="billable" />
-          <label className="form-check-label ms-2" htmlFor="billable">Billable</label>
-        </div>
         
-        <div className="mb-3">
-          <label className="form-label">Add File</label>
-          <input type="file" className="form-control" />
+        {/* Buttons */}
+        <div className="d-flex justify-content-end gap-2">
+          <button type="submit" className="btn btn-success">Save & Close</button>
+          <button type="submit" className="btn btn-success">Save & Add...</button>
+          <button type="button" className="btn btn-danger">Discard</button>
         </div>
-        
-        <button type="submit" className="btn btn-primary">Submit</button>
       </form>
     </div>
   );

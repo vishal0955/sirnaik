@@ -101,6 +101,22 @@ const Sidebar = ({ collapsed, menuItemClick }) => {
                   </li>
                 </ul>
               </li>
+              <li className="menu-item">
+                <div className="menu-link menu-i">
+                  <span className="menu-text">HRM</span>
+                </div>
+                <ul className="submenu expanded">
+                  <li className={`submenu-item ${isActive("/employeelist") ? "active" : ""}`}
+                    onClick={() => { navigate("/employeelist"); menuItemClick(); }}>
+                    Employee Management
+                  </li>
+                 
+                  <li className={`submenu-item ${isActive("/leavetable") ? "active" : ""}`}
+                    onClick={() => { navigate("/leavetable"); menuItemClick(); }}>
+                    Leave
+                  </li>
+                </ul>
+              </li>
             </>
           )}
 
@@ -112,18 +128,39 @@ const Sidebar = ({ collapsed, menuItemClick }) => {
                
                 </div>
                 <ul className="submenu expanded">
-                <li className={`submenu-item ${isActive("/production") ? "active" : ""}`}
-                    onClick={() => { navigate("/jobs"); menuItemClick(); }}>
+                <li className={`submenu-item ${isActive("/productiondashboard") ? "active" : ""}`}
+                    onClick={() => { navigate("/productiondashboard"); menuItemClick(); }}>
                     Dashboard
+                  </li>
+                  <li className={`submenu-item ${isActive("/project") ? "active" : ""}`}
+                    onClick={() => { navigate("/project"); menuItemClick(); }}>
+                    Project
                   </li>
                   <li className={`submenu-item ${isActive("/jobs") ? "active" : ""}`}
                     onClick={() => { navigate("/jobs"); menuItemClick(); }}>
                     Tasks
                   </li>
+               
                  
                   <li className={`submenu-item ${isActive("/traffic") ? "active" : ""}`}
                     onClick={() => { navigate("/traffic"); menuItemClick(); }}>
                     Traffic
+                  </li>
+                </ul>
+              </li>
+              <li className="menu-item">
+                <div className="menu-link menu-i">
+                  <span className="menu-text">HRM</span>
+                </div>
+                <ul className="submenu expanded">
+                  <li className={`submenu-item ${isActive("/employeelist") ? "active" : ""}`}
+                    onClick={() => { navigate("/employeelist"); menuItemClick(); }}>
+                    Employee Management
+                  </li>
+                 
+                  <li className={`submenu-item ${isActive("/leavetable") ? "active" : ""}`}
+                    onClick={() => { navigate("/leavetable"); menuItemClick(); }}>
+                    Leave
                   </li>
                 </ul>
               </li>

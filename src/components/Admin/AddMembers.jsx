@@ -1,7 +1,9 @@
 import React from "react";
 import { FaCheck } from "react-icons/fa";
+import { initialEmployees } from "./EmployeeList";
 
 function AddMembers() {
+
   return (
     <div>
       <div className="container">
@@ -40,16 +42,21 @@ function AddMembers() {
               className="form-select w-100 w-md-auto"
               style={{ height: "40px", color: "grey" }}
             >
-              <option>Select</option>
+               {initialEmployees.map((member) => (
+          <option key={member.id} value={member.id}>
+            {member.name}
+          </option>
+        ))}
+          
             </select>
             <hr />
           </div>
 
           <div className="d-flex justify-content-end gap-2 flex-wrap">
-            <button style={{ border: "none" }} className="w-100 w-md-auto">
+            <button className="btn w-md-auto">
               Close
             </button>
-            <button className="btn btn-primary w-100 w-md-auto">
+            <button className="btn btn-primary w-md-auto">
               <FaCheck /> Save
             </button>
           </div>

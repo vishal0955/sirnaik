@@ -51,18 +51,18 @@ const Login = () => {
       <div className="card shadow-lg p-4 bg-dark text-light" style={{ maxWidth: "450px", width: "100%" }}>
         {/* Login / Signup Toggle */}
         <div className="d-flex gap-4 mb-3">
-          <button
+          {/* <button
             className={`btn w-50 ${activeTab === "signup" ? "btn-success" : "btn-outline-light"}`}
             onClick={() => setActiveTab("signup")}
           >
             Sign Up
-          </button>
-          <button
+          </button> */}
+          {/* <button
             className={`btn w-50 ${activeTab === "login" ? "btn-success" : "btn-outline-light"}`}
             onClick={() => setActiveTab("login")}
           >
             Log In
-          </button>
+          </button> */}
         </div>
 
         {/* Form Heading */}
@@ -116,7 +116,7 @@ const Login = () => {
       {/* Role-Based Credential Buttons */}
       <div className="mt-4 d-flex flex-wrap justify-content-center gap-3">
         {Object.keys(credentials).map((role) => (
-          <button key={role} className="btn btn-primary" onClick={() => handleSetCredentials(role)}>
+          <button key={role} className="btn btn-success" onClick={() => handleSetCredentials(role)}>
              {role} 
           </button>
         ))}
