@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Container, Row, Col, Button, Table, Dropdown } from "react-bootstrap";
+import { Table, Dropdown, Modal, Button } from "react-bootstrap";
 import { FaEllipsisV } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-
-
+import TaskForm from "../Forms/AddTask";
 
 const priorityColors = {
   High: "danger",
@@ -54,9 +53,10 @@ const initialProjects = [
   },
 ];
 
- const ProjectTable = () => {
-  const navigate= useNavigate();
+const ProjectTable = () => {
+  const navigate = useNavigate();
   const [projects, setProjects] = useState(initialProjects);
+  const [showModal, setShowModal] = useState(false);
 
   const handlePriorityChange = (index, priority) => {
     const updatedProjects = [...projects];
@@ -71,14 +71,16 @@ const initialProjects = [
   };
 
   const handleClick = () => {
-    // Handle click event here
     navigate("/projectdetails");
   };
+
+  const handleAddTaskClick = () => {
+    setShowModal(true); // Modal ko open karein
+  };
+
   return (
-
-
-//  tabledown class in APp.css
-      <Table responsive bordered hover className="tabledown" >
+    <div>
+      <Table responsive bordered hover className="tabledown">
         <thead>
           <tr className="table-secondary">
             <th>Project ID</th>
@@ -103,7 +105,7 @@ const initialProjects = [
               <td>{project.client}</td>
               <td>
                 <Dropdown onSelect={(eventKey) => handlePriorityChange(index, eventKey)}>
-                  <Dropdown.Toggle variant={priorityColors[project.priority]} id="dropdown-priority">
+                  <Dropdown.Toggle variant={priorityColors[project.priority]}>
                     {project.priority}
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
@@ -117,7 +119,7 @@ const initialProjects = [
               </td>
               <td>
                 <Dropdown onSelect={(eventKey) => handleStatusChange(index, eventKey)}>
-                  <Dropdown.Toggle variant={statusColors[project.status]} id="dropdown-status">
+                  <Dropdown.Toggle variant={statusColors[project.status]}>
                     {project.status}
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
@@ -131,12 +133,13 @@ const initialProjects = [
               </td>
               <td>
                 <Dropdown>
-                  <Dropdown.Toggle variant="light" id="dropdown-basic">
+                  <Dropdown.Toggle variant="light">
                     <FaEllipsisV />
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
-                  <Dropdown.Item href="#">Post To Production</Dropdown.Item>
+                    <Dropdown.Item href="#">Post To Production</Dropdown.Item>
                     <Dropdown.Item href="#">Edit</Dropdown.Item>
+                    <Dropdown.Item onClick={handleAddTaskClick}>Add Task</Dropdown.Item>
                     <Dropdown.Item href="#">Delete</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
@@ -146,20 +149,18 @@ const initialProjects = [
         </tbody>
       </Table>
 
+      {/* Modal for TaskForm */}
+      <Modal show={showModal} onHide={() => setShowModal(false)} size="lg">
+        <Modal.Header closeButton>
+          <Modal.Title>Add Task</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <TaskForm />
+        </Modal.Body>
        
-
+      </Modal>
+    </div>
   );
 };
 
 export default ProjectTable;
-
-// const ProjectPage = () => {
-//   return (
-
-    
-//       <ProjectTable />
- 
-//   );
-// };
-
-// export default ProjectPage;

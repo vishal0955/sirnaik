@@ -45,6 +45,12 @@ const InvoiceTable = () => {
     }
   };
 
+  
+ const handleClick=({createInvoice})=>{
+   setShowModal(true);
+    
+
+ }
   return (
     <div className="container-fluid p-3">
       {/* Top Controls */}

@@ -56,7 +56,7 @@ export const ProjectOverview = () => {
         {/* Project Progress */}
         <Col md={6}>
           <Card className="p-3 shadow-sm">
-            <h5 className="text-center">Project Progress</h5>
+            <h5 className="text-start">Project Progress</h5>
             <div className="d-flex flex-wrap align-items-center justify-content-between">
               {/* Pie Chart Section */}
               <div

@@ -1,4 +1,4 @@
-import React ,{ useState }  from "react";
+import React, { useState } from "react";
 import { Bar, Line, Doughnut } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -72,7 +72,9 @@ function Designer() {
   };
   const [showClockIn, setShowClockIn] = useState(false);
 
-  const handleShowClockIn = () => setShowClockIn(true);
+  const handleShowClockIn = () => {
+    setShowClockIn(true)
+  };
   const handleCloseClockIn = () => setShowClockIn(false);
 
   return (
@@ -80,7 +82,7 @@ function Designer() {
       <div className="d-flex justify-content-between align-items-center mb-4">
         <h5>Designer Dashboard</h5>
         <Button variant="primary" className="mt-2" onClick={handleShowClockIn}>
-                <Clock className="me-1" /> Clock In
+                <FaClock className="me-1" /> {showClockIn ? "Clock Out" : "Clock In"}
               </Button>
       </div>
       <Container>
@@ -245,7 +247,7 @@ export default Designer;
 
 
 export const ClockInModal = ({ show, handleClose }) => {
-  const [location, setLocation] = useState("Worksuite");
+  const [location, setLocation] = useState("Office");
   const [workingFrom, setWorkingFrom] = useState("Home");
   const currentTime = new Date().toLocaleString("en-GB", {
     day: "2-digit",
@@ -263,7 +265,7 @@ export const ClockInModal = ({ show, handleClose }) => {
       </Modal.Header>
       <Modal.Body>
         <div className="d-flex align-items-center mb-3">
-          <Clock className="me-2" />
+          <FaClock className="me-2" />
           <span>{currentTime}</span>
           <Button variant="info" size="sm" className="ms-auto">
             General Shift
@@ -273,7 +275,7 @@ export const ClockInModal = ({ show, handleClose }) => {
           <Form.Group className="mb-3">
             <Form.Label>Location</Form.Label>
             <Form.Select value={location} onChange={(e) => setLocation(e.target.value)}>
-              <option>Worksuite</option>
+          
               <option>Office</option>
               <option>Remote</option>
             </Form.Select>
