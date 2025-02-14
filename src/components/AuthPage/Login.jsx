@@ -48,7 +48,7 @@ export default function Login() {
               />
             </div>
 
-            <button type="submit" className="btn btn-primary w-100">
+            <button type="submit" className="btn btn-primary w-100" onClick={()=>navigate()}>
               Login
             </button>
           </form>
