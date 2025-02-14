@@ -2,7 +2,7 @@ import React from "react";
 import { Table, Button, Form } from "react-bootstrap";
 import { FaEllipsisV } from "react-icons/fa";
 
-const LeaveManagement = () => {
+const LeaveTable = () => {
   const leaves = [
     { name: "Ambrose Jenkins", role: "Team Lead", date: "19-01-2025 (Sunday)", duration: "Full Day", status: "Approved", type: "Sick", paid: "Paid" },
     { name: "Ambrose Jenkins", role: "Team Lead", date: "14-01-2025 (Tuesday)", duration: "Full Day", status: "Pending", type: "Sick", paid: "Paid" },
@@ -66,4 +66,4 @@ const LeaveManagement = () => {
   );
 };
 
-export default LeaveManagement;
+export default LeaveTable;

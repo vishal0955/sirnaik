@@ -11,10 +11,9 @@ const Login = () => {
   // Predefined credentials for each role
   const credentials = {
     admin: { email: "admin@example.com", password: "admin123" },
-    owner: { email: "owner@example.com", password: "owner123" },
-    tenants: { email: "tenants@example.com", password: "tenants123" },
-    guest: { email: "guest@example.com", password: "guest123" },
-    maintenance: { email: "maintenance@example.com", password: "maintenance123" },
+    deginer: { email: "owner@example.com", password: "owner123" },
+    projectmanager: { email: "guest@example.com", password: "guest123" },
+    product_team: { email: "maintenance@example.com", password: "maintenance123" },
   };
 
   // Function to fill email & password when a role button is clicked

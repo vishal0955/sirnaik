@@ -159,11 +159,12 @@
 // export default App;
 
 import { Route, Routes, useLocation } from "react-router-dom";
+
 import "./App.css";
 import { useState, useEffect } from "react";
 import Navbar from "./layout/Navbar";
 import Sidebar from "./layout/Sidebar";
-import Login from "./Auth/Login";
+import Login from "./authtication/Login";
 
 import ProjectOwner from "./components/Tables/ProjectOwner";
 import TaskPage from "./components/Tables/TaskTable";
@@ -199,6 +200,10 @@ import TableTask from "./components/Admin/TableTask";
 import TimeLogTable from "./components/Admin/TimeLogTable";
 import LogTimeForm from "./components/Admin/LogTimeForm";
 import ChangeDesginer from "./components/Admin/ChangeDesginer"
+import AddProjectTemplate from "./components/Admin/AddProjectTemplate";
+import TableTemplate from "./components/Admin/TablwTemplate";
+import TaskDashboard from "./components/Admin/TaskDashboard";
+import LeaveTable from "./components/Admin/LeaveTable";
 
 function App() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -225,7 +230,7 @@ function App() {
 
   return (
     <>
-      {!hideLayout && <Navbar toggleSidebar={toggleSidebar} />}
+      {!hideLayout  && <Navbar toggleSidebar={toggleSidebar} />}
       
       <div className="main-content">
         {!hideLayout && (
@@ -249,6 +254,7 @@ function App() {
             <Route path="/projectdetails" element={<ProjectDetail />} />
             <Route path="/tasklist" element={<TaskPage />} />
             <Route path="/addproject" element={<AddProject />} />
+            <Route path="/leavetable" element={<LeaveTable />} />
             <Route path="/addtask" element={<TaskForm />} />
             <Route path="/addlog" element={<TimeLogForm />} />
             <Route path="/timesheet" element={<Timesheet />} />
@@ -274,6 +280,9 @@ function App() {
             <Route path="/timeLog" element={<TimeLogTable/>}/>
             <Route path="/logTable" element={<LogTimeForm/>}/>
             <Route path="/changedes" element={<ChangeDesginer/>}/>
+            <Route path="addTemplate" element={<AddProjectTemplate/>}/>
+            <Route path="/templateTable" element={<TableTemplate/>}/>
+            <Route path="/taskDashboard" element={<TaskDashboard/>}/>
             
 
             {/* Designer Routes */}
@@ -281,6 +290,9 @@ function App() {
             <Route path="/designertask" element={<Tasks />} />
             <Route path="/dtimesheet" element={<DTimesheet />} />
             <Route path="/taskdetails" element={<TaskDetails />} />
+            
+
+            
             
             {/* Production Team */}
             <Route path="/jobs" element={<Jobs />} />

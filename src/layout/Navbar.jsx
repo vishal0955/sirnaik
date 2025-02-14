@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Navbar = ({ toggleSidebar, onBack }) => {
   return (
     <>
-      <nav className="navbar navbar-light">
+      <nav className="navbar navbar-light" style={{position:"fixed"}}>
         <div className="container-fluid nav-conte">
           <div className="nav-content d-flex justify-content-between align-items-center w-100">
             <div className="nav-bran d-flex align-items-center">
@@ -87,7 +87,7 @@ const Navbar = ({ toggleSidebar, onBack }) => {
                     <hr className="dropdown-divider" />
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/">
+                    <Link className="dropdown-item" to="/login">
                       <span className="me-2">🚪</span> Logout
                     </Link>
                   </li>
