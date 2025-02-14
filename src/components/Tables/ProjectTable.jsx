@@ -94,7 +94,7 @@ const ProjectTable = () => {
         </Form.Select>
       </div>
       
-      <Table responsive bordered hover>
+      <Table responsive bordered hover style={{marginTop:'38px'}}>
         <thead>
           <tr>
             <th>Project ID</th>

@@ -1,3 +1,7 @@
+
+
+
+
 * {
   margin: 0px;
   padding: 0px;
@@ -361,8 +365,8 @@ select.form-input {
 /* right-side-content start*/
 .right-side-content {
   width: 100%;
-  border-radius: 30px;
-  margin-top: 66px;
+  border-radius: 0px;
+   margin-top: 66px;
   padding-left: 255px;
   /* height: 100vh; */
   background-color:#F2F4F7;

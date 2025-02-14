@@ -159,6 +159,7 @@
 // export default App;
 
 import { Route, Routes, useLocation } from "react-router-dom";
+
 import "./App.css";
 import { useState, useEffect } from "react";
 import Navbar from "./layout/Navbar";
@@ -199,6 +200,9 @@ import TableTask from "./components/Admin/TableTask";
 import TimeLogTable from "./components/Admin/TimeLogTable";
 import LogTimeForm from "./components/Admin/LogTimeForm";
 import ChangeDesginer from "./components/Admin/ChangeDesginer"
+import AddProjectTemplate from "./components/Admin/AddProjectTemplate";
+import TableTemplate from "./components/Admin/TablwTemplate";
+import TaskDashboard from "./components/Admin/TaskDashboard";
 
 function App() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -274,6 +278,9 @@ function App() {
             <Route path="/timeLog" element={<TimeLogTable/>}/>
             <Route path="/logTable" element={<LogTimeForm/>}/>
             <Route path="/changedes" element={<ChangeDesginer/>}/>
+            <Route path="addTemplate" element={<AddProjectTemplate/>}/>
+            <Route path="/templateTable" element={<TableTemplate/>}/>
+            <Route path="/taskDashboard" element={<TaskDashboard/>}/>
             
 
             {/* Designer Routes */}
@@ -281,6 +288,9 @@ function App() {
             <Route path="/designertask" element={<Tasks />} />
             <Route path="/dtimesheet" element={<DTimesheet />} />
             <Route path="/taskdetails" element={<TaskDetails />} />
+            
+
+            
             
             {/* Production Team */}
             <Route path="/jobs" element={<Jobs />} />
