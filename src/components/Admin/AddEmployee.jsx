@@ -2,6 +2,24 @@ import React from "react";
 import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 
 function AddEmployee() {
+  const initialEmployees = [
+    {
+      employeeId: "E001",
+      name: "John Doe",
+      email: "john.doe@example.com",
+      role: "Project Manager",
+      reportingTo: "Jane Smith",
+      status: "Active",
+    },
+    {
+      employeeId: "E002",
+      name: "Alice Johnson",
+      email: "alice.johnson@example.com",
+      role: "Designer",
+      reportingTo: "Mark Wilson",
+      status: "Inactive",
+    },
+  ];
   return (
     <Container className="mt-4">
       

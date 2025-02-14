@@ -18,6 +18,24 @@ const AddProject = () => {
     members: ""
   });
 
+  const initialEmployees = [
+    {
+      employeeId: "E001",
+      name: "John Doe",
+      email: "john.doe@example.com",
+      role: "Project Manager",
+      reportingTo: "Jane Smith",
+      status: "Active",
+    },
+    {
+      employeeId: "E002",
+      name: "Alice Johnson",
+      email: "alice.johnson@example.com",
+      role: "Designer",
+      reportingTo: "Mark Wilson",
+      status: "Inactive",
+    },
+  ];
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setProjectData({
@@ -143,7 +161,7 @@ const AddProject = () => {
       <Form.Label>Add Project Members *</Form.Label>
       <Form.Select name="members" value={projectData.members} onChange={handleChange} required>
         <option value="">Select team members</option>
-        {membersList.map((member) => (
+        {initialEmployees.map((member) => (
           <option key={member.id} value={member.id}>
             {member.name}
           </option>
