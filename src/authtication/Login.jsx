@@ -125,10 +125,10 @@ const Login = () => {
 
       {/* Role Buttons for UI Navigation */}
       <div className="mt-4 d-flex gap-3">
-        <Link to="/admin" className="btn btn-outline-light">Admin</Link>
-        <Link to="/project-owner" className="btn btn-outline-light">Project Owner</Link>
-        <Link to="/user" className="btn btn-outline-light">User</Link>
-        <Link to="/designer" className="btn btn-outline-light">Designer</Link>
+        <Link to="/dashboard" className="btn btn-primary">Admin</Link>
+        <Link to="/projectmanagementdashboard" className="btn btn-primary ">Project Owner</Link>
+        <Link to="/user" className="btn btn-primary">User</Link>
+        <Link to="/designerdashboard" className="btn btn-primary">Designer</Link>
       </div>
     </div>
   );
