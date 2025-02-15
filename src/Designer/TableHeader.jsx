@@ -4,11 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { Modal } from "react-bootstrap";
 
 
-const TableHeader = ({ title, buttonText }) => {
-
+const TableHeader = () => {
  
+ 
+
   return (
-    <div className="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-3">
+    <div className="navbar-expand-lg navbar-light bg-light shadow-sm p-3 ">
       <div className="container-fluid d-flex justify-content-between align-items-center">
         {/* Left Section */}
         <div className="d-flex align-items-center justify-content-between">
@@ -95,7 +96,6 @@ const TableHeader = ({ title, buttonText }) => {
           </ul>
         </div>
       </div>
-
     
     </div>
   );

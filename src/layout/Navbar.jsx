@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import NotificationBar from "../components/AuthPage/NotificationBar";
 
 const Navbar = ({ toggleSidebar, onBack }) => {
   return (
@@ -32,7 +33,7 @@ const Navbar = ({ toggleSidebar, onBack }) => {
 
               {/* Notification Bell */}
               <a className="bell-icon me-3" href="#">
-                <i className="fa-regular fa-bell"></i>
+              <NotificationBar/>
               </a>
 
               {/* Profile Dropdown */}

@@ -212,6 +212,8 @@ import Deal from "./Lead & Inquiry Management/Deal";
 import Atendence from "./hmr/Atendence";
 import ShiftRoster from "./hmr/ShiftRoster";
 import ContractForm from "./components/Forms/ContractForm";
+import NotificationBar from "./layout/NotificationBar";
+import DesignerLeaveTable from "./Designer/DesignerLeaveTable";
 
 function App() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -278,6 +280,7 @@ function App() {
             {/* <Route path="tableTask" element={<TableTask />} /> */}
              <Route path="/contract" element={<ContractTab />} />
 
+<Route path="/notiification" element={<NotificationBar />} />
              {/* Admin CRM  */}
              <Route path="/lead" element={<Lead/>} />
              <Route path="/deal" element={<Deal />} />
@@ -285,6 +288,8 @@ function App() {
 
              <Route path="/attendance" element={<Atendence />} />
              <Route path="/shiftroster" element={<ShiftRoster />} />
+
+             <Route path="/designerleavetable" element={<DesignerLeaveTable />} />
 
 
             <Route path="/productiondashboard" element={<ProductionDashboard />} />

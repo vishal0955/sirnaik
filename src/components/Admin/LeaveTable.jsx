@@ -1,6 +1,8 @@
-import React from "react";
-import { Table, Button, Form } from "react-bootstrap";
+import React, {useState} from "react";
+import { Table, Button, Form, Modal } from "react-bootstrap";
 import { FaEllipsisV } from "react-icons/fa";
+import AssignLeave from "../Forms/AddLeave";
+
 
 const LeaveTable = () => {
   const leaves = [
@@ -20,11 +22,15 @@ const LeaveTable = () => {
       default: return "secondary";
     }
   };
-
+  const [showModal, setShowModal] = useState(false);
+ const handleButtonClick = () => {
+ console.log("Button clicked!");
+    setShowModal(true);
+ }
   return (
     <div className="container-fluid mt-4">
       <div className="d-flex flex-wrap justify-content-between align-items-center mb-3">
-        <Button variant="primary" className="mb-2">+ New Leave</Button>
+        <Button variant="primary" className="mb-2" onClick={() => handleButtonClick()}>+ New Leave</Button>
         <Button variant="outline-secondary" className="mb-2">Export</Button>
       </div>
       <div className="table-responsive">
@@ -32,7 +38,7 @@ const LeaveTable = () => {
           <thead>
             <tr>
               <th><Form.Check /></th>
-              <th>Employee</th>
+              <th >Employee</th>
               <th>Leave Date</th>
               <th>Duration</th>
               <th>Leave Status</th>
@@ -62,6 +68,14 @@ const LeaveTable = () => {
           </tbody>
         </Table>
       </div>
+      <Modal show={showModal} onHide={() => setShowModal(false)} size="lg">
+        <Modal.Header closeButton>
+        
+        </Modal.Header>
+        <Modal.Body>
+         <AssignLeave />
+        </Modal.Body>
+      </Modal>
     </div>
   );
 };

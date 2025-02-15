@@ -51,18 +51,7 @@ const Login = () => {
       <div className="card shadow-lg p-4 bg-dark text-light" style={{ maxWidth: "500px", width: "100%" ,height:"350px"}}>
         {/* Login / Signup Toggle */}
         <div className="d-flex gap-4 mb-3">
-          {/* <button
-            className={`btn w-50 ${activeTab === "signup" ? "btn-success" : "btn-outline-light"}`}
-            onClick={() => setActiveTab("signup")}
-          >
-            Sign Up
-          </button> */}
-          {/* <button
-            className={`btn w-50 ${activeTab === "login" ? "btn-success" : "btn-outline-light"}`}
-            onClick={() => setActiveTab("login")}
-          >
-            Log In
-          </button> */}
+         
         </div>
 
         {/* Form Heading */}
