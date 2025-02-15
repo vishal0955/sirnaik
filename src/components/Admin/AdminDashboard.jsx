@@ -1,5 +1,5 @@
-import React from "react";
-import { Container, Row, Col, Card, Table } from "react-bootstrap";
+import React, { useState } from "react";
+import { Container, Row, Col, Card, Table, Button } from "react-bootstrap";
 import {
   LineChart,
   XAxis,
@@ -11,6 +11,8 @@ import {
   Line,
 } from "recharts";
 import { Doughnut } from "react-chartjs-2";
+import { FaClock } from "react-icons/fa";
+import { ClockInModal } from "../../Designer/Dashboard";
     
 
 // Chart Data
@@ -44,19 +46,31 @@ const doughnutData = {
 };
 
 function AdminDashboard() {
+
+  const [showClockIn, setShowClockIn] = useState(false);
+
+  const handleShowClockIn = () => {
+    setShowClockIn(true)
+  };
+  const handleCloseClockIn = () => setShowClockIn(false);
+
   return (
     <div className="container-fluid mt-4">
-      <div className="mb-4">
-       
-        <h5>Admin Dashboard</h5>
-      </div>
+      <div className="d-flex justify-content-between align-items-center mb-4">
+        <h5>Dashboard</h5>
+        <Button variant="primary" className="mt-2" onClick={handleShowClockIn}>
+                <FaClock className="me-1" /> {showClockIn ? "Clock Out" : "Clock In"}
+              </Button>
+              </div>
+
+     
 
       {/* Cards Section */}
       <Row>
         {[
-          { title: "Total Clients", icon: "fa-users", count: 11 },
-          { title: "Total Projects", icon: "fa-layer-group", count: 12 },
-          { title: "Total Employees", icon: "fa-user", count: 15 },
+          { title: "Total Clients", icon: "fa-users", count: 11},
+          { title: "Total Projects", icon: "fa-layer-group", count: 12  },
+          { title: "Total Employees", icon: "fa-user", count: 15  },
           { title: "Due Invoices", icon: "fa-address-book", count: 10 },
         ].map((item, index) => (
           <Col xs={12} sm={6} md={6} lg={3} key={index} className="mb-3">
@@ -65,7 +79,7 @@ function AdminDashboard() {
                 <h5 className="mb-0">{item.title}</h5>
                 <i className={`fa-solid ${item.icon} fs-4 text-primary`}></i>
               </div>
-              <p className="mb-0 text-primary fs-4 fw-bold">{item.count}</p>
+              <p className="mb-0 text-primary fs-4 fw-bold ">{item.count}</p>
             </Card>
           </Col>
         ))}
@@ -168,6 +182,8 @@ function AdminDashboard() {
           </Card>
         </Col>
       </Row>
+
+        <ClockInModal show={showClockIn} handleClose={handleCloseClockIn} />
     </div>
   );
 }

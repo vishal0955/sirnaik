@@ -1,7 +1,9 @@
-import React from "react";
-import { Container, Row, Col, Card, Table, ProgressBar } from "react-bootstrap";
+import React, {useState} from "react";
+import { Container, Row, Col, Card, Table, ProgressBar, Button } from "react-bootstrap";
 import { Line, Doughnut } from "react-chartjs-2";
 import { Chart, registerables } from "chart.js";
+import { ClockInModal } from "../../Designer/Dashboard";
+import { FaClock } from "react-icons/fa";
 
 Chart.register(...registerables);
 
@@ -33,11 +35,23 @@ const ProductionDashboard = () => {
       },
     ],
   };
+    const [showClockIn, setShowClockIn] = useState(false);
+  
+    const handleShowClockIn = () => {
+      setShowClockIn(true)
+    };
+    const handleCloseClockIn = () => setShowClockIn(false);
 
   return (
     <div className="production-dashboard mt-4">
     <Container fluid>
-      <h5>Production Dashboard</h5>
+
+    <div className="d-flex justify-content-between align-items-center mb-4">
+        <h5>Dashboard</h5>
+        <Button variant="primary" className="mt-2" onClick={handleShowClockIn}>
+                <FaClock className="me-1" /> {showClockIn ? "Clock Out" : "Clock In"}
+              </Button>
+              </div>
       <Row className="mt-4 justify-content-center">
 
         <div className="col-12 col-sm-6 col-md-3">
@@ -145,6 +159,7 @@ const ProductionDashboard = () => {
         </Col>
       </Row>
     </Container>
+    <ClockInModal show={showClockIn} handleClose={handleCloseClockIn} />
     </div>
   );
 };

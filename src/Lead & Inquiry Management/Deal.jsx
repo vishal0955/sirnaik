@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Container, Table, Button, Dropdown, Pagination } from "react-bootstrap";
+import { Container, Table, Button, Dropdown, Pagination, Modal } from "react-bootstrap";
 import { FaPlus, FaFileImport, FaFileExport, FaEllipsisV } from "react-icons/fa";
+import DealForm from "../components/Forms/DealForm";
 import { useNavigate } from "react-router-dom";
 
 const dealsData = [
@@ -13,19 +14,25 @@ const dealsData = [
 ];
 
 const Deal = () => {
-  const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
   const [deals, setDeals] = useState(dealsData);
+  const handleClick=()=>{
+    setShowModal(true);
+   }
+  const navigate = useNavigate();
+  
   const handleJobClick = () => {
     navigate(`/dealDetail`);
   };
 
   return (
+    <>
     <Container-fluid className="mt-4">
       <h5 className="mt-4 mb-4">Deals</h5>
       <div className="d-flex justify-content-between align-items-center mb-3">
        
           <div>
-          <Button variant="primary" className="me-2"><FaPlus /> Add Deal</Button>
+          <Button variant="primary" className="me-2" onClick={handleClick}><FaPlus /> Add Deal</Button>
           </div>
           <div>
           <Button variant="secondary" className="me-2"><FaFileImport /> Import</Button>
@@ -93,6 +100,16 @@ const Deal = () => {
         <Pagination.Next />
       </Pagination>
     </Container-fluid>
+    <Modal show={showModal} onHide={() => setShowModal(false)} size="lg">
+          <Modal.Header closeButton>
+            Deal 
+          </Modal.Header>
+          <Modal.Body>
+           <DealForm />
+          </Modal.Body>
+        </Modal>
+    </>
+
   );
 };
 

@@ -267,7 +267,7 @@ const ProjectDetail = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className="container mt-3">
+   <>
       <ul className="nav nav-tabs">
         {tabLabels.map((label, index) => (
           <li className="nav-item" key={index}>
@@ -281,7 +281,7 @@ const ProjectDetail = () => {
         ))}
       </ul>
       <div className="border p-3 mt-2">{components[activeIndex]}</div>
-    </div>
+      </>
   );
 };
 

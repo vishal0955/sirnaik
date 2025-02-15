@@ -67,12 +67,12 @@ const initialJobs = [
 
 export const TaskTable = ({ filterStatus }) => {
   const navigate = useNavigate();
-  const [showModal, setShowModal] = useState(false);
+
   const [assigneModal, setAssigneModal] = useState(false);
   const [jobs, setJobs] = useState(initialJobs);
 
   const handleJobClick = () => {
-    setShowModal(true);
+    navigate(`/taskdetails`);
   };
 
   const filteredJobs = jobs.filter((job) => job.status === filterStatus || !filterStatus);

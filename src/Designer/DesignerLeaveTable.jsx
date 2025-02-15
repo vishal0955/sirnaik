@@ -63,13 +63,12 @@ const DesignerLeaveTable = () => {
               <tr key={leave.id}>
                 <td>
                   <div className="d-flex align-items-center">
-                    <img
-                      src={leave.employee.avatar}
-                      alt={leave.employee.name}
-                      className="rounded-circle me-2"
+                    <img src="https://i.ibb.co/zWVgTXyB/300.jpg" alt="300" border="0"  className="rounded-circle me-2"
                       width="40"
-                      height="40"
-                    />
+                      height="40">
+                        
+                      </img >
+
                     <div>
                       <strong>{leave.employee.name}</strong>
                       <div className="text-muted small">{leave.employee.role}</div>

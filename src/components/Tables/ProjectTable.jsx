@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Table, Dropdown, Modal, Button, Form } from "react-bootstrap";
 import { FaEllipsisV } from "react-icons/fa";
@@ -72,14 +73,14 @@ const ProjectTable = () => {
     <div>
       <div className="d-flex gap-3 mb-3 mt-3">
         <Form.Select onChange={(e) => handleFilterChange("status", e.target.value)}>
-          <option value="">Filter by Status</option>
+          <option value=""> Status</option>
           {Object.keys(statusColors).map((status) => (
             <option key={status} value={status}>{status}</option>
           ))}
         </Form.Select>
 
         <Form.Select onChange={(e) => handleFilterChange("priority", e.target.value)}>
-          <option value="">Filter by Priority</option>
+          <option value="">Priority</option>
           {Object.keys(priorityColors).map((priority) => (
             <option key={priority} value={priority}>{priority}</option>
           ))}
@@ -120,11 +121,30 @@ const ProjectTable = () => {
               <td >
                 <Dropdown onSelect={(eventKey) => handlePriorityChange(index, eventKey)}>
                   <Dropdown.Toggle variant={priorityColors[project.priority]} >{project.priority}</Dropdown.Toggle>
+                  <Dropdown.Toggle variant={priorityColors[project.priority]}>
+                    {project.priority}
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    {Object.keys(priorityColors).map((priority) => (
+                      <Dropdown.Item key={priority} eventKey={priority}>
+                        {priority}
+                      </Dropdown.Item>
+                    ))}
+                  </Dropdown.Menu>
                 </Dropdown>
               </td>
               <td>
                 <Dropdown onSelect={(eventKey) => handleStatusChange(index, eventKey)}>
-                  <Dropdown.Toggle variant={statusColors[project.status]}>{project.status}</Dropdown.Toggle>
+                  <Dropdown.Toggle variant={statusColors[project.status]}>
+                    {project.status}
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    {Object.keys(statusColors).map((status) => (
+                      <Dropdown.Item key={status} eventKey={status}>
+                        {status}
+                      </Dropdown.Item>
+                    ))}
+                  </Dropdown.Menu>
                 </Dropdown>
               </td>
               <td>
@@ -142,6 +162,7 @@ const ProjectTable = () => {
           ))}
         </tbody>
       </Table>
+      
       <Modal show={showModal} onHide={() => setShowModal(false)} size="lg">
         <Modal.Header closeButton>
           <Modal.Title>Add Task</Modal.Title>
@@ -151,4 +172,8 @@ const ProjectTable = () => {
     </div>
   );
 };
+
 export default ProjectTable;
+
+
+

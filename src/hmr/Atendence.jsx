@@ -108,9 +108,9 @@ const Atendence = () => {
           className="p-4 bg-light text-dark"
           style={{ minHeight: "100vh" }}>
           {/* Header Section */}
-          <div className="atendence-main-header">
-            <div class="row g-0">
-              <div class="col-sm-6 col-md-2">
+          <div className="atendence-main-header d-flex justify-content-between ">
+            <div class="d-flex ">
+              <div class="">
                 <div class="dropdown">
                   <span>Employee</span>
                   <button
@@ -134,23 +134,23 @@ const Atendence = () => {
                     </li>
                     <li>
                       <button class="dropdown-item" type="button">
-                        Action
+                        All
                       </button>
                     </li>
                     <li>
                       <button class="dropdown-item" type="button">
-                        Another action
+                        Designer
                       </button>
                     </li>
                     <li>
                       <button class="dropdown-item" type="button">
-                        Something else here
+                        Project Manager
                       </button>
                     </li>
                   </ul>
                 </div>
               </div>
-              <div class="col-sm-6 col-md-2">
+              <div class="">
                 <div className="designa-box ms-2">
                   <span>Designation</span>
                   <button
@@ -189,12 +189,10 @@ const Atendence = () => {
                   </ul>
                 </div>
               </div>
-              <div class="col-sm-6 col-md-4">
-                <div className="emplo-search-box ms-2">
+              <div class="">
+                <div className="emplo-search-box ms-4">
                   <div class="input-group mb-3">
-                    <span class="input-group-text">
-                      <i class="fa fa-search" aria-hidden="true"></i>
-                    </span>
+                    
                     <input
                       type="text"
                       class="form-control"
@@ -202,17 +200,23 @@ const Atendence = () => {
                       aria-label="Start typing to search"
                       aria-describedby="basic-addon1"
                     />
+                    <span class="input-group-text">
+                      <i class="fa fa-search" aria-hidden="true"></i>
+                    </span>
                   </div>
                 </div>
               </div>
             </div>
+            <>
+            <Button className="primary" style={{height: "40px"}} onClick={handleShow}>
+             + Mark Attendance
+             </Button>
+             </>
           </div>
           {/* Leave Request */}
           <div className="employe-add-btn-section mb-3">
             {/* <!-- Button trigger modal --> */}
-             <Button variant="primary" onClick={handleShow}>
-             + Mark Attendance
-             </Button>
+           
             {/* ///////////////////// */}
             <Modal show={show} onHide={handleClose} size="lg">
         <Modal.Header closeButton>
