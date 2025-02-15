@@ -48,7 +48,7 @@ const Login = () => {
 
   return (
     <div className="container d-flex flex-column justify-content-center align-items-center min-vh-100">
-      <div className="card shadow-lg p-4 bg-dark text-light" style={{ maxWidth: "450px", width: "100%" }}>
+      <div className="card shadow-lg p-4 bg-dark text-light" style={{ maxWidth: "500px", width: "100%" ,height:"350px"}}>
         {/* Login / Signup Toggle */}
         <div className="d-flex gap-4 mb-3">
           {/* <button
@@ -107,7 +107,7 @@ const Login = () => {
 
           {error && <p className="text-danger text-center">{error}</p>}
 
-          <button type="submit" className="btn btn-success w-100">
+          <button type="submit" className="btn btn-success w-100 mt-5">
             {activeTab === "signup" ? "Get Started" : "Log In"}
           </button>
         </form>
