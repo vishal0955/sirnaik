@@ -80,18 +80,18 @@ function App() {
 
   const hideLayout = location.pathname === "/";
 
+  if (hideLayout) {
+    return <Login />;
+  }
   return (
     <>
       {!hideLayout  && <Navbar toggleSidebar={toggleSidebar} />}
-      
       <div className="main-content">
         {!hideLayout && (
-          <Sidebar collapsed={isSidebarCollapsed} />
-        )}
+          <Sidebar collapsed={isSidebarCollapsed} />)}
 
         <div className={`right-side-content ${isSidebarCollapsed ? "collapsed" : ""}`}>
           <Routes>
-            <Route path="/" element={<Login />} />
             <Route path="/dashboard" element={<AdminDashboard />} />
             <Route path="/employeelist" element={<EmployeePage />} />
             <Route path="/employeeprofile" element={<EmployeeProfile />} />

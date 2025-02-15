@@ -140,27 +140,27 @@ const Sidebar = ({ collapsed, menuItemClick }) => {
           )}
 
           {/* Project Manager Section */}
-          {role === "projectmanager" && (
+          {role === "project manager" && (
             <>
               <li className="menu-item">
                 <div className="menu-link menu-i">
-                <i class="fa-solid fa-folder"></i>
+                <i className="fa-solid fa-folder"></i>
                   <span className="menu-text">Project Owner</span>
                 </div>
                 <ul className="submenu expanded">
                   <li className={`submenu-item ${isActive("/projectmanagementdashboard") ? "active" : ""}`}
                     onClick={() => { navigate("/projectmanagementdashboard"); menuItemClick(); }}>
-                      <i class="fa-solid fa-chart-column"></i>
+                      <i className="fa-solid fa-chart-column"></i>
                     <span className="menu-text">Dashboard</span>
                   </li>
                   <li className={`submenu-item ${isActive("/project") ? "active" : ""}`}
                     onClick={() => { navigate("/project"); menuItemClick(); }}>
-                      <i class="fa-solid fa-folder"></i>
+                      <i className="fa-solid fa-folder"></i>
                     <span className="menu-text">Project</span>
                   </li>
                   <li className={`submenu-item ${isActive("/tasklist") ? "active" : ""}`}
                     onClick={() => { navigate("/tasklist"); menuItemClick(); }}>
-                      <i class="fa-solid fa-square-check"></i>
+                      <i className="fa-solid fa-square-check"></i>
                     <span className="menu-text">Task</span>
                   </li>
                   <li className={`submenu-item ${isActive("/timesheet") ? "active" : ""}`}
@@ -236,7 +236,7 @@ const Sidebar = ({ collapsed, menuItemClick }) => {
           )}
 
           {/* Production Team Section */}
-          {role === "productionteam" && (
+          {role === "production team" && (
             <>
               <li className="menu-item">
                 <div className="menu-link menu-i">
