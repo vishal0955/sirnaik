@@ -28,6 +28,26 @@ const Sidebar = ({ collapsed, menuItemClick }) => {
               </li>
               <li className="menu-item">
                 <div className="menu-link menu-i">
+                  <span className="menu-text">CRM</span>
+                </div>
+                <ul className="submenu expanded">
+                  <li className={`submenu-item ${isActive("/lead") ? "active" : ""}`}
+                    onClick={() => { navigate("/lead"); menuItemClick(); }}>
+                    Lead
+                  </li>
+                  <li className={`submenu-item ${isActive("/deal") ? "active" : ""}`}
+                    onClick={() => { navigate("/deal"); menuItemClick(); }}>
+                    Deal
+                  </li>
+                  <li className={`submenu-item ${isActive("/crmcontract") ? "active" : ""}`}
+                    onClick={() => { navigate("/crmcontract"); menuItemClick(); }}>
+                    Contract
+                  </li>
+               
+                </ul>
+              </li>
+              <li className="menu-item">
+                <div className="menu-link menu-i">
                   <span className="menu-text">HRM</span>
                 </div>
                 <ul className="submenu expanded">
@@ -47,6 +67,15 @@ const Sidebar = ({ collapsed, menuItemClick }) => {
                     onClick={() => { navigate("/leavetable"); menuItemClick(); }}>
                     Leave
                   </li>
+                  <li className={`submenu-item ${isActive("/attendance") ? "active" : ""}`}
+                    onClick={() => { navigate("/attendance"); menuItemClick(); }}>
+                    Attendance
+                  </li>
+                  <li className={`submenu-item ${isActive("/shiftroster") ? "active" : ""}`}
+                    onClick={() => { navigate("/shiftroster"); menuItemClick(); }}>
+                    Shift Roster
+                  </li>
+
                 </ul>
               </li>
               <li className="menu-item">
@@ -70,8 +99,10 @@ const Sidebar = ({ collapsed, menuItemClick }) => {
                     onClick={() => { navigate("/timesheet"); menuItemClick(); }}>
                     TimeSheet
                   </li>
+
                 </ul>
               </li>
+            
             </>
           )}
 
@@ -99,6 +130,26 @@ const Sidebar = ({ collapsed, menuItemClick }) => {
                     onClick={() => { navigate("/timesheet"); menuItemClick(); }}>
                     TimeSheet
                   </li>
+                </ul>
+              </li>
+              <li className="menu-item">
+                <div className="menu-link menu-i">
+                  <span className="menu-text">CRM</span>
+                </div>
+                <ul className="submenu expanded">
+                  <li className={`submenu-item ${isActive("/lead") ? "active" : ""}`}
+                    onClick={() => { navigate("/lead"); menuItemClick(); }}>
+                    Lead
+                  </li>
+                  <li className={`submenu-item ${isActive("/deal") ? "active" : ""}`}
+                    onClick={() => { navigate("/deal"); menuItemClick(); }}>
+                    Deal
+                  </li>
+                  <li className={`submenu-item ${isActive("/crmcontract") ? "active" : ""}`}
+                    onClick={() => { navigate("/crmcontract"); menuItemClick(); }}>
+                    Contract
+                  </li>
+               
                 </ul>
               </li>
               <li className="menu-item">

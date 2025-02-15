@@ -87,7 +87,7 @@ const Navbar = ({ toggleSidebar, onBack }) => {
                     <hr className="dropdown-divider" />
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/login">
+                    <Link className="dropdown-item" to="/">
                       <span className="me-2">🚪</span> Logout
                     </Link>
                   </li>

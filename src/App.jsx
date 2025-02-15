@@ -206,6 +206,11 @@ import TaskDashboard from "./components/Admin/TaskDashboard";
 import LeaveTable from "./components/Admin/LeaveTable";
 import ProductionDashboard from "./Pages/Productionteam/ProductionDashboard";
 import ContractTab from "./components/Project/ContractTab";
+import Lead from "./Lead & Inquiry Management/Lead";
+import Contract from "./Lead & Inquiry Management/Contract";
+import Deal from "./Lead & Inquiry Management/Deal";
+import Atendence from "./hmr/Atendence";
+import ShiftRoster from "./hmr/ShiftRoster";
 
 function App() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -271,6 +276,16 @@ function App() {
             <Route path="/fileUpload" element={<FileUpload />} />
             {/* <Route path="tableTask" element={<TableTask />} /> */}
              <Route path="/contract" element={<ContractTab />} />
+
+             {/* Admin CRM  */}
+             <Route path="/lead" element={<Lead/>} />
+             <Route path="/deal" element={<Deal />} />
+             <Route path="/crmcontract" element={< Contract />} />
+
+             <Route path="/attendance" element={<Atendence />} />
+             <Route path="/shiftroster" element={<ShiftRoster />} />
+
+
             <Route path="/productiondashboard" element={<ProductionDashboard />} />
             
             <Route path="/desigTable" element={<DesignationTable/>}/>

@@ -37,12 +37,12 @@ const TableHeader = ({ title, buttonText }) => {
 
 
             {/* Filter Dropdown */}
-            <li className="nav-item dropdown">
+            {/* <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle" href="#" id="filterDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Filter
               </a>
               <ul className="dropdown-menu" aria-labelledby="filterDropdown">
-                {/* Status Submenu */}
+             
                 <li className="dropdown-submenu position-relative">
                   <a className="dropdown-item dropdown-toggle" href="#">By Status</a>
                   <ul className="dropdown-menu submenu">
@@ -53,7 +53,7 @@ const TableHeader = ({ title, buttonText }) => {
                     <li><a className="dropdown-item" href="#">Completed</a></li>
                   </ul>
                 </li>
-                {/* Priority Submenu */}
+          
                 <li className="dropdown-submenu position-relative">
                   <a className="dropdown-item dropdown-toggle" href="#">By Priority</a>
                   <ul className="dropdown-menu submenu">
@@ -66,10 +66,10 @@ const TableHeader = ({ title, buttonText }) => {
                 <li><a className="dropdown-item" href="#">By Due Date</a></li>
                 <li><a className="dropdown-item" href="#">By Assignee</a></li>
               </ul>
-            </li>
+            </li> */}
 
             {/* Sort Dropdown */}
-            <li className="nav-item dropdown">
+            {/* <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle" href="#" id="sortDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Sort
               </a>
@@ -81,7 +81,7 @@ const TableHeader = ({ title, buttonText }) => {
                 <li><a className="dropdown-item" href="#">By Priority (High to Low)</a></li>
                 <li><a className="dropdown-item" href="#">By Priority (Low to High)</a></li>
               </ul>
-            </li>
+            </li> */}
 
             {/* Search Bar */}
            
