@@ -4,7 +4,7 @@ import { Container, Form, Row, Col, Button } from "react-bootstrap";
 const ContractForm = () => {
   return (
     <Container className="mt-4">
-      <h3>Add Contract</h3>
+   
       <Form>
         
         <Row>

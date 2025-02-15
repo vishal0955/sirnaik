@@ -82,10 +82,7 @@ const Sidebar = ({ collapsed, menuItemClick }) => {
                     onClick={() => { navigate("/attendance"); menuItemClick(); }}>
                     Attendance
                   </li>
-                  <li className={`submenu-item ${isActive("/shiftroster") ? "active" : ""}`}
-                    onClick={() => { navigate("/shiftroster"); menuItemClick(); }}>
-                    Shift Roster
-                  </li>
+                
 
                 </ul>
               </li>
@@ -185,16 +182,21 @@ const Sidebar = ({ collapsed, menuItemClick }) => {
                   <li className={`submenu-item ${isActive("/leavetable") ? "active" : ""}`}
                     onClick={() => { navigate("/leavetable"); menuItemClick(); }}>
                     <LuTreePalm />
-                    <span className="menu-text">Leave</span>
+                    <span className="menu-text">Leave Approval</span>
                   </li>
+                  <li className={`submenu-item ${isActive("/designerleavetable") ? "active" : ""}`}
+                    onClick={() => { navigate("/designerleavetable"); menuItemClick(); }}>
+                    <LuTreePalm />
+                    <span className="menu-text">My Leave </span>
+                  </li>
+
+                  
+
                   <li className={`submenu-item ${isActive("/attendance") ? "active" : ""}`}
                     onClick={() => { navigate("/attendance"); menuItemClick(); }}>
                     Attendance
                   </li>
-                  <li className={`submenu-item ${isActive("/shiftroster") ? "active" : ""}`}
-                    onClick={() => { navigate("/shiftroster"); menuItemClick(); }}>
-                    Shift Roster
-                  </li>
+               
 
 
 
@@ -248,8 +250,8 @@ const Sidebar = ({ collapsed, menuItemClick }) => {
                     <span className="menu-text">Employee Management</span>
                   </li>
                  
-                  <li className={`submenu-item ${isActive("/leavetable") ? "active" : ""}`}
-                    onClick={() => { navigate("/leavetable"); menuItemClick(); }}>
+                  <li className={`submenu-item ${isActive("/designerleavetable") ? "active" : ""}`}
+                    onClick={() => { navigate("/designerleavetable"); menuItemClick(); }}>
                    <LuTreePalm />
                     <span className="menu-text">Leave</span>
                   </li>
@@ -257,10 +259,7 @@ const Sidebar = ({ collapsed, menuItemClick }) => {
                     onClick={() => { navigate("/attendance"); menuItemClick(); }}>
                     Attendance
                   </li>
-                  <li className={`submenu-item ${isActive("/shiftroster") ? "active" : ""}`}
-                    onClick={() => { navigate("/shiftroster"); menuItemClick(); }}>
-                    Shift Roster
-                  </li>
+                
                 </ul>
               </li>
             </>
@@ -271,8 +270,7 @@ const Sidebar = ({ collapsed, menuItemClick }) => {
             <>
               <li className="menu-item">
                 <div className="menu-link menu-i">
-                <SiCrayon />
-                  <span className="menu-text">Designer</span>
+           
                 </div>
                 <ul className="submenu expanded">
                   <li className={`submenu-item ${isActive("/designerdashboard") ? "active" : ""}`}
@@ -300,8 +298,8 @@ const Sidebar = ({ collapsed, menuItemClick }) => {
                 <ul className="submenu expanded">
                   
                  
-                  <li className={`submenu-item ${isActive("/leavetable") ? "active" : ""}`}
-                    onClick={() => { navigate("/leavetable"); menuItemClick(); }}>
+                  <li className={`submenu-item ${isActive("/designerleavetable") ? "active" : ""}`}
+                    onClick={() => { navigate("/designerleavetable"); menuItemClick(); }}>
                    <LuTreePalm />
                     <span className="menu-text">Leave</span>
                   </li>
@@ -309,10 +307,7 @@ const Sidebar = ({ collapsed, menuItemClick }) => {
                     onClick={() => { navigate("/attendance"); menuItemClick(); }}>
                     Attendance
                   </li>
-                  <li className={`submenu-item ${isActive("/shiftroster") ? "active" : ""}`}
-                    onClick={() => { navigate("/shiftroster"); menuItemClick(); }}>
-                    Shift Roster
-                  </li>
+              
                 </ul>
               </li>
               </li>

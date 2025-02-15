@@ -1,5 +1,5 @@
 import React , {useState} from "react";
-import { Table, Button, Dropdown, DropdownButton } from "react-bootstrap";
+import { Table, Button, Dropdown, DropdownButton, Modal } from "react-bootstrap";
 import ContractForm from "../Forms/ContractForm";
 
 

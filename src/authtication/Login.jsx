@@ -117,7 +117,7 @@ const Login = () => {
       <div className="mt-4 d-flex flex-wrap justify-content-center gap-3">
         {Object.keys(credentials).map((role) => (
           <button key={role} className="btn btn-success" onClick={() => handleSetCredentials(role)}>
-             {role} 
+            {role}
           </button>
         ))}
       </div>
