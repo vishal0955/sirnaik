@@ -15,7 +15,7 @@ import {
   faFileContract,  // Contract  
   faUserCheck,     // Attendance  
   faClock,         // Shift  
-  faCalendarCheck  // Roster  
+  faCalendarCheck ,// Roster  
 } from "@fortawesome/free-solid-svg-icons";
 
 
@@ -101,7 +101,7 @@ const Sidebar = ({ collapsed, menuItemClick }) => {
                   </li>
                   <li className={`submenu-item ${isActive("/attendance") ? "active" : ""}`}
                     onClick={() => { navigate("/attendance"); menuItemClick(); }}>
-                      <i className="bi bi-clock"></i>
+                      <FontAwesomeIcon icon={faUserCheck} />
                     <span className="menu-text">Attendance</span>
                   </li>
                 

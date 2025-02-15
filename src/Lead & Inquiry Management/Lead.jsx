@@ -2,9 +2,16 @@ import React, { useState } from "react";
 import { Table, Button, Form, Modal } from "react-bootstrap";
 import { FaEllipsisV } from "react-icons/fa";
 import AddLeadContact from "../components/Forms/AddLeadContract";
+import { useNavigate } from "react-router-dom";
+
 
 const Lead = () => {
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
+  
+  const handleJobClick = () => {
+    navigate(`/leadDetail`);
+  };
   const handleClick=()=>{
     setShowModal(true);
    }
@@ -29,7 +36,7 @@ const Lead = () => {
     <div className="container mt-4">
       <h5 className="mt-3 mb-4">Leads</h5>
       <div className="d-flex justify-content-between mb-3">
-        <Button variant="primary" onClick={handleClick}>+ Add Lead Contact</Button>
+        <Button variant="primary" onClick={handleClick}>+ Add Lead </Button>
    
         <div>
           
@@ -59,8 +66,8 @@ const Lead = () => {
               <td>
                 <Form.Check type="checkbox" />
               </td>
-              <td>{lead.id}</td>
-              <td>{lead.name}</td>
+              <td  style={{ cursor: "pointer" }} onClick={() => handleJobClick()}>{lead.id}</td>
+              <td  style={{ cursor: "pointer" }} onClick={() => handleJobClick()}>{lead.name}</td>
               <td>{lead.email}</td>
               <td>--</td>
               <td>--</td>
