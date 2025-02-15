@@ -206,6 +206,7 @@ import TaskDashboard from "./components/Admin/TaskDashboard";
 import LeaveTable from "./components/Admin/LeaveTable";
 import ProductionDashboard from "./Pages/Productionteam/ProductionDashboard";
 import ContractTab from "./components/Project/ContractTab";
+import ContractForm from "./components/Forms/ContractForm";
 
 function App() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -295,7 +296,7 @@ function App() {
             <Route path="/dtimesheet" element={<DTimesheet />} />
             <Route path="/taskdetails" element={<TaskDetails />} />
             
-
+         <Route path="/contractForm" element={<ContractForm/>}/>
             
             
             {/* Production Team */}
