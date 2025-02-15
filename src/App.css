@@ -361,17 +361,12 @@ select.form-input {
   color: rgb(133, 127, 127);
 }
 
-/* navbar end  */
-/* right-side-content start*/
 .right-side-content {
   width: 100%;
   border-radius: 0px;
    margin-top: 66px;
   padding-left: 255px;
-  /* height: 100vh; */
   background-color:#F2F4F7;
-  /* height: 668px; */
-  /* overflow: scroll; */
   transition: padding-left 0.3s;
 }
 
@@ -379,15 +374,12 @@ select.form-input {
   .right-side-content.collapsed {
     padding-left: 0px !important;
   }
-
 }
 
 .right-side-content.collapsed {
   padding-left: 40px;
 }
 
-/* right-side-content end */
-/* dashbord */
 .dashboard-card {
   border-radius: 15px;
   padding: 20px;
@@ -585,4 +577,25 @@ select.form-input {
 .tabledown {
  margin-top: 66px;
 }
+
+
+
+@media (max-width: 500px) {
+  .sidebar.expanded ~ .main-content {
+      margin-left: 0px !important; 
+      position: fixed;
+      z-index: -1;
+  }
+
+  .right-side-content {
+    width: 100%;
+    border-radius: 0px;
+    margin-top: 66px;
+    padding-left: 0px;
+    background-color: #F2F4F7;
+    transition: padding-left 0.3s;
+}
+}
+
+
 

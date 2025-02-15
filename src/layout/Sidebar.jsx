@@ -7,6 +7,16 @@ import "./Sidebar.css";
 import { LuTreePalm } from "react-icons/lu";
 import { FaTrafficLight } from "react-icons/fa6";
 import { SiCrayon } from "react-icons/si";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { 
+  faUsers,         // CRM  
+  faUserPlus,      // Lead  
+  faHandshake,     // Deal  
+  faFileContract,  // Contract  
+  faUserCheck,     // Attendance  
+  faClock,         // Shift  
+  faCalendarCheck  // Roster  
+} from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -19,7 +29,7 @@ const Sidebar = ({ collapsed, menuItemClick }) => {
   const isSubmenuActive = (paths) => paths.some((path) => location.pathname.startsWith(path));
 
   return (
-    <div className={`sidebar-container ${collapsed ? "collapsed" : ""}`}>
+    <div className={`sidebar-container ${collapsed ? "collapsed" : "expanded"}`}>
       <div className="sidebar">
         <ul className="menu">
           {/* Admin Section */}
@@ -34,20 +44,25 @@ const Sidebar = ({ collapsed, menuItemClick }) => {
               </li>
               <li className="menu-item">
                 <div className="menu-link menu-i">
+                <FontAwesomeIcon icon={faUsers} />
                   <span className="menu-text">CRM</span>
                 </div>
                 <ul className="submenu expanded">
                   <li className={`submenu-item ${isActive("/lead") ? "active" : ""}`}
                     onClick={() => { navigate("/lead"); menuItemClick(); }}>
-                    Lead
+                      <FontAwesomeIcon icon={faUserPlus} />
+                      <span className="menu-text">Lead</span>
+                    
                   </li>
                   <li className={`submenu-item ${isActive("/deal") ? "active" : ""}`}
                     onClick={() => { navigate("/deal"); menuItemClick(); }}>
-                    Deal
+                       <FontAwesomeIcon icon={faHandshake} />
+                      <span className="menu-text">  Deal</span>
                   </li>
                   <li className={`submenu-item ${isActive("/contract") ? "active" : ""}`}
                     onClick={() => { navigate("/contract"); menuItemClick(); }}>
-                    Contract
+                       <FontAwesomeIcon icon={faFileContract} />
+                    <span className="menu-text">Contract</span>
                   </li>
                
                 </ul>
@@ -80,9 +95,16 @@ const Sidebar = ({ collapsed, menuItemClick }) => {
                   </li>
                   <li className={`submenu-item ${isActive("/attendance") ? "active" : ""}`}
                     onClick={() => { navigate("/attendance"); menuItemClick(); }}>
-                    Attendance
+                      <i className="bi bi-clock"></i>
+                    <span className="menu-text">Attendance</span>
                   </li>
                 
+                  <li className={`submenu-item ${isActive("/shiftroster") ? "active" : ""}`}
+                    onClick={() => { navigate("/shiftroster"); menuItemClick(); }}>
+                      <FontAwesomeIcon icon={faClock} />
+                  
+                    <span className="menu-text">  Shift Roster</span>
+                  </li>
 
                 </ul>
               </li>
@@ -149,20 +171,24 @@ const Sidebar = ({ collapsed, menuItemClick }) => {
               </li>
               <li className="menu-item">
                 <div className="menu-link menu-i">
-                  <span className="menu-text">CRM</span>
+                <FontAwesomeIcon icon={faUsers} />
+                <span className="menu-text">CRM</span>
                 </div>
                 <ul className="submenu expanded">
                   <li className={`submenu-item ${isActive("/lead") ? "active" : ""}`}
                     onClick={() => { navigate("/lead"); menuItemClick(); }}>
-                    Lead
+                    <FontAwesomeIcon icon={faUserPlus} />
+                     <span className="menu-text">Lead</span>
                   </li>
                   <li className={`submenu-item ${isActive("/deal") ? "active" : ""}`}
                     onClick={() => { navigate("/deal"); menuItemClick(); }}>
-                    Deal
+                       <FontAwesomeIcon icon={faHandshake} />
+                      <span className="menu-text">  Deal</span>
                   </li>
                   <li className={`submenu-item ${isActive("/contract") ? "active" : ""}`}
                     onClick={() => { navigate("/contract"); menuItemClick(); }}>
-                    Contract
+                     <FontAwesomeIcon icon={faFileContract} />
+                     <span className="menu-text">Contract</span>
                   </li>
                
                 </ul>
@@ -194,9 +220,16 @@ const Sidebar = ({ collapsed, menuItemClick }) => {
 
                   <li className={`submenu-item ${isActive("/attendance") ? "active" : ""}`}
                     onClick={() => { navigate("/attendance"); menuItemClick(); }}>
-                    Attendance
+                     <FontAwesomeIcon icon={faUserCheck} />
+                   <span className="menu-text"> Attendance</span>
                   </li>
                
+                  <li className={`submenu-item ${isActive("/shiftroster") ? "active" : ""}`}
+                    onClick={() => { navigate("/shiftroster"); menuItemClick(); }}>
+                    <FontAwesomeIcon icon={faClock} />
+                  
+                  <span className="menu-text">  Shift Roster</span>
+                  </li>
 
 
 
@@ -257,9 +290,16 @@ const Sidebar = ({ collapsed, menuItemClick }) => {
                   </li>
                   <li className={`submenu-item ${isActive("/attendance") ? "active" : ""}`}
                     onClick={() => { navigate("/attendance"); menuItemClick(); }}>
-                    Attendance
+                   <FontAwesomeIcon icon={faUserCheck} />
+                     <span className="menu-text"> Attendance</span>
                   </li>
                 
+                  <li className={`submenu-item ${isActive("/shiftroster") ? "active" : ""}`}
+                    onClick={() => { navigate("/shiftroster"); menuItemClick(); }}>
+                   <FontAwesomeIcon icon={faClock} />
+                  
+                  <span className="menu-text">  Shift Roster</span>
+                  </li>
                 </ul>
               </li>
             </>
@@ -305,9 +345,16 @@ const Sidebar = ({ collapsed, menuItemClick }) => {
                   </li>
                   <li className={`submenu-item ${isActive("/attendance") ? "active" : ""}`}
                     onClick={() => { navigate("/attendance"); menuItemClick(); }}>
-                    Attendance
+                    <FontAwesomeIcon icon={faUserCheck} />
+                      <span className="menu-text"> Attendance</span>
                   </li>
               
+                  <li className={`submenu-item ${isActive("/shiftroster") ? "active" : ""}`}
+                    onClick={() => { navigate("/shiftroster"); menuItemClick(); }}>
+                   <FontAwesomeIcon icon={faClock} />
+                  
+                  <span className="menu-text">  Shift Roster</span>
+                  </li>
                 </ul>
               </li>
               </li>

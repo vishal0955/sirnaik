@@ -1,367 +1,93 @@
 import React, { useState } from "react";
-import { Table, FormControl, InputGroup } from "react-bootstrap";
-import { Card, Button, Row, Col, Dropdown } from "react-bootstrap";
-import { Modal, Form } from "react-bootstrap";
-
+import { Container, Table, Button, Dropdown, Pagination } from "react-bootstrap";
+import { FaPlus, FaFileImport, FaFileExport, FaEllipsisV } from "react-icons/fa";
 
 const dealsData = [
-  {
-    title: "Total Deals",
-    amount: "$232,000.00",
-    color: "text-success",
-    iconBg: "bg-success",
-  },
-  {
-    title: "This Month Total Deals",
-    amount: "$0.00",
-    color: "text-primary",
-    iconBg: "bg-primary",
-  },
-  {
-    title: "This Week Total Deals",
-    amount: "$0.00",
-    color: "text-warning",
-    iconBg: "bg-warning",
-  },
-  {
-    title: "Last 30 Days Total Deals",
-    amount: "$71,000.00",
-    color: "text-danger",
-    iconBg: "bg-danger",
-  },
-];
-
-const initialData = [
-  {
-    name: "Smart Agriculture Project",
-    price: "$50,000.00",
-    stage: "Open",
-    tasks: "0/0",
-    users: ["https://via.placeholder.com/30"],
-  },
-  {
-    name: "Hybrid",
-    price: "$40,000.00",
-    stage: "Proposal",
-    tasks: "4/3",
-    users: ["https://via.placeholder.com/30", "https://via.placeholder.com/30"],
-  },
-  {
-    name: "Stella",
-    price: "$35,000.00",
-    stage: "Meeting",
-    tasks: "3/0",
-    users: ["https://via.placeholder.com/30", "https://via.placeholder.com/30"],
-  },
-  {
-    name: "Refocus",
-    price: "$30,000.00",
-    stage: "Close",
-    tasks: "3/1",
-    users: ["https://via.placeholder.com/30", "https://via.placeholder.com/30"],
-  },
-  {
-    name: "Whitecoat",
-    price: "$25,000.00",
-    stage: "Initial Contact",
-    tasks: "4/2",
-    users: ["https://via.placeholder.com/30", "https://via.placeholder.com/30"],
-  },
-  {
-    name: "Tailwinds",
-    price: "$15,000.00",
-    stage: "Initial Contact",
-    tasks: "4/2",
-    users: ["https://via.placeholder.com/30"],
-  },
-  {
-    name: "Discover Financial",
-    price: "$10,000.00",
-    stage: "Close",
-    tasks: "0/0",
-    users: ["https://via.placeholder.com/30"],
-  },
+  { id: 11, name: "Justine Franecki-11", lead: "Justine Franecki", email: "fake@example.com", phone: "+1-281-987-883", value: "$95,824.00", agent: "Martina Nikolaus", stage: "Generated" },
+  { id: 10, name: "Mrs. Yesenia Okuneva-10", lead: "Mrs. Yesenia Okuneva", email: "fake@example.com", phone: "(707) 382-2333", value: "$34,911.00", agent: "Martina Nikolaus", stage: "Qualified" },
+  { id: 9, name: "Mr. Eddie Jenkins-9", lead: "Mr. Eddie Jenkins", email: "fake@example.com", phone: "1-786-404-7537", value: "$94,724.00", agent: "Maggie Streich", stage: "Schedule Appointment" },
+  { id: 8, name: "Justine Franecki-8", lead: "Justine Franecki", email: "fake@example.com", phone: "+1-281-987-883", value: "$83,804.00", agent: "Martina Nikolaus", stage: "Initial Contact" },
+  { id: 7, name: "Mrs. Yesenia Okuneva-7", lead: "Mrs. Yesenia Okuneva", email: "fake@example.com", phone: "(707) 382-2333", value: "$92,642.00", agent: "Martina Nikolaus", stage: "Proposal Sent" },
+  { id: 6, name: "Ahmed Ankunding-6", lead: "Ahmed Ankunding", email: "fake@example.com", phone: "1-510-852-9970", value: "$36,051.00", agent: "Martina Nikolaus", stage: "Lost" },
 ];
 
 const Deal = () => {
-  const [dealName, setDealName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [price, setPrice] = useState(0);
-  const [showModal, setShowModal] = useState(false);
-  const [data, setData] = useState(initialData);
-  const [editIndex, setEditIndex] = useState(null);
-  const [showEditModal, setShowEditModal] = useState(false);
-
-  const handleShow = () => setShowModal(true);
-  const handleClose = () => setShowModal(false);
-
-  const handleShowEditModal = (index) => {
-    setEditIndex(index);
-    setDealName(data[index].name);
-    setPhone(""); // Assuming phone is not part of initial data
-    setPrice(parseFloat(data[index].price.replace("$", "").replace(",", "")));
-    setShowEditModal(true);
-  };
-
-  const handleCloseEditModal = () => {
-    setShowEditModal(false);
-    setEditIndex(null);
-    setDealName("");
-    setPhone("");
-    setPrice(0);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const newDeal = {
-      name: dealName,
-      price: `$${price}.00`,
-      stage: "Open",
-      tasks: "0/0",
-      users: ["https://via.placeholder.com/30"],
-    };
-    setData([...data, newDeal]);
-    setDealName("");
-    setPhone("");
-    setPrice(0);
-    handleClose();
-  };
-
-  const handleEditSubmit = (e) => {
-    e.preventDefault();
-    const updatedData = [...data];
-    updatedData[editIndex] = {
-      ...updatedData[editIndex],
-      name: dealName,
-      price: `$${price}.00`,
-    };
-    setData(updatedData);
-    handleCloseEditModal();
-  };
-
-  const handleDelete = (index) => {
-    const updatedData = data.filter((_, i) => i !== index);
-    setData(updatedData);
-  };
+  const [deals, setDeals] = useState(dealsData);
 
   return (
-    <>
-      <div className="container p-3">
-        <h4 className="fw-bold">Manage Deals - Plan</h4>
-        <div className="d-flex justify-content-between align-items-center flex-wrap">
-          <nav aria-label="breadcrumb">
-            <ol className="breadcrumb">
-              <li className="breadcrumb-item">
-                <a href="/" className="text-success text-decoration-none">
-                  Home
-                </a>
-              </li>
-              <li className="breadcrumb-item active" aria-current="page">
-                Leads
-              </li>
-            </ol>
-          </nav>
-          <div className="d-flex gap-2">
-            <Dropdown>
-              <Dropdown.Toggle variant="light" className="border">
-                Plan
-              </Dropdown.Toggle>
-              <Dropdown.Menu>
-                <Dropdown.Item href="#">Basic</Dropdown.Item>
-                <Dropdown.Item href="#">Premium</Dropdown.Item>
-                <Dropdown.Item href="#">Enterprise</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-            <Button variant="outline-dark" onClick={handleShow}>
-              + Add
-            </Button>
+    <Container-fluid className="mt-4">
+      <h5 className="mt-4 mb-4">Deals</h5>
+      <div className="d-flex justify-content-between align-items-center mb-3">
+        <div className="d-flex justify-content-between">
+          <div>
+          <Button variant="primary" className="me-2"><FaPlus /> Add Deal</Button>
+          </div>
+          <div>
+          <Button variant="secondary" className="me-2"><FaFileImport /> Import</Button>
+          <Button variant="secondary"><FaFileExport /> Export</Button>
           </div>
         </div>
-        <br />
-        <Row className="mt-3">
-          {dealsData.map((deal, index) => (
-            <Col key={index} md={3} sm={6} xs={12} className="mb-3">
-              <Card className="shadow-sm border-0">
-                <Card.Body className="d-flex justify-content-between align-items-center">
-                  <div>
-                    <Card.Title className="fw-bold">{deal.title}</Card.Title>
-                    <h4 className={`fw-bold ${deal.color}`}>{deal.amount}</h4>
-                  </div>
-                  <div className={`p-3 rounded-circle ${deal.iconBg}`}>🚀</div>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
-        <InputGroup className="mb-3 w-50">
-          <FormControl placeholder="Search..." />
-        </InputGroup>
-
-        <Table responsive bordered hover className="table text-center">
-          <thead className="table-light">
-            <tr>
-              <th>Name</th>
-              <th>Price</th>
-              <th>Stage</th>
-              <th>Tasks</th>
-              <th>Users</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((row, index) => (
-              <tr key={index}>
-                <td>{row.name}</td>
-                <td>{row.price}</td>
-                <td>{row.stage}</td>
-                <td>{row.tasks}</td>
-                <td>
-                  {row.users.map((user, i) => (
-                    <img
-                      key={i}
-                      src={user}
-                      alt="User"
-                      className="rounded-circle"
-                      width="30"
-                      height="30"
-                    />
-                  ))}
-                </td>
-                <td className="text-nowrap">
-                  <Button className="btn btn-light btn-sm me-1">
-                    👁
-                  </Button>
-                  <Button
-                    size="sm"
-                    className="btn btn-light btn-sm me-1"
-                    onClick={() => handleShowEditModal(index)}
-                  >
-                    ✏️
-                  </Button>
-                  <Button
-                    size="sm"
-                    className="btn btn-light btn-sm me-1"
-                    onClick={() => handleDelete(index)}
-                  >
-                    🗑️
-                  </Button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </Table>
-
-        <Modal show={showModal} onHide={handleClose} centered>
-          <Modal.Header closeButton>
-            <Modal.Title>Create Deal</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Form onSubmit={handleSubmit}>
-              <Form.Group className="mb-3">
-                <Form.Label>Deal Name</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter Deal Name"
-                  value={dealName}
-                  onChange={(e) => setDealName(e.target.value)}
-                  required
-                />
-              </Form.Group>
-
-              <Form.Group className="mb-3">
-                <Form.Label>Phone No</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter Phone No"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  required
-                />
-              </Form.Group>
-
-              <Form.Group className="mb-3">
-                <Form.Label>Price</Form.Label>
-                <Form.Control
-                  type="number"
-                  placeholder="Enter Price"
-                  value={price}
-                  onChange={(e) => setPrice(e.target.value)}
-                  required
-                />
-              </Form.Group>
-
-              <div className="d-flex justify-content-end">
-                <Button
-                  variant="secondary"
-                  onClick={handleClose}
-                  className="me-2"
-                >
-                  Cancel
-                </Button>
-                <Button type="submit" variant="success">
-                  Create
-                </Button>
-              </div>
-            </Form>
-          </Modal.Body>
-        </Modal>
-
-        <Modal show={showEditModal} onHide={handleCloseEditModal} centered>
-          <Modal.Header closeButton>
-            <Modal.Title>Edit Deal</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Form onSubmit={handleEditSubmit}>
-              <Form.Group className="mb-3">
-                <Form.Label>Deal Name</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter Deal Name"
-                  value={dealName}
-                  onChange={(e) => setDealName(e.target.value)}
-                  required
-                />
-              </Form.Group>
-
-              <Form.Group className="mb-3">
-                <Form.Label>Phone No</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter Phone No"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  required
-                />
-              </Form.Group>
-
-              <Form.Group className="mb-3">
-                <Form.Label>Price</Form.Label>
-                <Form.Control
-                  type="number"
-                  placeholder="Enter Price"
-                  value={price}
-                  onChange={(e) => setPrice(e.target.value)}
-                  required
-                />
-              </Form.Group>
-
-              <div className="d-flex justify-content-end">
-                <Button
-                  variant="secondary"
-                  onClick={handleCloseEditModal}
-                  className="me-2"
-                >
-                  Cancel
-                </Button>
-                <Button type="submit" variant="success">
-                  Save Changes
-                </Button>
-              </div>
-            </Form>
-          </Modal.Body>
-        </Modal>
       </div>
-    </>
+
+      <Table striped bordered hover responsive>
+        <thead>
+          <tr>
+            <th><input type="checkbox" /></th>
+            <th>ID</th>
+            <th>Deal Name</th>
+            <th>Lead Name</th>
+            <th>Contact Details</th>
+            <th>Value</th>
+            <th>Deal Agent</th>
+            <th>Stage</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {deals.map((deal, index) => (
+            <tr key={index}>
+              <td><input type="checkbox" /></td>
+              <td>{deal.id}</td>
+              <td>{deal.name}</td>
+              <td>{deal.lead}</td>
+              <td>
+                <div>Email: {deal.email}</div>
+                <div>Phone: {deal.phone}</div>
+              </td>
+              <td>{deal.value}</td>
+              <td>{deal.agent}</td>
+              <td>
+                <Dropdown>
+                  <Dropdown.Toggle variant="light" size="sm">
+                    {deal.stage}
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    <Dropdown.Item>Generated</Dropdown.Item>
+                    <Dropdown.Item>Qualified</Dropdown.Item>
+                    <Dropdown.Item>Schedule Appointment</Dropdown.Item>
+                    <Dropdown.Item>Initial Contact</Dropdown.Item>
+                    <Dropdown.Item>Proposal Sent</Dropdown.Item>
+                    <Dropdown.Item>Lost</Dropdown.Item>
+                    <Dropdown.Item>Win</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              </td>
+              <td>
+                <Button variant="light"><FaEllipsisV /></Button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+
+      {/* Pagination */}
+      <Pagination>
+        <Pagination.Prev />
+        <Pagination.Item active>{1}</Pagination.Item>
+        <Pagination.Item>{2}</Pagination.Item>
+        <Pagination.Next />
+      </Pagination>
+    </Container-fluid>
   );
 };
 

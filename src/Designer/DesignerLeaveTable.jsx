@@ -22,7 +22,7 @@ const DesignerLeaveTable = () => {
    }
 
   return (
-    <div className="container mt-4">
+    <div className="container-fluid mt-4">
       {/* Header Buttons */}
       <div className="d-flex justify-content-between mb-3">
         <div>
