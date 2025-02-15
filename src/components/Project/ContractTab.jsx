@@ -1,5 +1,7 @@
-import React from "react";
+import React , {useState} from "react";
 import { Table, Button, Dropdown, DropdownButton } from "react-bootstrap";
+import ContractForm from "../Forms/ContractForm";
+
 
 const contracts = [
   { id: "CONT#010", subject: "Sir, With no jury.", client: "Furman Harber", company: "Roberts and Sons", amount: "$260.00", startDate: "03-01-2025", endDate: "01-03-2025" },
@@ -15,10 +17,11 @@ const contracts = [
 ];
 
 const ContractTab = () => {
+  const [showModal, setShowModal] = useState(false);
   return (
     <div className="container mt-4">
       <div className="d-flex justify-content-between mb-3">
-        <Button variant="primary">+ Create Contract</Button>
+        <Button variant="primary" onClick={() => setShowModal(true)} >+ Create Contract</Button>
         <div>
           <Button variant="secondary" className="me-2">Contract Template</Button>
           <Button variant="outline-secondary">Export</Button>
@@ -80,6 +83,15 @@ const ContractTab = () => {
           <Button variant="outline-secondary" size="sm" disabled className="ms-2">Next</Button>
         </div>
       </div>
+
+      <Modal show={showModal} onHide={() => setShowModal(false)} size="lg">
+        <Modal.Header closeButton>
+          <Modal.Title></Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+        <ContractForm />
+        </Modal.Body>
+      </Modal>
     </div>
   );
 };

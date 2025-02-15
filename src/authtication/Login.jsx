@@ -12,7 +12,7 @@ const Login = () => {
     admin: { email: "admin@example.com", password: "admin123", dashboard: "/dashboard",role:"admin" },
     designer: { email: "designer@example.com", password: "designer123", dashboard: "/designerdashboard",role:"designer" },
     projectmanager: { email: "projectmanager@example.com", password: "projectmanager123", dashboard: "/projectmanagementdashboard" , role:"projectmanager" },
-    productionteam: { email: "productionteam@example.com", password: "productionteam123", dashboard: "/user" , role:"productionteam" },
+    productionteam: { email: "productionteam@example.com", password: "productionteam123", dashboard: "/productiondashboard" , role:"productionteam" },
   };
 
   // Handle input changes

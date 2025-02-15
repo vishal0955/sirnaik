@@ -211,6 +211,7 @@ import Contract from "./Lead & Inquiry Management/Contract";
 import Deal from "./Lead & Inquiry Management/Deal";
 import Atendence from "./hmr/Atendence";
 import ShiftRoster from "./hmr/ShiftRoster";
+import ContractForm from "./components/Forms/ContractForm";
 
 function App() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -310,7 +311,7 @@ function App() {
             <Route path="/dtimesheet" element={<DTimesheet />} />
             <Route path="/taskdetails" element={<TaskDetails />} />
             
-
+         <Route path="/contractForm" element={< ContractForm/>}/>
             
             
             {/* Production Team */}
