@@ -70,7 +70,7 @@ const ProjectTable = () => {
 
   return (
     <div>
-      <div className="d-flex gap-3 mb-3">
+      <div className="d-flex gap-3 mb-3 mt-3">
         <Form.Select onChange={(e) => handleFilterChange("status", e.target.value)}>
           <option value="">Filter by Status</option>
           {Object.keys(statusColors).map((status) => (
