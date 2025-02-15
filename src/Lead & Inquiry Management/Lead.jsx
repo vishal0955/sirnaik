@@ -20,9 +20,9 @@ const Lead = () => {
     <div className="container mt-4">
       <h5 className="mt-3 mb-4">Leads</h5>
       <div className="d-flex justify-content-between mb-3">
-        <Button variant="primary">+ Add Lead Contact</Button>
+        <Button variant="primary">+ Add Lead </Button>
         <div>
-          <Button variant="outline-secondary" className="me-2">Lead Form</Button>
+          
           <Button variant="outline-secondary" className="me-2">Import</Button>
           <Button variant="outline-secondary">Export</Button>
         </div>

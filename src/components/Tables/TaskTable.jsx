@@ -273,9 +273,10 @@ export const TaskTable = () => {
           {jobs.map((job, index) => (
             <tr key={index}>
               <td style={{ cursor: "pointer" }} onClick={() => handleJobClick()}>
+              
                 {job.jobId}
               </td>
-              <td>{job.brand}</td>
+              <td style={{ cursor: "pointer" }} onClick={() => handleJobClick()}>{job.brand}</td>
               <td>{job.subBrand}</td>
               <td>{job.flavour}</td>
               <td>{job.packType}</td>
