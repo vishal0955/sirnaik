@@ -7,18 +7,17 @@ import AddDepartment from "./AddDepartment";
 const Department = () => {
   const [showModal, setShowModal] = useState(false);
   const [designations] = useState([
-    { id: 1, name: "Sales", parent: "-" },
-    { id: 2, name: "Research", parent: "-" },
-    { id: 3, name: "Public Relations", parent: "-" },
-    { id: 4, name: "Marketing", parent: "-" },
-    { id: 5, name: "Human Resources", parent: "-" },
-    { id: 6, name: "Finance", parent: "-" },
+    { id: 1, name: "Project Owner", parent: "-" },
+    { id: 2, name: "Producation Team", parent: "-" },
+    { id: 3, name: "Design", parent: "-" },
+    { id: 4, name: "Human Resources", parent: "-" },
+    { id: 5, name: "Finance", parent: "-" },
   ]);
  const handleClick=()=>{
   setShowModal(true);
  }
   return (
-    <div className="container mt-4">
+    <div className="container-fluid mt-4">
       {/* Header Buttons */}
       <div className="d-flex justify-content-between mb-3">
         <Button variant="primary"onClick={handleClick}>

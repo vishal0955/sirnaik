@@ -19,7 +19,7 @@ const contracts = [
 const ContractTab = () => {
   const [showModal, setShowModal] = useState(false);
   return (
-    <div className="container mt-4">
+    <div className="container-fluid mt-4">
       <div className="d-flex justify-content-between mb-3">
         <Button variant="primary" onClick={() => setShowModal(true)} >+ Create Contract</Button>
         <div>
