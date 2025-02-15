@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Container, Table, Button, Dropdown, Pagination, Modal } from "react-bootstrap";
 import { FaPlus, FaFileImport, FaFileExport, FaEllipsisV } from "react-icons/fa";
 import DealForm from "../components/Forms/DealForm";
+import { useNavigate } from "react-router-dom";
 
 const dealsData = [
   { id: 11, name: "Justine Franecki-11", lead: "Justine Franecki", email: "fake@example.com", phone: "+1-281-987-883", value: "$95,824.00", agent: "Martina Nikolaus", stage: "Generated" },
@@ -18,12 +19,18 @@ const Deal = () => {
   const handleClick=()=>{
     setShowModal(true);
    }
+  const navigate = useNavigate();
+  
+  const handleJobClick = () => {
+    navigate(`/dealDetail`);
+  };
+
   return (
     <>
     <Container-fluid className="mt-4">
       <h5 className="mt-4 mb-4">Deals</h5>
       <div className="d-flex justify-content-between align-items-center mb-3">
-        <div className="d-flex justify-content-between">
+       
           <div>
           <Button variant="primary" className="me-2" onClick={handleClick}><FaPlus /> Add Deal</Button>
           </div>
@@ -31,7 +38,7 @@ const Deal = () => {
           <Button variant="secondary" className="me-2"><FaFileImport /> Import</Button>
           <Button variant="secondary"><FaFileExport /> Export</Button>
           </div>
-        </div>
+        
       </div>
 
       <Table striped bordered hover responsive>
@@ -39,7 +46,7 @@ const Deal = () => {
           <tr>
             <th><input type="checkbox" /></th>
             <th>ID</th>
-            <th>Deal Name</th>
+            <th >Deal Name</th>
             <th>Lead Name</th>
             <th>Contact Details</th>
             <th>Value</th>
@@ -52,9 +59,9 @@ const Deal = () => {
           {deals.map((deal, index) => (
             <tr key={index}>
               <td><input type="checkbox" /></td>
-              <td>{deal.id}</td>
-              <td>{deal.name}</td>
-              <td>{deal.lead}</td>
+              <td style={{ cursor: "pointer" }} onClick={() => handleJobClick()}>{deal.id}</td>
+              <td style={{ cursor: "pointer" }} onClick={() => handleJobClick()}>{deal.name}</td>
+              <td >{deal.lead}</td>
               <td>
                 <div>Email: {deal.email}</div>
                 <div>Phone: {deal.phone}</div>

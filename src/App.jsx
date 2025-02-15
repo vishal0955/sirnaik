@@ -54,6 +54,8 @@ import ShiftRoster from "./hmr/ShiftRoster";
 import ContractForm from "./components/Forms/ContractForm";
 import NotificationBar from "./layout/NotificationBar";
 import DesignerLeaveTable from "./Designer/DesignerLeaveTable";
+import DealDetails from "./Designer/DealDetail";
+import LeadDetail from "./Designer/LeadDetail";
 
 function App() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -78,18 +80,18 @@ function App() {
 
   const hideLayout = location.pathname === "/";
 
+  if (hideLayout) {
+    return <Login />;
+  }
   return (
     <>
       {!hideLayout  && <Navbar toggleSidebar={toggleSidebar} />}
-      
       <div className="main-content">
         {!hideLayout && (
-          <Sidebar collapsed={isSidebarCollapsed} />
-        )}
+          <Sidebar collapsed={isSidebarCollapsed} />)}
 
         <div className={`right-side-content ${isSidebarCollapsed ? "collapsed" : ""}`}>
           <Routes>
-            <Route path="/" element={<Login />} />
             <Route path="/dashboard" element={<AdminDashboard />} />
             <Route path="/employeelist" element={<EmployeePage />} />
             <Route path="/employeeprofile" element={<EmployeeProfile />} />
@@ -125,6 +127,8 @@ function App() {
              <Route path="/lead" element={<Lead/>} />
              <Route path="/deal" element={<Deal />} />
              <Route path="/crmcontract" element={< Contract />} />
+             <Route path="/dealDetail" element={<DealDetails/>}/>
+             <Route path="/leadDetail" element={<LeadDetail/>}/>
 
              <Route path="/attendance" element={<Atendence />} />
              <Route path="/shiftroster" element={<ShiftRoster />} />

@@ -96,7 +96,7 @@ const Traffic = () => {
   //   navigate(`/details/${jobId}`);
   // };
   const handleJobClick = () => {
-    // Navigate to the details page with the jobId as a parameter
+    
     navigate(`/taskdetails`);
   };
 

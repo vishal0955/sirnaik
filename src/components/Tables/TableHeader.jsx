@@ -29,7 +29,7 @@ const TableHeader = ({ title, buttonText }) => {
  
 
   return (
-    <div className="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-3">
+    <div className=" navbar-expand-lg navbar-light bg-light shadow-sm p-3">
       <div className="container-fluid d-flex justify-content-between align-items-center">
         {/* Left Section */}
         <div className="d-flex align-items-center justify-content-between">
@@ -63,7 +63,9 @@ const TableHeader = ({ title, buttonText }) => {
               </div>
             </li>
 
-            {/* Filter Dropdown */}
+         { !(buttonText === "Add Project") ? (
+           
+         <>
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
@@ -150,7 +152,7 @@ const TableHeader = ({ title, buttonText }) => {
               </ul>
             </li>
 
-            {/* Sort Dropdown */}
+      
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
@@ -195,20 +197,19 @@ const TableHeader = ({ title, buttonText }) => {
                 </li>
               </ul>
             </li>
+            </>
+          ): null
+}
 
             {/* Export Dropdown */}
-            <li className="nav-item dropdown">
+            <div className="nav-item dropdown">
               <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                id="exportDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
+                className="btn"
                 aria-expanded="false"
               >
                 Import
               </a>
-            </li>
+            </div>
           </ul>
         </div>
       </div>
