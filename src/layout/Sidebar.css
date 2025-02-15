@@ -2,11 +2,12 @@
   width: 250px;
   background-color: #f7f9fce0;
   height: 100vh;
-  overflow-y: auto;
+  overflow-y: scroll;
   transition: width 0.3s ease;
   margin-top: 66px;
   z-index: 1;
   position: fixed;
+  /* bottom: 0; */
 }
 
 .sidebar-container.collapsed {
