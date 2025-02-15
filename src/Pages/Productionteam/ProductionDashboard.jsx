@@ -55,7 +55,7 @@ const ProductionDashboard = () => {
       <Row className="mt-4 justify-content-center">
 
         <div className="col-12 col-sm-6 col-md-3">
-              <Card className="p-3 bg-light shadow-sm">
+              <Card className="p-3 mb-4 bg-light shadow-sm">
             <div className="d-flex flex-column flex-md-row align-items-center text-center text-md-start gap-2 p-1">
               <img
                 src="https://i.pravatar.cc/300?u=kevin05@example.org5"
@@ -74,7 +74,7 @@ const ProductionDashboard = () => {
 
 
         <Col xs={12} sm={6} md={3}>
-          <Card className="text-start p-3 bg-light shadow-sm">
+          <Card className="text-start p-3 mb-4 bg-light shadow-sm border-primary">
             <div className="d-flex justify-content-between">
               <h5>Total Jobs</h5>
               <i className={`fa-solid fa-briefcase text-primary`}></i>
@@ -84,35 +84,35 @@ const ProductionDashboard = () => {
         </Col>
 
         <Col xs={12} sm={6} md={3}>
-          <Card className="text-start p-3 bg-light shadow-sm">
+          <Card className="text-start p-3 mb-4 bg-light shadow-sm border-warning">
             <div className="d-flex justify-content-between">
               <h5>Ongoing Jobs</h5>
-              <i className={`fa-solid fa-spinner text-primary`}></i>
+              <i className={`fa-solid fa-spinner text-warning`}></i>
             </div>
-            <h2 style={{color:'blue'}}>18</h2>
+            <h2 className="text-warning">18</h2>
           </Card>
         </Col>
 
         <Col xs={12} sm={6} md={3}>
-          <Card className="text-start p-3 bg-light shadow-sm">
+          <Card className="text-start p-3 mb-4  bg-light shadow-sm border-success">
             <div className="d-flex justify-content-between">
               <h5>Completed Jobs</h5>
-              <i className={`fa-solid fa-check-circle text-primary`}></i>
+              <i className={`fa-solid fa-check-circle text-success`}></i>
             </div>
-            <h2 style={{color:'blue'}}>27</h2>
+            <h2 className="text-success">27</h2>
           </Card>
         </Col>
       </Row>
 
       <Row className="mt-4">
         <Col md={8}>
-          <Card className="p-3 shadow-sm">
+          <Card className="p-3 mb-4 shadow-sm">
             <h5>Jobs Overview</h5>
             <Line data={lineData} />
           </Card>
         </Col>
         <Col md={4}>
-          <Card className="p-3 shadow-sm">
+          <Card className="p-3 mb-4 shadow-sm">
             <h5>Job Status</h5>
             <Doughnut data={doughnutData} />
           </Card>
@@ -121,7 +121,7 @@ const ProductionDashboard = () => {
 
       <Row className="mt-4">
         <Col>
-          <Card className="p-3 shadow-sm">
+          <Card className="p-3 mb-4 shadow-sm">
             <h5>Job Assignments</h5>
             <div className="table-responsive">
               <Table striped bordered hover>

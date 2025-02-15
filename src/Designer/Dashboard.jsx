@@ -80,7 +80,7 @@ function Designer() {
   return (
     <div className="task-over-pro">
  
-      <Container>
+      <Container-fluid>
       <div className="d-flex justify-content-between align-items-center mb-4">
         <h5>Dashboard</h5>
         <Button variant="primary" className="mt-2" onClick={handleShowClockIn}>
@@ -88,34 +88,40 @@ function Designer() {
               </Button>
       </div>
 
-        <Row className="mb-4">
-          <Col xs={12} sm={6} md={3}>
-            <Card className="p-3 bg-light shadow-sm">
-              <div className="d-flex flex-column flex-md-row align-items-center text-center text-md-start gap-2 p-1">
-                <img
-                  src="https://i.ibb.co/5JkFzc4/300.jpg"
-                  alt="Employee"
-                  className="rounded-circle me-md-3 mb-2 mb-md-0"
-                  width={70}
-                  height={70}
-                />
-                <div>
-                  <p className="mb-1 fw-bold">John Doe</p>
-                  <p className="mb-0 text-muted">Employee Id: EMP 1</p>
-                </div>
-              </div>
-            </Card>
-          </Col>
+      <Row className="gy-3 mb-4">
+      {/* Employee Card */}
+      <Col xs={12} sm={6} md={3}>
+        <Card className="p-3 bg-light shadow-sm">
+          <div className="d-flex flex-column flex-md-row align-items-center text-center text-md-start gap-3">
+            <img
+              src="https://i.ibb.co/5JkFzc4/300.jpg"
+              alt="Employee"
+              className="rounded-circle"
+              width={70}
+              height={70}
+            />
+            <div>
+              <p className="mb-1 fw-bold">John Doe</p>
+              <p className="mb-0 text-muted">Employee Id: EMP 1</p>
+            </div>
+          </div>
+        </Card>
+      </Col>
 
-          {["Total Task", "Pending", "Completed"].map((title, index) => (
-            <Col key={index} xs={12} sm={6} md={3}>
-              <Card className="text-center p-3 bg-light shadow-sm">
-                <h5>{title}</h5>
-                <h2>{index === 0 ? "12" : index === 1 ? "36" : "18"}</h2>
-              </Card>
-            </Col>
-          ))}
-        </Row>
+      {/* Task Overview Cards */}
+      {[
+        { title: "Total Task", count: 12, color: "primary" },
+        { title: "Pending", count: 36, color: "warning" },
+        { title: "Completed", count: 18, color: "success" },
+      ].map((item, index) => (
+        <Col key={index} xs={12} sm={6} md={3}>
+          <Card className={`text-center p-3 shadow-sm border-${item.color}`}>
+            <h5 className="text-muted">{item.title}</h5>
+            <h2 className={`text-${item.color}`}>{item.count}</h2>
+          </Card>
+        </Col>
+      ))}
+    </Row>
 
         {/* Charts Row */}
         <Row>
@@ -137,7 +143,7 @@ function Designer() {
         {/* Doughnut Chart & Table */}
         <Row>
           <Col md={6}>
-            <Card className="p-3 shadow-sm">
+            <Card className="p-3 mb-4 shadow-sm">
               <h5 className="text-center">Task Status</h5>
               <div
                 className="d-flex justify-content-center"
@@ -162,7 +168,7 @@ function Designer() {
           </Col>
 
           <Col md={6}>
-            <Card className="p-3 shadow-sm">
+            <Card className="p-3 mb- 4shadow-sm">
               <h5>Tasks List</h5>
               <div className="table-responsive">
                 <Table striped bordered hover>
@@ -236,7 +242,7 @@ function Designer() {
             </Card>
           </Col>
         </Row>
-      </Container>
+      </Container-fluid>
       <ClockInModal show={showClockIn} handleClose={handleCloseClockIn} />
     </div>
   );

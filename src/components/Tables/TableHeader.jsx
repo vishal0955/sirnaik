@@ -43,7 +43,7 @@ const TableHeader = ({ title, buttonText }) => {
         
             
           </div>
-        </div>
+          </div>
         <div
           className="collapse navbar-collapse justify-content-center"
           id="navbarNavDropdown"
@@ -212,6 +212,7 @@ const TableHeader = ({ title, buttonText }) => {
             </div>
           </ul>
         </div>
+       
       </div>
 
       {/* Modal */}

@@ -31,7 +31,7 @@ const Lead = () => {
   ]);
 
   return (
-    <div className="container mt-4">
+    <div className="container-fluid mt-4">
       <h5 className="mt-3 mb-4">Leads</h5>
       <div className="d-flex justify-content-between mb-3">
         <Button variant="primary" onClick={handleClick}>+ Add Lead </Button>

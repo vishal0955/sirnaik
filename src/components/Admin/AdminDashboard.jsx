@@ -68,9 +68,9 @@ function AdminDashboard() {
       {/* Cards Section */}
       <Row>
         {[
-          { title: "Total Clients", icon: "fa-users", count: 11 },
-          { title: "Total Projects", icon: "fa-layer-group", count: 12 },
-          { title: "Total Employees", icon: "fa-user", count: 15 },
+          { title: "Total Clients", icon: "fa-users", count: 11},
+          { title: "Total Projects", icon: "fa-layer-group", count: 12  },
+          { title: "Total Employees", icon: "fa-user", count: 15  },
           { title: "Due Invoices", icon: "fa-address-book", count: 10 },
         ].map((item, index) => (
           <Col xs={12} sm={6} md={6} lg={3} key={index} className="mb-3">
@@ -79,7 +79,7 @@ function AdminDashboard() {
                 <h5 className="mb-0">{item.title}</h5>
                 <i className={`fa-solid ${item.icon} fs-4 text-primary`}></i>
               </div>
-              <p className="mb-0 text-primary fs-4 fw-bold">{item.count}</p>
+              <p className="mb-0 text-primary fs-4 fw-bold ">{item.count}</p>
             </Card>
           </Col>
         ))}

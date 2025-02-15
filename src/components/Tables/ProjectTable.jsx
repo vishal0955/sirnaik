@@ -118,8 +118,9 @@ const ProjectTable = () => {
               <td>{project.startDate}</td>
               <td>{project.deadline}</td>
               <td>{project.client}</td>
-              <td>
+              <td >
                 <Dropdown onSelect={(eventKey) => handlePriorityChange(index, eventKey)}>
+                  <Dropdown.Toggle variant={priorityColors[project.priority]} >{project.priority}</Dropdown.Toggle>
                   <Dropdown.Toggle variant={priorityColors[project.priority]}>
                     {project.priority}
                   </Dropdown.Toggle>

@@ -18,7 +18,7 @@ const DesignationTable = () => {
   ]);
 
   return (
-    <div className="container mt-4">
+    <div className="container-fluid mt-4">
       <div className="d-flex justify-content-between mb-3">
         <Button variant="primary" onClick={handleClick}>
           <i className="bi bi-plus"></i> Add Designation
