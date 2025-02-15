@@ -3,6 +3,7 @@ import { Link, Navigate } from "react-router-dom";
 import NotificationBar from "../components/AuthPage/NotificationBar";
 
 const Navbar = ({ toggleSidebar, onBack }) => {
+  const role = localStorage.getItem("role");
   return (
     <>
       <nav className="navbar navbar-light" style={{position:"fixed"}}>
@@ -10,9 +11,11 @@ const Navbar = ({ toggleSidebar, onBack }) => {
           <div className="nav-content d-flex justify-content-between align-items-center w-100">
             <div className="nav-bran d-flex align-items-center">
            
+
               <a className="nav-brand" href="#" onClick={onBack}>
-                Logo
+                <img src="https://i.ibb.co/2YppdFPN/kt.png" style={{width:"110px"}} alt="Logo" border="0"/>
               </a>
+           
               <div className="nav-taggle-icon ms-3" onClick={toggleSidebar}>
                 <a href="#">
                   <i className="fa fa-bars" aria-hidden="true"></i>
@@ -62,6 +65,7 @@ const Navbar = ({ toggleSidebar, onBack }) => {
                     <div>
                       <h6 className="mb-0 fw-bold">Kevin Larry</h6>
                       <small className="text-muted">warren@example.com</small>
+                      <small className="text-muted">{role}</small>
                     </div>
                   </div>
                   <li>

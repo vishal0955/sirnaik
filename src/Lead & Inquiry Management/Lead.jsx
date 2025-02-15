@@ -1,8 +1,17 @@
 import React, { useState } from "react";
-import { Table, Button, Form } from "react-bootstrap";
+import { Table, Button, Form, Modal } from "react-bootstrap";
 import { FaEllipsisV } from "react-icons/fa";
+import AddLeadContact from "../components/Forms/AddLeadContract";
 
 const Lead = () => {
+  const [showModal, setShowModal] = useState(false);
+  const handleClick=()=>{
+    setShowModal(true);
+   }
+   const handleClose =() => {
+    setShowModal(false);
+   }
+
   const [leads, setLeads] = useState([
     { id: 11, name: "Alvina Tillman", email: "fake@example.com", date: "29-01-2025" },
     { id: 10, name: "Mr. Eddie Jenkins", email: "fake@example.com", date: "29-01-2025" },
@@ -20,7 +29,7 @@ const Lead = () => {
     <div className="container mt-4">
       <h5 className="mt-3 mb-4">Leads</h5>
       <div className="d-flex justify-content-between mb-3">
-        <Button variant="primary">+ Add Lead Contact</Button>
+        <Button variant="primary" onClick={handleClick}>+ Add Lead Contact</Button>
         <div>
           <Button variant="outline-secondary" className="me-2">Lead Form</Button>
           <Button variant="outline-secondary" className="me-2">Import</Button>
@@ -73,6 +82,14 @@ const Lead = () => {
           <Button variant="outline-secondary" className="ms-2">Next</Button>
         </div>
       </div>
+      
+      <Modal show={showModal} onHide={() => setShowModal(false)} size="lg">
+          <Modal.Header closeButton>
+          </Modal.Header>
+          <Modal.Body>
+           <AddLeadContact />
+          </Modal.Body>
+        </Modal>
     </div>
   );
 };

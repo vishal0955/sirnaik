@@ -23,12 +23,12 @@ const DesignerLeaveForm = () => {
   return (
     <div className="container mt-4">
       <div className="card shadow p-4">
-        <h4 className="mb-4">Assign Leave</h4>
+   
         <form onSubmit={handleSubmit}>
           {/* Name Field */}
           <div className="mb-3">
             <label className="form-label">Name <span className="text-danger">*</span></label>
-            <input type="text" className="form-control" value={formData.name} disabled />
+            <input type="text" className="form-control" value={formData.name} onChange={(e) => handleChange(e)} name="name" />
           </div>
 
           {/* Leave Type and Duration */}

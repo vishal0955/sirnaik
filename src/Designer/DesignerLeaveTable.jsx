@@ -116,6 +116,7 @@ const DesignerLeaveTable = () => {
       
       <Modal show={showModal} onHide={() => setShowModal(false)} size="lg">
           <Modal.Header closeButton>
+            Leave Form
           </Modal.Header>
           <Modal.Body>
     <DesignerLeaveForm />
