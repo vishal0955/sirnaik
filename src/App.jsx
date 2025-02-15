@@ -145,7 +145,7 @@ function App() {
             <Route path="/timeLog" element={<TimeLogTable/>}/>
             <Route path="/logTable" element={<LogTimeForm/>}/>
             <Route path="/changedes" element={<ChangeDesginer/>}/>
-            <Route path="addTemplate" element={<AddProjectTemplate/>}/>
+            <Route path="/addTemplate" element={<AddProjectTemplate/>}/>
             <Route path="/templateTable" element={<TableTemplate/>}/>
             <Route path="/taskDashboard" element={<TaskDashboard/>}/>
             

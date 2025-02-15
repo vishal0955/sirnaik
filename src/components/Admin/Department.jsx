@@ -21,7 +21,7 @@ const Department = () => {
     <div className="container mt-4">
       {/* Header Buttons */}
       <div className="d-flex justify-content-between mb-3">
-        <Button variant="primary"onClick={handleClick}>
+        <Button variant="primary" onClick={handleClick}>
           <BsPlus className="me-1"  /> Add Department
         </Button>
         <Button variant="light">

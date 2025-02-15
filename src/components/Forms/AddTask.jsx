@@ -403,7 +403,7 @@
 
 import React, { useState, useEffect } from "react";
 import { initialEmployees } from "../Admin/EmployeeList";
-
+ const {initialProjects} = require("../Tables/ProjectTable");
 const TaskForm = () => {
   const [employees, setEmployees] = useState([]);
 
@@ -416,18 +416,22 @@ const TaskForm = () => {
 
   return (
     <div className="container mt-4">
-      <h2 className="mb-3">New Job</h2>
+    
       <form>
         <div className="row">
           {/* Left Side Fields */}
           <div className="col-md-6">
             <div className="mb-2">
-              <label className="form-label">Job #</label>
+              <label className="form-label">Job ID</label>
               <input type="text" className="form-control" />
             </div>
+           
             <div className="mb-2">
-              <label className="form-label">Project #</label>
-              <input type="text" className="form-control" />
+              <label className="form-label">Project Id</label>
+              <input type="select" className="form-control" />
+           {  initialProjects.map((project, index) => (
+                <option key={index} value={project.id}>{project.id}-{project.name}</option>
+             ))}
             </div>
             <div className="mb-2">
               <label className="form-label">Project Name</label>

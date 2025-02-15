@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Modal } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 import AddTask from "../Forms/AddTask";
 import AddProject from "../Forms/AddProject";
 import AddLog from "../Forms/AddLog";
@@ -26,6 +26,8 @@ const TableHeader = ({ title, buttonText }) => {
     }
   };
 
+ 
+
   return (
     <div className="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-3">
       <div className="container-fluid d-flex justify-content-between align-items-center">
@@ -38,6 +40,7 @@ const TableHeader = ({ title, buttonText }) => {
             <button className="btn btn-primary" onClick={handleButtonClick}>
               {buttonText}
             </button>
+        
             
           </div>
         </div>

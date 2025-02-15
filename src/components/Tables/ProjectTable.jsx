@@ -72,14 +72,14 @@ const ProjectTable = () => {
     <div>
       <div className="d-flex gap-3 mb-3 mt-3">
         <Form.Select onChange={(e) => handleFilterChange("status", e.target.value)}>
-          <option value="">Filter by Status</option>
+          <option value=""> Status</option>
           {Object.keys(statusColors).map((status) => (
             <option key={status} value={status}>{status}</option>
           ))}
         </Form.Select>
 
         <Form.Select onChange={(e) => handleFilterChange("priority", e.target.value)}>
-          <option value="">Filter by Priority</option>
+          <option value="">Priority</option>
           {Object.keys(priorityColors).map((priority) => (
             <option key={priority} value={priority}>{priority}</option>
           ))}

@@ -30,7 +30,7 @@ const TimeLogForm = () => {
 
   return (
     <div className="container mt-4">
-      <div className="card shadow-sm border-0">
+      <div className="">
         <div className="card-header bg-primary text-white">
           <h5 className="mb-0">Log Time</h5>
         </div>

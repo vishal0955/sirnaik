@@ -8,9 +8,7 @@ const Lead = () => {
   const handleClick=()=>{
     setShowModal(true);
    }
-   const handleClose =() => {
-    setShowModal(false);
-   }
+
 
   const [leads, setLeads] = useState([
     { id: 11, name: "Alvina Tillman", email: "fake@example.com", date: "29-01-2025" },

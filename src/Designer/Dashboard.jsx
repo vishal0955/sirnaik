@@ -79,13 +79,14 @@ function Designer() {
 
   return (
     <div className="task-over-pro">
+ 
+      <Container>
       <div className="d-flex justify-content-between align-items-center mb-4">
-        <h5>Designer Dashboard</h5>
+        <h5>Dashboard</h5>
         <Button variant="primary" className="mt-2" onClick={handleShowClockIn}>
                 <FaClock className="me-1" /> {showClockIn ? "Clock Out" : "Clock In"}
               </Button>
       </div>
-      <Container>
 
         <Row className="mb-4">
           <Col xs={12} sm={6} md={3}>

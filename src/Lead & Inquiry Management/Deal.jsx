@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Container, Table, Button, Dropdown, Pagination } from "react-bootstrap";
+import { Container, Table, Button, Dropdown, Pagination, Modal } from "react-bootstrap";
 import { FaPlus, FaFileImport, FaFileExport, FaEllipsisV } from "react-icons/fa";
+import DealForm from "../components/Forms/DealForm";
 
 const dealsData = [
   { id: 11, name: "Justine Franecki-11", lead: "Justine Franecki", email: "fake@example.com", phone: "+1-281-987-883", value: "$95,824.00", agent: "Martina Nikolaus", stage: "Generated" },
@@ -12,15 +13,19 @@ const dealsData = [
 ];
 
 const Deal = () => {
+  const [showModal, setShowModal] = useState(false);
   const [deals, setDeals] = useState(dealsData);
-
+  const handleClick=()=>{
+    setShowModal(true);
+   }
   return (
+    <>
     <Container-fluid className="mt-4">
       <h5 className="mt-4 mb-4">Deals</h5>
       <div className="d-flex justify-content-between align-items-center mb-3">
         <div className="d-flex justify-content-between">
           <div>
-          <Button variant="primary" className="me-2"><FaPlus /> Add Deal</Button>
+          <Button variant="primary" className="me-2" onClick={handleClick}><FaPlus /> Add Deal</Button>
           </div>
           <div>
           <Button variant="secondary" className="me-2"><FaFileImport /> Import</Button>
@@ -88,6 +93,16 @@ const Deal = () => {
         <Pagination.Next />
       </Pagination>
     </Container-fluid>
+    <Modal show={showModal} onHide={() => setShowModal(false)} size="lg">
+          <Modal.Header closeButton>
+            Deal 
+          </Modal.Header>
+          <Modal.Body>
+           <DealForm />
+          </Modal.Body>
+        </Modal>
+    </>
+
   );
 };
 
