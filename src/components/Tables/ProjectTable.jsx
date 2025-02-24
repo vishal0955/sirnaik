@@ -124,13 +124,13 @@ const ProjectTable = () => {
                   <Dropdown.Toggle variant={priorityColors[project.priority]}>
                     {project.priority}
                   </Dropdown.Toggle>
-                  <Dropdown.Menu>
+                  {/* <Dropdown.Menu>
                     {Object.keys(priorityColors).map((priority) => (
                       <Dropdown.Item key={priority} eventKey={priority}>
                         {priority}
                       </Dropdown.Item>
                     ))}
-                  </Dropdown.Menu>
+                  </Dropdown.Menu> */}
                 </Dropdown>
               </td>
               <td>

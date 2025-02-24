@@ -42,7 +42,7 @@ const budgetData = [
   { name: "Actual", value: 0 },
 ];
 
-// Task Progress Data
+
 const taskProgressData = [
   { name: "Completed", value: 40, color: "#28a745" },
   { name: "Pending", value: 30, color: "#ffc107" },

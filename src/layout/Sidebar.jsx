@@ -5,6 +5,7 @@ import { LuTreePalm } from "react-icons/lu";
 import { FaTrafficLight } from "react-icons/fa6";
 import { SiCrayon } from "react-icons/si";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { SlCalender } from "react-icons/sl";
 import { 
   faUsers,         // CRM  
   faUserPlus,      // Lead  
@@ -118,6 +119,7 @@ const Sidebar = ({ collapsed, menuItemClick }) => {
                       <i class="fa-solid fa-folder"></i>
                     <span className="menu-text">Project</span>
                   </li>
+
                   <li className={`submenu-item ${isActive("/tasklist") ? "active" : ""}`}
                     onClick={() => { navigate("/tasklist"); menuItemClick(); }}>
                       <i class="fa-solid fa-square-check"></i>
@@ -128,6 +130,13 @@ const Sidebar = ({ collapsed, menuItemClick }) => {
                       <i class="fa-duotone fa-solid fa-hourglass"></i>
                     <span className="menu-text">TimeSheet</span>
                   </li>
+                  <li className={`submenu-item ${isActive("/projectkanban") ? "active" : ""}`}
+                    onClick={() => { navigate("/projectkanban"); menuItemClick(); }}>
+                     <SlCalender />
+                    <span className="menu-text">Project Kanban</span>
+                  </li>
+
+            
                   
 
                 </ul>
@@ -150,23 +159,65 @@ const Sidebar = ({ collapsed, menuItemClick }) => {
                       <i className="fa-solid fa-chart-column"></i>
                     <span className="menu-text">Dashboard</span>
                   </li>
-                  <li className={`submenu-item ${isActive("/project") ? "active" : ""}`}
-                    onClick={() => { navigate("/project"); menuItemClick(); }}>
+                  <li className={`submenu-item ${isActive("/projectlist") ? "active" : ""}`}
+                    onClick={() => { navigate("/projectlist"); menuItemClick(); }}>
                       <i className="fa-solid fa-folder"></i>
                     <span className="menu-text">Project</span>
                   </li>
-                  <li className={`submenu-item ${isActive("/tasklist") ? "active" : ""}`}
+                  {/* <li className={`submenu-item ${isActive("/tasklist") ? "active" : ""}`}
                     onClick={() => { navigate("/tasklist"); menuItemClick(); }}>
                       <i className="fa-solid fa-square-check"></i>
                     <span className="menu-text">Task</span>
-                  </li>
+                  </li> */}
                   <li className={`submenu-item ${isActive("/timesheet") ? "active" : ""}`}
                     onClick={() => { navigate("/timesheet"); menuItemClick(); }}>
                       <i class="fa-duotone fa-solid fa-hourglass"></i>
                     <span className="menu-text">TimeSheet</span>
                   </li>
+
+                  <li className={`submenu-item ${isActive("/projectkanban") ? "active" : ""}`}
+                    onClick={() => { navigate("/projectkanban"); menuItemClick(); }}>
+                     <SlCalender />
+                    <span className="menu-text">Project Kanban</span>
+                  </li>
                 </ul>
               </li>
+
+
+              <li className="menu-item">
+               
+              <div className="menu-link menu-i">
+                <i className="fa-solid fa-folder"></i>
+                  <span className="menu-text">Task </span>
+                </div>
+                <ul className="submenu expanded">
+                <li className={`submenu-item ${isActive("/taskdash") ? "active" : ""}`}
+                    onClick={() => { navigate("/taskdash"); menuItemClick(); }}>
+                      <i className="fa-solid fa-chart-column"></i>
+                    <span className="menu-text">Dashboard</span>
+                  </li>
+                  <li className={`submenu-item ${isActive("/taskmanagement") ? "active" : ""}`}
+                    onClick={() => { navigate("/taskmanagement"); menuItemClick(); }}>
+                      <i className="fa-solid fa-folder"></i>
+                    <span className="menu-text">Task Management</span>
+                  </li>
+                  <li className={`submenu-item ${isActive("/taskkanban") ? "active" : ""}`}
+                    onClick={() => { navigate("/taskkanban"); menuItemClick(); }}>
+                      <i className="fa-solid fa-chart-column"></i>
+                    <span className="menu-text">Kanban Board</span>
+                  </li>
+                  <li className={`submenu-item ${isActive("/taskcalender") ? "active" : ""}`}
+                    onClick={() => { navigate("/taskcalender"); menuItemClick(); }}>
+                      <i className="fa-solid fa-folder"></i>
+                    <span className="menu-text">Calender</span>
+                  </li>
+                  </ul>
+                
+                
+                </li>
+                 
+
+
               <li className="menu-item">
                 <div className="menu-link menu-i">
                 <FontAwesomeIcon icon={faUsers} />
@@ -262,8 +313,44 @@ const Sidebar = ({ collapsed, menuItemClick }) => {
                       <FaTrafficLight />
                     <span className="menu-text">Traffic</span>
                   </li>
+                  <li className={`submenu-item ${isActive("/projectkanban") ? "active" : ""}`}
+                    onClick={() => { navigate("/projectkanban"); menuItemClick(); }}>
+                     <SlCalender />
+                    <span className="menu-text">Project Kanban</span>
+                  </li>
                 </ul>
               </li>
+              <li className="menu-item">
+               
+               <div className="menu-link menu-i">
+                 <i className="fa-solid fa-folder"></i>
+                   <span className="menu-text">Task </span>
+                 </div>
+                 <ul className="submenu expanded">
+                 <li className={`submenu-item ${isActive("/taskdash") ? "active" : ""}`}
+                     onClick={() => { navigate("/taskdash"); menuItemClick(); }}>
+                       <i className="fa-solid fa-chart-column"></i>
+                     <span className="menu-text">Dashboard</span>
+                   </li>
+                   <li className={`submenu-item ${isActive("/taskmanagement") ? "active" : ""}`}
+                     onClick={() => { navigate("/taskmanagement"); menuItemClick(); }}>
+                       <i className="fa-solid fa-folder"></i>
+                     <span className="menu-text">Task Management</span>
+                   </li>
+                   <li className={`submenu-item ${isActive("/taskkanban") ? "active" : ""}`}
+                     onClick={() => { navigate("/taskkanban"); menuItemClick(); }}>
+                       <i className="fa-solid fa-chart-column"></i>
+                     <span className="menu-text">Kanban Board</span>
+                   </li>
+                   <li className={`submenu-item ${isActive("/taskcalender") ? "active" : ""}`}
+                     onClick={() => { navigate("/taskcalender"); menuItemClick(); }}>
+                       <i className="fa-solid fa-folder"></i>
+                     <span className="menu-text">Calender</span>
+                   </li>
+                   </ul>
+                 
+                 
+                 </li>
               <li className="menu-item">
                 <div className="menu-link menu-i">
                 <i class="fa-solid fa-user"></i>
@@ -340,6 +427,38 @@ const Sidebar = ({ collapsed, menuItemClick }) => {
              
                 </ul>
               </li>
+
+              <li className="menu-item">
+               
+               <div className="menu-link menu-i">
+                 <i className="fa-solid fa-folder"></i>
+                   <span className="menu-text">Task </span>
+                 </div>
+                 <ul className="submenu expanded">
+                 <li className={`submenu-item ${isActive("/taskdash") ? "active" : ""}`}
+                     onClick={() => { navigate("/taskdash"); menuItemClick(); }}>
+                       <i className="fa-solid fa-chart-column"></i>
+                     <span className="menu-text">Dashboard</span>
+                   </li>
+                   <li className={`submenu-item ${isActive("/taskmanagement") ? "active" : ""}`}
+                     onClick={() => { navigate("/taskmanagement"); menuItemClick(); }}>
+                       <i className="fa-solid fa-folder"></i>
+                     <span className="menu-text">Task Management</span>
+                   </li>
+                   <li className={`submenu-item ${isActive("/taskkanban") ? "active" : ""}`}
+                     onClick={() => { navigate("/taskkanban"); menuItemClick(); }}>
+                       <i className="fa-solid fa-chart-column"></i>
+                     <span className="menu-text">Kanban Board</span>
+                   </li>
+                   <li className={`submenu-item ${isActive("/taskcalender") ? "active" : ""}`}
+                     onClick={() => { navigate("/taskcalender"); menuItemClick(); }}>
+                       <i className="fa-solid fa-folder"></i>
+                     <span className="menu-text">Calender</span>
+                   </li>
+                   </ul>
+                 
+                 
+                 </li>
               </li>
             </>
           )}

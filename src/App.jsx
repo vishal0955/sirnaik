@@ -56,6 +56,18 @@ import NotificationBar from "./layout/NotificationBar";
 import DesignerLeaveTable from "./Designer/DesignerLeaveTable";
 import DealDetails from "./Designer/DealDetail";
 import LeadDetail from "./Designer/LeadDetail";
+import ProjectDashboard from "./components/Project/ProjectManagementDashboard";
+import ProjectList from "./components/Project/ProjectList";
+import ProjectDetailTable from "./components/Project/ProjectDetailTable";
+import EditProjectForm from "./components/Project/EditProjectForm";
+import ProjectDetailVM from "./components/Project/ProjectDetailVM";
+import ProjectKanbanBoard from "./components/Project/KanbanBoard";
+import ProjectUpdate from "./components/Project/ProjectUpdate";
+import TaskDash from "./components/Tasks/TaskDash";
+import TaskManagement from "./components/Tasks/TaskManagement";
+import TaskBoard from "./components/Tasks/TaskBoard";
+import WeeklyCalendar from "./components/Tasks/WeeklyCalendar";
+
 
 function App() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -101,8 +113,19 @@ function App() {
             <Route path="/department" element={<Department />} />
             <Route path="/adddesigna" element={<AddDesignation />} />
             <Route path="/addDepart" element={<AddDepartment />} />
-            <Route path="/projectmanagementdashboard" element={<ProjectManagementDashboard />} />
+            {/* <Route path="/projectmanagementdashboard" element={<ProjectManagementDashboard />} /> */}
+            
+            {/*  */}
+
+            <Route path="/projectmanagementdashboard" element={<ProjectDashboard />} />
+            <Route path= "/projectdetailtable" element={<ProjectDetailTable />} />
+            <Route path="/editproject" element={<EditProjectForm />} />
+
+            <Route path="/projectkanban" element={<ProjectKanbanBoard />} />
+            <Route path="/projectupdate" element={<ProjectUpdate />} />
+
             <Route path="/project" element={<ProjectOwner />} />
+            <Route path="/projectlist" element={<ProjectDetailVM />} />
             <Route path="/projectdetails" element={<ProjectDetail />} />
             <Route path="/tasklist" element={<TaskPage />} />
             <Route path="/addproject" element={<AddProject />} />
@@ -167,6 +190,16 @@ function App() {
             <Route path="/jobs" element={<Jobs />} />
             <Route path="/traffic" element={<Traffic />} />
             <Route path="/edittaskdetails" element={<TaskDetailsForm />} />
+
+
+            {/*  Tasks Update  uizard  */}
+            <Route path="/taskdash" element={<TaskManagement />} />
+            <Route path="/taskmanagement" element={<TaskDash />} />
+            <Route path="/taskkanban" element={<TaskBoard/>} /> 
+            <Route path="/taskcalender" element={<WeeklyCalendar/>} />
+
+
+
           </Routes>
         </div>
       </div>
